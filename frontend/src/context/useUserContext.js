@@ -16,7 +16,7 @@ export const UseUserContext = () => {
         });
 
         const { data } = await axios.get(
-          `http://localhost:8082/api/order/getAllStoreOrders/${user._id}`,
+          `https://localhost:8082/api/order/getAllStoreOrders/${user._id}`,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,

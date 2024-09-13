@@ -19,7 +19,7 @@ const requireAuth = async (req, res, next) => {
 
     // Retrieve user data from API using the id and role from the token
     const { data } = await axios.get(
-      `http://localhost:8080/api/user/${id}/${role}`
+      `https://localhost:8080/api/user/${id}/${role}`
     );
 
     // Attach user data to the request object
