@@ -14,7 +14,7 @@ export default function App() {
     case "Merchant":
       element = <Navigate to="/seller" />;
       break;
-    case "Admin":
+    case "n":
       element = <Navigate to="/admin" />;
       break;
     default:

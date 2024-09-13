@@ -1,13 +1,15 @@
+import { React, useEffect, useState } from "react";
 import Item from "./Item";
 import { UseItemContext } from "../context/useItemContext";
-import { React, useEffect, useState } from "react";
 
 export const ItemMapperHome = () => {
   const { items } = UseItemContext();
   const [sortedItems, setSortedItems] = useState([]);
 
   useEffect(() => {
-    setSortedItems([...items].sort(() => 0.5 - Math.random()));
+    if (items.length > 0 && sortedItems.length === 0) {
+      setSortedItems([...items].sort(() => 0.5 - Math.random()));
+    }
   }, [items]);
 
   return (

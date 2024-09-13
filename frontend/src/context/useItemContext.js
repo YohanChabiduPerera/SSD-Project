@@ -9,7 +9,7 @@ export const UseItemContext = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data } = await axios.get("http://localhost:8081/api/product/");
+        const { data } = await axios.get("https://localhost:8081/api/product/");
         dispatch({
           type: "SetItems",
           payload: data,

@@ -25,7 +25,7 @@ export function useBackendAPI() {
     registerUser: async function (userDetails) {
       try {
         const { data } = await axios.post(
-          "http://localhost:8080/api/user/signup/",
+          "https://localhost:8080/api/user/signup/",
           userDetails
         );
 
@@ -55,7 +55,7 @@ export function useBackendAPI() {
     login: async function (userDetails) {
       try {
         const { data } = await axios.post(
-          "http://localhost:8080/api/user/login/",
+          "https://localhost:8080/api/user/login/",
           userDetails
         );
 
@@ -84,7 +84,7 @@ export function useBackendAPI() {
     updateUser: async function ({ userId, userName, image }) {
       try {
         const { data } = await axios.patch(
-          "http://localhost:8080/api/user/update/",
+          "https://localhost:8080/api/user/update/",
           {
             userId,
             userName,
@@ -107,7 +107,7 @@ export function useBackendAPI() {
       //To create a new payment record
       try {
         const { data } = await axios.post(
-          "http://localhost:8083/api/payment/add/",
+          "https://localhost:8083/api/payment/add/",
           {
             amount: details.total,
             itemList: info,
@@ -123,7 +123,7 @@ export function useBackendAPI() {
 
         //To create a new Order record
         const orderDetails = await axios.post(
-          "http://localhost:8082/api/order/add/",
+          "https://localhost:8082/api/order/add/",
           {
             userID: user1[0]._id,
             paymentID: data._id,
@@ -141,7 +141,7 @@ export function useBackendAPI() {
 
         //To update the itemCount once the purchase is done
         const status = await info.map((rec) => {
-          return axios.patch("http://localhost:8081/api/product/updateItem/", {
+          return axios.patch("https://localhost:8081/api/product/updateItem/", {
             itemID: rec.itemID,
             redQuantity: rec.itemQuantity,
           });
@@ -173,7 +173,7 @@ export function useBackendAPI() {
 
       try {
         const { data } = await axios.post(
-          "http://localhost:8082/api/store/add/",
+          "https://localhost:8082/api/store/add/",
           store,
           {
             headers: {
@@ -183,7 +183,7 @@ export function useBackendAPI() {
           }
         );
 
-        await axios.patch("http://localhost:8080/api/user/updateUserStore/", {
+        await axios.patch("https://localhost:8080/api/user/updateUserStore/", {
           userID: user._id,
           storeID: data._id,
         });
@@ -201,7 +201,7 @@ export function useBackendAPI() {
     getTotalSalesAmount: async function (storeID) {
       try {
         const { data } = await axios.get(
-          "http://localhost:8083/api/payment/getStoreTotal/" + storeID,
+          "https://localhost:8083/api/payment/getStoreTotal/" + storeID,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -218,7 +218,7 @@ export function useBackendAPI() {
     getStoreItemCount: async function (storeID) {
       try {
         const { data } = await axios.get(
-          "http://localhost:8082/api/store/getStoreItemCount/" + storeID,
+          "https://localhost:8082/api/store/getStoreItemCount/" + storeID,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -235,7 +235,7 @@ export function useBackendAPI() {
     getStoreName: async function (storeID) {
       try {
         const { data } = await axios.get(
-          "http://localhost:8082/api/store/get/" + storeID,
+          "https://localhost:8082/api/store/get/" + storeID,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -254,7 +254,7 @@ export function useBackendAPI() {
     getProductsOfStore: async function () {
       try {
         const { data } = await axios.get(
-          "http://localhost:8082/api/store/get/" + user.storeID,
+          "https://localhost:8082/api/store/get/" + user.storeID,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -275,12 +275,12 @@ export function useBackendAPI() {
     saveProduct: async function (product) {
       try {
         const { data } = await axios.post(
-          "http://localhost:8081/api/product/addItem/",
+          "https://localhost:8081/api/product/addItem/",
           product
         );
 
         await axios.patch(
-          "http://localhost:8082/api/store/updateItem/",
+          "https://localhost:8082/api/store/updateItem/",
           {
             storeID: user1[0].storeID,
             item: data,
@@ -307,11 +307,11 @@ export function useBackendAPI() {
     removeItem: async function (itemID) {
       try {
         await axios.delete(
-          "http://localhost:8081/api/product/deleteItem/" + itemID
+          "https://localhost:8081/api/product/deleteItem/" + itemID
         );
 
         await axios.patch(
-          "http://localhost:8082/api/store/deleteStoreItem/",
+          "https://localhost:8082/api/store/deleteStoreItem/",
           {
             storeID: user1[0].storeID,
             itemID,
@@ -337,12 +337,12 @@ export function useBackendAPI() {
     updateItem: async function (product) {
       try {
         const { data } = await axios.patch(
-          "http://localhost:8081/api/product/updateItem/",
+          "https://localhost:8081/api/product/updateItem/",
           product
         );
 
         await axios.patch(
-          "http://localhost:8082/api/store/modifyItem/",
+          "https://localhost:8082/api/store/modifyItem/",
           {
             storeID: user1[0].storeID,
             item: data,
@@ -367,7 +367,7 @@ export function useBackendAPI() {
     getAllItemsFromOneStore: async function (storeID) {
       try {
         const { data } = await axios.get(
-          "http://localhost:8082/api/order/getStoreOrder/" + storeID,
+          "https://localhost:8082/api/order/getStoreOrder/" + storeID,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -385,7 +385,7 @@ export function useBackendAPI() {
     updateOrderAndPaymentStatus: async function (orderID, status) {
       try {
         const { data } = await axios.patch(
-          "http://localhost:8082/api/order/updateOrderStatus/",
+          "https://localhost:8082/api/order/updateOrderStatus/",
           { orderID, status },
           {
             headers: {
@@ -396,7 +396,7 @@ export function useBackendAPI() {
         );
 
         const response = await axios.patch(
-          "http://localhost:8083/api/payment/updatePaymentStatus/",
+          "https://localhost:8083/api/payment/updatePaymentStatus/",
           { paymentID: data.paymentID, status },
           {
             headers: {
@@ -422,7 +422,7 @@ export function useBackendAPI() {
     },
 
     getUsersForAdminPage: async function () {
-      const { data } = await axios.get("http://localhost:8080/api/user/");
+      const { data } = await axios.get("https://localhost:8080/api/user/");
 
       console.log(data);
       return data;
@@ -431,7 +431,7 @@ export function useBackendAPI() {
     getUserCountForAdmin: async function () {
       try {
         const adminRevenue = await axios.get(
-          "http://localhost:8083/api/payment/getAdminTotal",
+          "https://localhost:8083/api/payment/getAdminTotal",
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -441,7 +441,7 @@ export function useBackendAPI() {
         );
 
         const adminTotalOrders = await axios.get(
-          "http://localhost:8082/api/order/getOrderCountForAdmin/",
+          "https://localhost:8082/api/order/getOrderCountForAdmin/",
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -462,13 +462,13 @@ export function useBackendAPI() {
       try {
         //To delete the user
         const { data } = await axios.delete(
-          "http://localhost:8080/api/user/deleteUser/" + userID
+          "https://localhost:8080/api/user/deleteUser/" + userID
         );
 
         if (data.storeID) {
           //To delete his store
           await axios.delete(
-            "http://localhost:8082/api/store/delete/" + data.storeID,
+            "https://localhost:8082/api/store/delete/" + data.storeID,
             {
               headers: {
                 Authorization: `Bearer ${user.token}`,
@@ -479,7 +479,8 @@ export function useBackendAPI() {
 
           //To delete the items of his store
           await axios.delete(
-            "http://localhost:8081/api/product/deleteStoreItems/" + data.storeID
+            "https://localhost:8081/api/product/deleteStoreItems/" +
+              data.storeID
           );
         }
 
@@ -495,7 +496,7 @@ export function useBackendAPI() {
     getAllStoreOrders: async function () {
       try {
         const { data } = await axios.get(
-          "http://localhost:8082/api/order/getAllStoreOrders/",
+          "https://localhost:8082/api/order/getAllStoreOrders/",
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -512,7 +513,7 @@ export function useBackendAPI() {
     getAllUserOrders: async function (userID) {
       try {
         const { data } = await axios.get(
-          `http://localhost:8082/api/order/getAllStoreOrders/${userID}`,
+          `https://localhost:8082/api/order/getAllStoreOrders/${userID}`,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -531,7 +532,7 @@ export function useBackendAPI() {
         const { rating, itemID, review } = details;
 
         const { data } = await axios.patch(
-          "http://localhost:8081/api/product/addReview/",
+          "https://localhost:8081/api/product/addReview/",
           { userID: user._id, userName: user.userName, rating, itemID, review }
         );
 
@@ -546,7 +547,7 @@ export function useBackendAPI() {
         const { rating, storeID, review, orderID } = details;
 
         await axios.patch(
-          "http://localhost:8082/api/store/addReview/",
+          "https://localhost:8082/api/store/addReview/",
           {
             userID: user._id,
             userName: user.userName,
@@ -563,7 +564,7 @@ export function useBackendAPI() {
         );
 
         const orderDetails = await axios.patch(
-          "http://localhost:8082/api/order/setReviewStatus/" + orderID,
+          "https://localhost:8082/api/order/setReviewStatus/" + orderID,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
