@@ -4,7 +4,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { useBackendAPI } from "../../context/useBackendAPI";
 
-export default function Register() {
+export default function Store() {
   const storeName = useRef();
   const location = useRef();
 

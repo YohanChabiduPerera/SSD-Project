@@ -1,16 +1,16 @@
 // Importing necessary modules
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import NavBar from "./Navbar";
-import { useState, useRef, useEffect } from "react";
 import { useBackendAPI } from "../context/useBackendAPI";
+import NavBar from "./Navbar";
 import { UseUserContext } from "../context/useUserContext";
 
 // Defining the Header function
 function Header() {
   // Destructuring variables from the useUserContext hook
-  const { user1, logoutUser, dispatch, getUser } = UseUserContext();
+  const { logoutUser, dispatch, getUser } = UseUserContext();
 
   const user = getUser();
 

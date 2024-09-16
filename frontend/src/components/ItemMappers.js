@@ -1,13 +1,11 @@
-import Item from "./Item";
-import { UseItemContext } from "../context/useItemContext";
 import { React, useState } from "react";
+import Item from "./Item";
 import { SearchBar } from "./SearchComponent";
-import { UseUserContext } from "../context/useUserContext";
 
-export const ItemMapper = () => {
-  const { items } = UseItemContext();
+export const ItemMapper = (props) => {
+  const { items, dispatch } = props.UseItemContext();
+  const { orders, getUser } = props.UseUserContext();
   const [search, setSearch] = useState("");
-  const { orders, getUser } = UseUserContext();
 
   function getSearchValue(searchResult) {
     setSearch(searchResult);
@@ -49,7 +47,13 @@ export const ItemMapper = () => {
               style={{ flexBasis: `${100 / Math.min(items.length, 8)}%` }}
               key={dat._id}
             >
-              <Item details={dat} status={hasItemBeenDelivered(dat._id)} />
+              <Item
+                details={dat}
+                status={hasItemBeenDelivered(dat._id)}
+                itemDispatch={dispatch}
+                UseUserContext={props.UseUserContext}
+                useCartContext={props.useCartContext}
+              />
             </div>
           ))}
       </div>

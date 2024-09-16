@@ -1,10 +1,17 @@
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { memo } from "react";
 import { UseUserContext } from "./context/useUserContext";
 import { BuyerRoutes } from "./BuyerRoutes";
 import { SellerRoutes } from "./SellerRoutes";
 import { AdminRoutes } from "./AdminRoutes";
 import { BaseRoutes } from "./BaseRoutes";
+
+// Memoized Components
+const MemoizedBuyerRoutes = memo(BuyerRoutes);
+const MemoizedSellerRoutes = memo(SellerRoutes);
+const MemoizedAdminRoutes = memo(AdminRoutes);
+const MemoizedBaseRoutes = memo(BaseRoutes);
 
 export default function App() {
   const { user1 } = UseUserContext();
@@ -18,7 +25,7 @@ export default function App() {
       element = <Navigate to="/admin" />;
       break;
     default:
-      element = <BaseRoutes />;
+      element = <MemoizedBaseRoutes />;
   }
 
   return (
@@ -28,17 +35,22 @@ export default function App() {
         <Route
           path="/admin/*"
           element={
-            user1[0]?.role === "Admin" ? <AdminRoutes /> : <Navigate to="/" />
+            user1[0]?.role === "Admin" ? (
+              <MemoizedAdminRoutes />
+            ) : (
+              <Navigate to="/" />
+            )
           }
         />
-
-        <Route path="/buyer/*" element={<BuyerRoutes />} />
-
+        <Route
+          path="/buyer/*"
+          element={<MemoizedBuyerRoutes UseUserContext={UseUserContext} />}
+        />
         <Route
           path="/seller/*"
           element={
             user1[0]?.role === "Merchant" ? (
-              <SellerRoutes />
+              <MemoizedSellerRoutes />
             ) : (
               <Navigate to="/" />
             )

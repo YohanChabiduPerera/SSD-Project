@@ -1,15 +1,36 @@
-import Cart from "./pages/Buyer/Cart";
-import { Routes, Route } from "react-router-dom";
-import Product from "./pages/Buyer/Product";
+import { Route, Routes } from "react-router-dom";
+import { useCartContext } from "./context/useCartContext";
+import { UseItemContext } from "./context/useItemContext";
+import { UseStoreContext } from "./context/useStoreContext";
 import Buyer from "./pages/Buyer/Buyer";
+import Cart from "./pages/Buyer/Cart";
+import Product from "./pages/Buyer/Product";
 
-export function BuyerRoutes() {
+export function BuyerRoutes({ UseUserContext }) {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Buyer />} />
+        <Route
+          path="/"
+          element={
+            <Buyer
+              UseUserContext={UseUserContext}
+              UseStoreContext={UseStoreContext}
+            />
+          }
+        />
         <Route path="/Cart" element={<Cart />} />
-        <Route path="/product" element={<Product />} />
+        <Route
+          path="/product"
+          element={
+            <Product
+              UseUserContext={UseUserContext}
+              UseStoreContext={UseStoreContext}
+              UseItemContext={UseItemContext}
+              useCartContext={useCartContext}
+            />
+          }
+        />
       </Routes>
     </div>
   );

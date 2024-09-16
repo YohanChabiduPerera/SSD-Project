@@ -1,31 +1,30 @@
+const https = require("https");
+const fetch = require("node-fetch");
+const fs = require("fs");
 const jwt = require("jsonwebtoken");
-const axios = require("axios");
-require("dotenv").config({ path: "../.env" });
+
+const httpsAgent = new https.Agent({
+  rejectUnauthorized: false, // Bypass the SSL certificate verification
+  ca: fs.readFileSync("../certificate/rootCA.pem"), // Path to your self-signed CA
+});
 
 const requireAuth = async (req, res, next) => {
-  const { authorization, role } = req.headers;
-
-  // Check if authorization token is provided in the request header
-  if (!authorization) {
+  const token = req.cookies.token;
+  if (!token) {
     return res.status(401).json({ error: "Authorization token not found" });
   }
 
-  // Extract the token from the authorization header
-  const token = authorization.split(" ")[1];
-
   try {
-    // Verify the token using the secret key
-    const { id } = jwt.verify(token, process.env.SECRET);
+    const { id, role } = jwt.verify(token, process.env.SECRET);
 
-    // Retrieve user data from API using the id and role from the token
-    const { data } = await axios.get(
-      `https://localhost:8080/api/user/${id}/${role}`
+    // Use fetch with the custom HTTPS agent
+    const response = await fetch(
+      `https://localhost:8080/api/user/${id}/${role}`,
+      { agent: httpsAgent }
     );
+    const data = await response.json();
 
-    // Attach user data to the request object
     req.user = data;
-
-    // Call next middleware function
     next();
   } catch (error) {
     console.log(error);

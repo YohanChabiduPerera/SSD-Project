@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import slide1 from "../assets/slider1.jpg";
 import slide2 from "../assets/slider2.jpg";
 import slide3 from "../assets/slider3.jpg";
-import { Link } from "react-router-dom";
 
 export function Slider() {
   const [activeSlide, setActiveSlide] = useState(0);

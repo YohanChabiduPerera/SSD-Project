@@ -1,17 +1,19 @@
-import { useState, useEffect, useRef } from "react";
+import {
+  faCartPlus,
+  faExpand,
+  faRankingStar,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExpand, faCartPlus, faRankingStar } from "@fortawesome/free-solid-svg-icons";
-import StarRating from "./StarRating";
-import ReviewContainer from "./ReviewContainer";
-import { useCartContext } from "../context/useCartContext";
-import { UseItemContext } from "../context/useItemContext";
+import { useEffect, useRef, useState } from "react";
 import { useBackendAPI } from "../context/useBackendAPI";
-import { UseUserContext } from "../context/useUserContext";
+import ReviewContainer from "./ReviewContainer";
+import StarRating from "./StarRating";
 
 export default function Item(props) {
   //importing cartContext,dispath and info from the cartContext
-  const { dispatch, info, updateCart } = useCartContext();
-  const itemDispatch = UseItemContext().dispatch;
+  const { dispatch, info, updateCart } = props.useCartContext();
+
+  const itemDispatch = props.itemDispatch;
 
   const [selectedItem, setSelectedItem] = useState(0);
 
@@ -56,7 +58,7 @@ export default function Item(props) {
 
   const { addReviewProduct } = useBackendAPI();
 
-  const { getUser } = UseUserContext();
+  const { getUser } = props.UseUserContext();
   const user = getUser();
   //To submit the user review
   const submitProductReview = async (e) => {
@@ -215,8 +217,13 @@ export default function Item(props) {
                         enterRating={getRatingValue}
                       />
                     </div>
-                    <textarea cols={30} placeholder="Describe your experience..." ref={reviewDesc}></textarea>
-                    <button className="btn btn-success"
+                    <textarea
+                      cols={30}
+                      placeholder="Describe your experience..."
+                      ref={reviewDesc}
+                    ></textarea>
+                    <button
+                      className="btn btn-success"
                       onClick={(e) => {
                         submitProductReview(e);
                       }}

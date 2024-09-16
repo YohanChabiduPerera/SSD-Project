@@ -1,6 +1,6 @@
+import axios from "axios";
 import { useContext, useEffect } from "react";
 import { UserContext } from "./userContext";
-import axios from "axios";
 
 export const UseUserContext = () => {
   const { dispatch, user1, selectedUserRole, orders } = useContext(UserContext);
@@ -15,13 +15,12 @@ export const UseUserContext = () => {
           payload: [user],
         });
 
+        console.log("userId", user._id);
+
         const { data } = await axios.get(
           `https://localhost:8082/api/order/getAllStoreOrders/${user._id}`,
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -89,6 +88,7 @@ export const UseUserContext = () => {
     if (userSaved) {
       localStorage.removeItem("user");
       dispatch({ type: "Logout" });
+      // handleLogout();
       return true;
     } else return false;
   }

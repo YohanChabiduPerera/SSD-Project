@@ -1,7 +1,7 @@
+import { faBox, faDashboard } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import DashWrapper from "../../components/DashWrapper";
 import SideMenu from "../../components/SideMenu";
-import { faBox, faDashboard, faUser } from "@fortawesome/free-solid-svg-icons";
 
 export default function Seller() {
   return (

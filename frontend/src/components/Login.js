@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
-import Footer from "./Footer";
-import Header from "./Header";
-import pic from "../assets/login.png";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import pic from "../assets/login.png";
 import { useBackendAPI } from "../context/useBackendAPI";
 import { UseUserContext } from "../context/useUserContext";
+import Footer from "./Footer";
+import Header from "./Header";
+import axios from "axios";
+import "./Login.css";
+
 export default function Login() {
   //Creating refs to hold values of login form values
   const { selectedUserRole } = UseUserContext();
@@ -54,7 +57,6 @@ export default function Login() {
 
   function setAdminFunction() {
     if (!existUserRole) setExistUserRole(selectedUserRole);
-    console.log(existUserRole);
 
     dispatch({
       type: "SetUserRole",
@@ -62,6 +64,21 @@ export default function Login() {
     });
     setIsAdmin(true);
   }
+
+  // const serverUrl = process.env.REACT_APP_SERVER_URL;
+
+  const handleLogin = async () => {
+    try {
+      // Gets authentication url from backend server
+      const {
+        data: { url },
+      } = await axios.get(`https://localhost:3000/auth/url`);
+      // Navigate to consent screen
+      window.location.assign(url);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div>
@@ -106,6 +123,12 @@ export default function Login() {
                 className="btn btn-primary"
                 value="Sign In"
               />
+              <input
+                type="button"
+                className="googleLoginBtn"
+                onClick={handleLogin}
+                value="Google"
+              />
             </div>
 
             {!isAdmin ? (
@@ -135,7 +158,6 @@ export default function Login() {
                     type: "SetUserRole",
                     userRole: existUserRole,
                   });
-                  console.log(existUserRole);
                   setIsAdmin(false);
                 }}
               >

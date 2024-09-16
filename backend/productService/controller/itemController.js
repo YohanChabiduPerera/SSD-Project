@@ -225,6 +225,31 @@ const deleteAllItemsFromStore = async function (req, res) {
   }
 };
 
+const getAllItemsWithPagination = async (req, res) => {
+  const page = parseInt(req.query.page) || 1; // Default page is 1
+  const limit = parseInt(req.query.limit) || 10; // Default limit is 20 items per page
+
+  const skip = (page - 1) * limit; // Calculate how many items to skip
+
+  try {
+    // Fetch the items with pagination
+    const data = await itemModel.find().skip(skip).limit(limit);
+
+    // Get the total count of items
+    const totalItems = await itemModel.countDocuments();
+
+    // Send the response with items, current page, and total count
+    res.json({
+      items: data,
+      currentPage: page,
+      totalPages: Math.ceil(totalItems / limit),
+      totalItems,
+    });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 module.exports = {
   postItem,
   addReview,
@@ -235,4 +260,5 @@ module.exports = {
   deleteReview,
   updateItem,
   deleteAllItemsFromStore,
+  getAllItemsWithPagination,
 };

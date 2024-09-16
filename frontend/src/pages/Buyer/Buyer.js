@@ -8,12 +8,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import pic from "../../assets/f1.png";
 import { useState, useRef } from "react";
 import { useBackendAPI } from "../../context/useBackendAPI";
-import { UseUserContext } from "../../context/useUserContext";
 import Header from "../../components/Header";
 import StarRating from "../../components/StarRating";
-import { UseStoreContext } from "../../context/useStoreContext";
 
-export default function Buyer() {
+export default function Buyer({ UseUserContext, UseStoreContext }) {
   const { updateOrderAndPaymentStatus, addReviewStore } = useBackendAPI();
   const { orders, user1, dispatch } = UseUserContext();
   const storeDispatch = UseStoreContext().dispatch;
@@ -80,7 +78,7 @@ export default function Buyer() {
 
   return (
     <div>
-      <Header />
+      <Header UseUserContext={UseUserContext} />
       <section>
         <div className="card mb-4">
           <div className="card-header bg-primary" style={{ height: 150 }}></div>

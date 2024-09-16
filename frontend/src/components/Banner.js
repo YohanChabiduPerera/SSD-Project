@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
 import React from "react";
-import { UseUserContext } from "../context/useUserContext";
+import { Link } from "react-router-dom";
 
-export function ActionBanner() {
+export function ActionBanner({ UseUserContext }) {
   const { dispatch } = UseUserContext();
 
   return (
@@ -87,5 +86,5 @@ export function PageHeader() {
     <section id="page-header">
       <h2>#stay healthy</h2>
     </section>
-  )
+  );
 }
