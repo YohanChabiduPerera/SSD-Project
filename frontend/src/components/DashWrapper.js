@@ -14,13 +14,15 @@ import { useSellerOrderContext } from "../context/useSellerOrderContext";
 function DashWrapper() {
   const { order, dispatch } = useSellerOrderContext();
 
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState(order.orders || []);
   const { dashBoardDetails } = order;
   const { total = 0, orderCount = 0, itemCount = 0 } = dashBoardDetails || {};
 
   useEffect(() => {
-    setOrders(order.orders);
-  }, [order.orders]);
+    if (order && order.orders) {
+      setOrders(order.orders);
+    }
+  }, [order?.orders]);
 
   // Access necessary functions and variables from custom hooks
   const { logoutUser } = UseUserContext();
