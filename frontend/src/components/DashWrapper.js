@@ -1,15 +1,15 @@
 // Import necessary dependencies
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBox,
   faDollarSign,
   faTruck,
 } from "@fortawesome/free-solid-svg-icons";
-import { UseUserContext } from "../context/useUserContext";
-import { useBackendAPI } from "../context/useBackendAPI";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { useBackendAPI } from "../context/useBackendAPI";
 import { useSellerOrderContext } from "../context/useSellerOrderContext";
+import { UseUserContext } from "../context/useUserContext";
 
 function DashWrapper() {
   const { order, dispatch } = useSellerOrderContext();

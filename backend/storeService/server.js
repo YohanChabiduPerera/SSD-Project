@@ -4,9 +4,8 @@ const fs = require("fs"); // Import the File System module
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const cookieParser = require("cookie-parser"); // Add this line
-
 require("dotenv").config(); // Load environment variables from .env file
+const cookieParser = require("cookie-parser"); // Add this line
 
 // Create an Express app
 const app = express();

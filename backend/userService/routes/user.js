@@ -1,14 +1,15 @@
 import { Router } from "express";
 import {
+  deleteUser,
+  getAllUsers,
+  getOneUser,
+  getUserCount,
+  updateUser,
+  updateUserStore,
   userLogin,
   userSignUp,
-  updateUser,
-  getOneUser,
-  updateUserStore,
-  getUserCount,
-  getAllUsers,
-  deleteUser,
 } from "../controller/userController.js";
+import requireAuth from "../../storeService/middleware/requireAuth.js";
 
 // Create a new router instance
 const router = Router();
@@ -18,6 +19,9 @@ router.post("/login", userLogin);
 
 // User sign up route
 router.post("/signup", userSignUp);
+
+// The below routes will be protected routes
+router.use(requireAuth);
 
 // Get all users route
 router.get("/", getAllUsers);

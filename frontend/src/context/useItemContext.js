@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ItemContext } from "./itemContext";
 import axios from "axios";
+import { getCsrfToken } from "../utils/csrf";
 
 export const UseItemContext = () => {
   const itemContext = useContext(ItemContext);
@@ -12,7 +13,13 @@ export const UseItemContext = () => {
       try {
         // Fetching data from API with pagination
         const { data } = await axios.get(
-          `https://localhost:8081/api/product/pagination?page=${page}&limit=10`
+          `https://localhost:8081/api/product/pagination?page=${page}&limit=10`,
+          {
+            withCredentials: true, // Send cookies with requests (including the JWT token)
+            headers: {
+              "x-csrf-token": getCsrfToken(), // Include the CSRF token in the request header
+            },
+          }
         );
 
         // Check if the response contains the items array

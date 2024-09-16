@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import userModel from "../models/User.js";
+import crypto from "crypto";
 
 // To generate a token
 const createToken = (id) => {
@@ -9,31 +10,44 @@ const createToken = (id) => {
   // 3rd argument -> optional. Specifies that the token expires in 3 days
 };
 
-// User login function
-// User login function with HttpOnly cookie
+// To generate a CSRF token
+const createCsrfToken = () => {
+  return crypto.randomBytes(32).toString("hex");
+};
+
+// User login function with Double Submit Cookie pattern
 const userLogin = async (req, res) => {
   try {
     const { userName, password, role } = req.body;
     const user = await userModel.login(userName, password, role);
     const token = createToken(user._id);
+    const csrfToken = createCsrfToken();
 
     // Set the JWT as a HttpOnly cookie
     res.cookie("token", token, {
       httpOnly: true, // Prevents JavaScript access
       secure: process.env.NODE_ENV === "production", // Only send over HTTPS in production
-      sameSite: "Strict", // Prevents CSRF (Cross-Site Request Forgery) attacks
+      sameSite: "Strict", // Prevents CSRF attacks
       maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days in milliseconds
     });
 
-    // Send back user data without token
-    res.status(200).json({ ...user.toObject() }); // 200 for successful login
+    // Set the CSRF token as a non-HttpOnly cookie
+    res.cookie("csrfToken", csrfToken, {
+      httpOnly: false, // Must be accessible by JavaScript
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Strict",
+      maxAge: 3 * 24 * 60 * 60 * 1000,
+    });
+
+    // Send back user data (without token)
+    res.status(200).json({ ...user.toObject() });
   } catch (err) {
     console.log(err.message);
     res.status(401).json({ err: err.message });
   }
 };
 
-// User sign-up function
+// Similar changes for sign-up
 const userSignUp = async (req, res) => {
   const { userName, password, contact, address, role, image } = req.body;
   try {
@@ -46,18 +60,28 @@ const userSignUp = async (req, res) => {
       role
     );
     const token = createToken(user._id);
+    const csrfToken = createCsrfToken();
+
     // Set the JWT as a HttpOnly cookie
     res.cookie("token", token, {
-      httpOnly: true, // Prevents JavaScript access
-      secure: process.env.NODE_ENV === "production", // Only send over HTTPS in production
-      sameSite: "Strict", // Prevents CSRF (Cross-Site Request Forgery) attacks
-      maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days in milliseconds
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Strict",
+      maxAge: 3 * 24 * 60 * 60 * 1000,
     });
 
-    res.status(201).json({ ...user.toObject(), token }); // 201 for successful creation
+    // Set the CSRF token as a non-HttpOnly cookie
+    res.cookie("csrfToken", csrfToken, {
+      httpOnly: false, // Accessible to client-side JavaScript
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Strict",
+      maxAge: 3 * 24 * 60 * 60 * 1000,
+    });
+
+    res.status(201).json({ ...user.toObject() });
   } catch (err) {
     console.log(err.message);
-    res.status(400).json({ err: err.message }); // 400 for bad request/validation error
+    res.status(400).json({ err: err.message });
   }
 };
 
@@ -137,12 +161,12 @@ const getUserCount = async (req, res) => {
 
 // Export functions for use in other files
 export {
-  userSignUp,
   userLogin,
+  userSignUp,
   getAllUsers,
   updateUser,
-  deleteUser,
   getOneUser,
-  updateUserStore,
+  deleteUser,
   getUserCount,
+  updateUserStore,
 };
