@@ -7,38 +7,40 @@ export const handleError = (err) => {
 };
 
 export const handleItemError = (err) => {
-  console.log(err);
+  consoleError(err);
   alert(err.message);
   return err.message;
 };
 
-export const consoleError = (err) => {
-  console.log(err);
-};
+export const consoleError = (err) => console.error(err);
 
 export const consoleErrorWithAlert = (err, msg) => {
-  console.log(err);
+  consoleError(err);
   alert(msg);
 };
 
-export const cannotFetchStoreNameAlert = () => {
-  alert(
-    "There seems to be an error. Store Name cannot be fetched at the moment"
-  );
+// Generalized function for showing alerts
+const showAlert = (message) => alert(message);
+
+// Compact predefined alert messages
+const alertMessages = {
+  cannotFetchStoreName:
+    "There seems to be an error. Store Name cannot be fetched at the moment.",
+  cannotUploadItem:
+    "There seems to be an error. Item cannot be uploaded at the moment.",
+  cannotRemoveItem:
+    "There seems to be an error. Item cannot be removed at the moment.",
+  cannotModify:
+    "There seems to be an error. Item cannot be modified at the moment.",
+  tryAgainLater: "Oops.. We are facing an issue right now. Please try again.",
 };
 
-export const cannotUploadItemAlert = () => {
-  alert("There seems to be an error. Item cannot be uploaded at the moment");
-};
-
-export const cannotRemoveItemAlert = () => {
-  alert("There seems to be an error. Item cannot be removed at the moment");
-};
-
-export const cannotModifyAlert = () => {
-  alert("There seems to be an error. Item cannot be modified at the moment");
-};
-
-export const tryAgainLaterAlert = () => {
-  alert("Oops.. We are facing an issue right now. Please try again");
-};
+// Individual alert functions, maintaining compatibility
+export const cannotFetchStoreNameAlert = () =>
+  showAlert(alertMessages.cannotFetchStoreName);
+export const cannotUploadItemAlert = () =>
+  showAlert(alertMessages.cannotUploadItem);
+export const cannotRemoveItemAlert = () =>
+  showAlert(alertMessages.cannotRemoveItem);
+export const cannotModifyAlert = () => showAlert(alertMessages.cannotModify);
+export const tryAgainLaterAlert = () => showAlert(alertMessages.tryAgainLater);

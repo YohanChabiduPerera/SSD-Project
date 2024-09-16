@@ -3,9 +3,14 @@ import { SendEmail } from "../components/SendEmail";
 import {
   itemApi,
   orderApi,
+  orderApiNSCR,
   paymentApi,
+  paymentApiNSCR,
   storeApi,
+  storeApiNSCR,
+  updateAxiosCsrfToken,
   userApi,
+  userApiNSCR,
 } from "../utils/axios";
 import {
   cannotFetchStoreNameAlert,
@@ -32,6 +37,8 @@ export function useBackendAPI() {
   const navigate = useNavigate();
   const user = getUser();
 
+  // After login or signup, refresh the CSRF token in Axios instances
+
   return {
     registerUser: async function (userDetails) {
       try {
@@ -39,6 +46,7 @@ export function useBackendAPI() {
 
         if (response && response.data) {
           const data = response.data;
+          updateAxiosCsrfToken();
           setUserInLocalStorage(data);
           dispatch({ type: "SetUser", payload: [data] });
           SendEmail({
@@ -64,6 +72,8 @@ export function useBackendAPI() {
 
         if (response && response.data) {
           const data = response.data;
+          updateAxiosCsrfToken();
+
           if (data.role) {
             setUserInLocalStorage(data);
             dispatch({ type: "SetUser", payload: [data] });
@@ -164,7 +174,7 @@ export function useBackendAPI() {
     // Get total sales amount for a store
     getTotalSalesAmount: async function (storeID) {
       try {
-        const { data } = await paymentApi.get(`/getStoreTotal/${storeID}`);
+        const { data } = await paymentApiNSCR.get(`/getStoreTotal/${storeID}`);
         return data;
       } catch (err) {
         consoleError(err);
@@ -174,7 +184,9 @@ export function useBackendAPI() {
     // Get store item count
     getStoreItemCount: async function (storeID) {
       try {
-        const { data } = await storeApi.get(`/getStoreItemCount/${storeID}`);
+        const { data } = await storeApiNSCR.get(
+          `/getStoreItemCount/${storeID}`
+        );
         return data.itemCount;
       } catch (err) {
         consoleError(err);
@@ -184,7 +196,7 @@ export function useBackendAPI() {
     // Get store name
     getStoreName: async function (storeID) {
       try {
-        const { data } = await storeApi.get(`/get/${storeID}`);
+        const { data } = await storeApiNSCR.get(`/get/${storeID}`);
         return data.storeName;
       } catch (err) {
         cannotFetchStoreNameAlert();
@@ -194,7 +206,7 @@ export function useBackendAPI() {
     // Get products of the store
     getProductsOfStore: async function () {
       try {
-        const { data } = await storeApi.get(`/get/${user.storeID}`);
+        const { data } = await storeApiNSCR.get(`/get/${user.storeID}`);
         return data.storeItem;
       } catch (err) {
         cannotFetchStoreNameAlert();
@@ -256,7 +268,7 @@ export function useBackendAPI() {
     // Get all items from one store
     getAllItemsFromOneStore: async function (storeID) {
       try {
-        const { data } = await orderApi.get(`/getStoreOrder/${storeID}`);
+        const { data } = await orderApiNSCR.get(`/getStoreOrder/${storeID}`);
         return data;
       } catch (err) {
         consoleError(err);
@@ -293,15 +305,17 @@ export function useBackendAPI() {
 
     // Get users for the admin page
     getUsersForAdminPage: async function () {
-      const { data } = await userApi.get("/");
+      const { data } = await userApiNSCR.get("/");
       return data;
     },
 
     // Get user count for admin
     getUserCountForAdmin: async function () {
       try {
-        const adminRevenue = await paymentApi.get("/getAdminTotal");
-        const adminTotalOrders = await orderApi.get("/getOrderCountForAdmin/");
+        const adminRevenue = await paymentApiNSCR.get("/getAdminTotal");
+        const adminTotalOrders = await orderApiNSCR.get(
+          "/getOrderCountForAdmin/"
+        );
 
         return {
           orderCount: adminTotalOrders.data.orderCount,
@@ -335,7 +349,7 @@ export function useBackendAPI() {
     // Get all store orders
     getAllStoreOrders: async function () {
       try {
-        const { data } = await orderApi.get("/getAllStoreOrders/");
+        const { data } = await orderApiNSCR.get("/getAllStoreOrders/");
         return data;
       } catch (err) {
         consoleError(err);
@@ -345,7 +359,7 @@ export function useBackendAPI() {
     // Get all user orders
     getAllUserOrders: async function (userID) {
       try {
-        const { data } = await orderApi.get(`/getAllStoreOrders/${userID}`);
+        const { data } = await orderApiNSCR.get(`/getAllStoreOrders/${userID}`);
         return data;
       } catch (err) {
         consoleError(err);
