@@ -16,7 +16,7 @@ function DashWrapper() {
 
   const [orders, setOrders] = useState([]);
   const { dashBoardDetails } = order;
-  const { total, orderCount, itemCount } = dashBoardDetails;
+  const { total = 0, orderCount = 0, itemCount = 0 } = dashBoardDetails || {};
 
   useEffect(() => {
     setOrders(order.orders);
@@ -184,20 +184,31 @@ function DashWrapper() {
                     </tr>
                   </thead>
                   <tbody>
-                    {orders.map((data) => {
-                      return (
-                        <tr key={data._id}>
-                          <td scope="col">{data._id.slice(-4)}</td>
-                          <td>{data.userID.slice(-4)}</td>
-                          <td>{data.orderedDate.substring(0, 10)}</td>
-                          <td>Rs. {data.totalAmount} </td>
-                          <td>{data.status}</td>
-                          <td className="text-center" style={{ color: "blue" }}>
-                            {getOrderStatus(data)}
-                          </td>
-                        </tr>
-                      );
-                    })}
+                    {orders && orders.length > 0 ? (
+                      orders.map((data) => {
+                        return (
+                          <tr key={data._id}>
+                            <td scope="col">{data._id.slice(-4)}</td>
+                            <td>{data.userID.slice(-4)}</td>
+                            <td>{data.orderedDate.substring(0, 10)}</td>
+                            <td>Rs. {data.totalAmount} </td>
+                            <td>{data.status}</td>
+                            <td
+                              className="text-center"
+                              style={{ color: "blue" }}
+                            >
+                              {getOrderStatus(data)}
+                            </td>
+                          </tr>
+                        );
+                      })
+                    ) : (
+                      <tr>
+                        <td colSpan="6" className="text-center">
+                          No orders available
+                        </td>
+                      </tr>
+                    )}
                   </tbody>
                 </table>
               </div>
