@@ -1,0 +1,6 @@
+projectKey=ssd-store
+serverUrl=http://localhost:9000
+serverVersion=10.5.0.89998
+dashboardUrl=http://localhost:9000/dashboard?id=ssd-store
+ceTaskId=bc1dbaf8-9cd3-488d-9c26-7cc21828acdb
+ceTaskUrl=http://localhost:9000/api/ce/task?id=bc1dbaf8-9cd3-488d-9c26-7cc21828acdb

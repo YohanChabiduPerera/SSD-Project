@@ -24,13 +24,16 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
     "react-scripts": "^5.0.1",
+    "sonarqube-scanner": "^4.2.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint . --format stylish --output-file eslint-report-frontend.txt",
+    "sonar": "sonar-scanner"
   },
   "eslintConfig": {
     "extends": [
@@ -49,5 +52,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "eslint": "^8.57.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-no-unsanitized": "^4.1.0",
+    "eslint-plugin-react": "^7.36.1",
+    "eslint-plugin-scanjs-rules": "^0.2.1",
+    "eslint-plugin-security": "^3.0.1",
+    "globals": "^15.9.0"
   }
 }

@@ -1,0 +1,1062 @@
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\AdminRoutes.js[24m[0m
+[0m  [2m10:5[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m12:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m12:34[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m13:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m13:38[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m14:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m14:42[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m15:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m15:40[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m16:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m16:46[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\App.js[24m[0m
+[0m  [2m15:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m18:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m21:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m25:5[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m26:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m27:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m28:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m31:42[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m31:60[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m35:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m35:41[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m37:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m41:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m43:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\BaseRoutes.js[24m[0m
+[0m   [2m8:5[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m9:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m10:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m10:34[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:39[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m12:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m12:42[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\BuyerRoutes.js[24m[0m
+[0m   [2m8:5[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m9:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m10:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m10:34[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:38[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m12:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m12:41[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\SellerRoutes.js[24m[0m
+[0m  [2m15:5[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m16:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m17:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m17:34[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m18:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m18:41[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m19:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m19:41[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m20:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m20:45[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m21:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m23:37[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m23:49[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\Banner.js[24m[0m
+[0m  [2m19:19[22m  [31merror[39m  'e' is defined but never used  [2mno-unused-vars[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\CartItem.js[24m[0m
+[0m   [2m8:21[22m  [31merror[39m  'info' is assigned a value but never used              [2mno-unused-vars[22m[0m
+[0m  [2m14:22[22m  [31merror[39m  'details' is missing in props validation               [2mreact/prop-types[22m[0m
+[0m  [2m14:30[22m  [31merror[39m  'details.itemImage' is missing in props validation     [2mreact/prop-types[22m[0m
+[0m  [2m16:22[22m  [31merror[39m  'details' is missing in props validation               [2mreact/prop-types[22m[0m
+[0m  [2m16:30[22m  [31merror[39m  'details.itemName' is missing in props validation      [2mreact/prop-types[22m[0m
+[0m  [2m20:17[22m  [31merror[39m  'details' is missing in props validation               [2mreact/prop-types[22m[0m
+[0m  [2m20:25[22m  [31merror[39m  'details.itemName' is missing in props validation      [2mreact/prop-types[22m[0m
+[0m  [2m22:50[22m  [31merror[39m  'details' is missing in props validation               [2mreact/prop-types[22m[0m
+[0m  [2m22:58[22m  [31merror[39m  'details.itemPrice' is missing in props validation     [2mreact/prop-types[22m[0m
+[0m  [2m24:47[22m  [31merror[39m  'details' is missing in props validation               [2mreact/prop-types[22m[0m
+[0m  [2m24:55[22m  [31merror[39m  'details.itemQuantity' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m  [2m28:19[22m  [31merror[39m  'e' is defined but never used                          [2mno-unused-vars[22m[0m
+[0m  [2m31:28[22m  [31merror[39m  'details' is missing in props validation               [2mreact/prop-types[22m[0m
+[0m  [2m31:36[22m  [31merror[39m  'details.itemID' is missing in props validation        [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\DashWrapper.js[24m[0m
+[0m   [2m69:9[22m   [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m99:5[22m   [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m102:9[22m   [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m103:11[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m107:13[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m108:15[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m109:15[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m111:13[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m112:15[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m115:27[22m  [31merror[39m  'e' is defined but never used                     [2mno-unused-vars[22m[0m
+[0m  [2m121:11[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m122:13[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m123:15[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m124:17[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m125:19[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m126:21[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m128:19[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m129:21[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m131:23[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m133:23[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m139:13[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m140:15[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m141:17[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m142:19[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m143:21[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m145:19[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m146:21[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m147:21[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m152:13[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m153:15[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m154:17[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m155:19[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m156:21[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m158:19[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m159:21[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m160:21[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m167:11[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m168:13[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m169:15[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m171:13[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m172:15[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m173:17[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m174:19[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m175:21[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m176:23[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m177:23[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m178:23[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m179:23[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m180:23[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m181:23[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m186:19[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m189:25[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m190:27[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m190:31[22m  [31merror[39m  The scope prop can only be used on <th> elements  [2mjsx-a11y/scope[22m[0m
+[0m  [2m191:27[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m192:27[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m193:27[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m194:27[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m195:27[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m208:9[22m   [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\Dashboard.js[24m[0m
+[0m   [2m60:40[22m  [31merror[39m  'userName' is defined but never used     [2mno-unused-vars[22m[0m
+[0m   [2m71:5[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m73:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m74:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m78:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m79:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m87:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m95:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m96:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m99:27[22m  [31merror[39m  'e' is defined but never used            [2mno-unused-vars[22m[0m
+[0m  [2m105:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m106:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m107:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m108:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m109:19[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m110:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m112:19[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m113:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m114:31[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m120:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m121:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m122:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m123:19[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m124:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m126:19[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m127:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m128:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m133:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m134:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m135:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m136:19[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m137:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m139:19[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m140:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m141:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m148:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m149:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m150:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m151:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m161:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m162:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m163:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m164:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m167:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m168:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m169:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m170:19[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m171:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m172:23[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m173:23[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m176:23[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m179:23[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m182:23[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m185:23[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m202:25[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m206:27[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m209:27[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m212:27[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m213:27[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m214:27[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m215:27[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m216:29[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m251:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\Footer.js[24m[0m
+[0m  [2m27:9[22m  [31merror[39m  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  [2mjsx-a11y/anchor-is-valid[22m[0m
+[0m  [2m28:9[22m  [31merror[39m  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  [2mjsx-a11y/anchor-is-valid[22m[0m
+[0m  [2m29:9[22m  [31merror[39m  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  [2mjsx-a11y/anchor-is-valid[22m[0m
+[0m  [2m30:9[22m  [31merror[39m  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  [2mjsx-a11y/anchor-is-valid[22m[0m
+[0m  [2m34:9[22m  [31merror[39m  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  [2mjsx-a11y/anchor-is-valid[22m[0m
+[0m  [2m35:9[22m  [31merror[39m  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  [2mjsx-a11y/anchor-is-valid[22m[0m
+[0m  [2m36:9[22m  [31merror[39m  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  [2mjsx-a11y/anchor-is-valid[22m[0m
+[0m  [2m37:9[22m  [31merror[39m  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  [2mjsx-a11y/anchor-is-valid[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\Header.js[24m[0m
+[0m   [2m13:11[22m  [31merror[39m  'user1' is assigned a value but never used                                                                                                                                                         [2mno-unused-vars[22m[0m
+[0m   [2m71:5[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m72:7[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m73:7[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m74:7[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m75:9[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m77:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m78:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m79:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m80:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m81:19[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m87:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m87:17[22m  [31merror[39m  Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                     [2mjsx-a11y/click-events-have-key-events[22m[0m
+[0m   [2m87:17[22m  [31merror[39m  Non-interactive elements should not be assigned mouse or keyboard event listeners                                                                                                                  [2mjsx-a11y/no-noninteractive-element-interactions[22m[0m
+[0m   [2m96:29[22m  [31merror[39m  'e' is defined but never used                                                                                                                                                                      [2mno-unused-vars[22m[0m
+[0m  [2m104:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m106:25[22m  [31merror[39m  'e' is defined but never used                                                                                                                                                                      [2mno-unused-vars[22m[0m
+[0m  [2m115:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m116:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m117:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m124:9[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m124:9[22m   [31merror[39m  Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                     [2mjsx-a11y/click-events-have-key-events[22m[0m
+[0m  [2m124:9[22m   [31merror[39m  Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element  [2mjsx-a11y/no-static-element-interactions[22m[0m
+[0m  [2m133:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m135:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m148:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m149:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m163:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m175:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m175:13[22m  [31merror[39m  Headings must have content and the content must be accessible by a screen reader                                                                                                                   [2mjsx-a11y/heading-has-content[22m[0m
+[0m  [2m176:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\Item.js[24m[0m
+[0m   [2m22:36[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m   [2m22:44[22m  [31merror[39m  'details.quantity' is missing in props validation                                                                                                                                                  [2mreact/prop-types[22m[0m
+[0m   [2m92:15[22m  [31merror[39m  'status' is missing in props validation                                                                                                                                                            [2mreact/prop-types[22m[0m
+[0m  [2m104:15[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m104:23[22m  [31merror[39m  'details.reviews' is missing in props validation                                                                                                                                                   [2mreact/prop-types[22m[0m
+[0m  [2m104:31[22m  [31merror[39m  'details.reviews.length' is missing in props validation                                                                                                                                            [2mreact/prop-types[22m[0m
+[0m  [2m106:15[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m106:23[22m  [31merror[39m  'details.reviews' is missing in props validation                                                                                                                                                   [2mreact/prop-types[22m[0m
+[0m  [2m106:31[22m  [31merror[39m  'details.reviews.reduce' is missing in props validation                                                                                                                                            [2mreact/prop-types[22m[0m
+[0m  [2m107:15[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m107:23[22m  [31merror[39m  'details.reviews' is missing in props validation                                                                                                                                                   [2mreact/prop-types[22m[0m
+[0m  [2m107:31[22m  [31merror[39m  'details.reviews.length' is missing in props validation                                                                                                                                            [2mreact/prop-types[22m[0m
+[0m  [2m110:40[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m112:13[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m112:21[22m  [31merror[39m  'details.reviews' is missing in props validation                                                                                                                                                   [2mreact/prop-types[22m[0m
+[0m  [2m115:5[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m116:7[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m117:9[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m118:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m119:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m120:26[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m120:34[22m  [31merror[39m  'details.image' is missing in props validation                                                                                                                                                     [2mreact/prop-types[22m[0m
+[0m  [2m125:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m125:22[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m125:30[22m  [31merror[39m  'details.itemName' is missing in props validation                                                                                                                                                  [2mreact/prop-types[22m[0m
+[0m  [2m126:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m126:24[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m126:32[22m  [31merror[39m  'details.storeName' is missing in props validation                                                                                                                                                 [2mreact/prop-types[22m[0m
+[0m  [2m127:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m127:26[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m127:34[22m  [31merror[39m  'details.price' is missing in props validation                                                                                                                                                     [2mreact/prop-types[22m[0m
+[0m  [2m128:18[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m128:26[22m  [31merror[39m  'details.quantity' is missing in props validation                                                                                                                                                  [2mreact/prop-types[22m[0m
+[0m  [2m129:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m129:26[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m129:34[22m  [31merror[39m  'details.quantity' is missing in props validation                                                                                                                                                  [2mreact/prop-types[22m[0m
+[0m  [2m131:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m135:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m136:20[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m136:28[22m  [31merror[39m  'details.quantity' is missing in props validation                                                                                                                                                  [2mreact/prop-types[22m[0m
+[0m  [2m137:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m138:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m140:29[22m  [31merror[39m  'e' is defined but never used                                                                                                                                                                      [2mno-unused-vars[22m[0m
+[0m  [2m145:19[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m147:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m149:29[22m  [31merror[39m  'e' is defined but never used                                                                                                                                                                      [2mno-unused-vars[22m[0m
+[0m  [2m151:37[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m151:45[22m  [31merror[39m  'details._id' is missing in props validation                                                                                                                                                       [2mreact/prop-types[22m[0m
+[0m  [2m152:39[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m152:47[22m  [31merror[39m  'details.itemName' is missing in props validation                                                                                                                                                  [2mreact/prop-types[22m[0m
+[0m  [2m153:40[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m153:48[22m  [31merror[39m  'details.price' is missing in props validation                                                                                                                                                     [2mreact/prop-types[22m[0m
+[0m  [2m155:40[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m155:48[22m  [31merror[39m  'details.image' is missing in props validation                                                                                                                                                     [2mreact/prop-types[22m[0m
+[0m  [2m156:38[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m156:46[22m  [31merror[39m  'details.storeID' is missing in props validation                                                                                                                                                   [2mreact/prop-types[22m[0m
+[0m  [2m161:19[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m164:19[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m166:31[22m  [31merror[39m  'e' is defined but never used                                                                                                                                                                      [2mno-unused-vars[22m[0m
+[0m  [2m168:47[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m168:55[22m  [31merror[39m  'details._id' is missing in props validation                                                                                                                                                       [2mreact/prop-types[22m[0m
+[0m  [2m172:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m182:9[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m182:9[22m   [31merror[39m  Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                     [2mjsx-a11y/click-events-have-key-events[22m[0m
+[0m  [2m182:9[22m   [31merror[39m  Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element  [2mjsx-a11y/no-static-element-interactions[22m[0m
+[0m  [2m191:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m193:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m194:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m194:33[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m194:41[22m  [31merror[39m  'details.image' is missing in props validation                                                                                                                                                     [2mreact/prop-types[22m[0m
+[0m  [2m194:59[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m194:67[22m  [31merror[39m  'details.itemName' is missing in props validation                                                                                                                                                  [2mreact/prop-types[22m[0m
+[0m  [2m195:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m196:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m196:55[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m196:63[22m  [31merror[39m  'details.itemName' is missing in props validation                                                                                                                                                  [2mreact/prop-types[22m[0m
+[0m  [2m197:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m197:55[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m197:63[22m  [31merror[39m  'details.storename' is missing in props validation                                                                                                                                                 [2mreact/prop-types[22m[0m
+[0m  [2m198:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m199:24[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m199:32[22m  [31merror[39m  'details.reviews' is missing in props validation                                                                                                                                                   [2mreact/prop-types[22m[0m
+[0m  [2m199:40[22m  [31merror[39m  'details.reviews.map' is missing in props validation                                                                                                                                               [2mreact/prop-types[22m[0m
+[0m  [2m200:26[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m204:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m205:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m205:33[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m205:41[22m  [31merror[39m  'details.image' is missing in props validation                                                                                                                                                     [2mreact/prop-types[22m[0m
+[0m  [2m205:59[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m205:67[22m  [31merror[39m  'details.itemName' is missing in props validation                                                                                                                                                  [2mreact/prop-types[22m[0m
+[0m  [2m206:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m207:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m207:55[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m207:63[22m  [31merror[39m  'details.itemName' is missing in props validation                                                                                                                                                  [2mreact/prop-types[22m[0m
+[0m  [2m208:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m208:55[22m  [31merror[39m  'details' is missing in props validation                                                                                                                                                           [2mreact/prop-types[22m[0m
+[0m  [2m208:63[22m  [31merror[39m  'details.storename' is missing in props validation                                                                                                                                                 [2mreact/prop-types[22m[0m
+[0m  [2m209:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m210:19[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m211:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m212:23[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m218:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m219:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\Login.js[24m[0m
+[0m   [2m67:5[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m68:7[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m69:7[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m77:9[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m78:11[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m79:13[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m81:13[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m82:15[22m  [31merror[39m  A form label must be associated with a control                   [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m   [2m82:15[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m83:15[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m93:13[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m94:15[22m  [31merror[39m  A form label must be associated with a control                   [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m   [2m94:15[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m95:15[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m103:13[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m104:15[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m112:15[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m113:17[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m114:22[22m  [31merror[39m  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m  [2m115:19[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m117:31[22m  [31merror[39m  'e' is defined but never used                                    [2mno-unused-vars[22m[0m
+[0m  [2m127:17[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m128:19[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m128:35[22m  [31merror[39m  'e' is defined but never used                                    [2mno-unused-vars[22m[0m
+[0m  [2m132:15[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m133:27[22m  [31merror[39m  'e' is defined but never used                                    [2mno-unused-vars[22m[0m
+[0m  [2m147:9[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m148:11[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m151:7[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\Navbar.js[24m[0m
+[0m  [2m75:21[22m  [31merror[39m  'e' is defined but never used  [2mno-unused-vars[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\PayPalCheckoutButton.js[24m[0m
+[0m   [2m8:11[22m  [31merror[39m  'product' is missing in props validation              [2mreact/prop-types[22m[0m
+[0m  [2m14:41[22m  [31merror[39m  'product.price' is missing in props validation        [2mreact/prop-types[22m[0m
+[0m  [2m24:5[22m   [31merror[39m  'React' must be in scope when using JSX               [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m25:17[22m  [31merror[39m  'React' must be in scope when using JSX               [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m26:7[22m   [31merror[39m  'React' must be in scope when using JSX               [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m27:22[22m  [31merror[39m  'product.id' is missing in props validation           [2mreact/prop-types[22m[0m
+[0m  [2m33:38[22m  [31merror[39m  'product.description' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m  [2m35:46[22m  [31merror[39m  'product.price' is missing in props validation        [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\Register.js[24m[0m
+[0m   [2m37:10[22m  [31merror[39m  'image' is assigned a value but never used      [2mno-unused-vars[22m[0m
+[0m   [2m52:5[22m   [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m53:7[22m   [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m54:7[22m   [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m62:9[22m   [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m63:11[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m65:9[22m   [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m66:11[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m73:13[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m75:13[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m83:15[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m85:19[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m91:19[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m98:15[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m106:13[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m107:15[22m  [31merror[39m  A form label must be associated with a control  [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m107:15[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m108:15[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m117:13[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m118:15[22m  [31merror[39m  A form label must be associated with a control  [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m118:15[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m119:15[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m129:13[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m130:15[22m  [31merror[39m  A form label must be associated with a control  [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m130:15[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m131:15[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m143:13[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m144:15[22m  [31merror[39m  A form label must be associated with a control  [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m144:15[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m145:15[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m153:13[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m154:15[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m160:13[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m161:33[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m166:7[22m   [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\ReviewContainer.js[24m[0m
+[0m   [2m5:5[22m   [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m6:7[22m   [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m7:9[22m   [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m8:11[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m8:44[22m  [31merror[39m  'review' is missing in props validation           [2mreact/prop-types[22m[0m
+[0m   [2m8:51[22m  [31merror[39m  'review.rating' is missing in props validation    [2mreact/prop-types[22m[0m
+[0m  [2m10:9[22m   [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:11[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:46[22m  [31merror[39m  'review' is missing in props validation           [2mreact/prop-types[22m[0m
+[0m  [2m11:53[22m  [31merror[39m  'review.userName' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m  [2m12:11[22m  [31merror[39m  'React' must be in scope when using JSX           [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m12:50[22m  [31merror[39m  'review' is missing in props validation           [2mreact/prop-types[22m[0m
+[0m  [2m12:57[22m  [31merror[39m  'review.review' is missing in props validation    [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\SearchComponent.js[24m[0m
+[0m   [2m3:5[22m   [31merror[39m  'React' must be in scope when using JSX          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m4:7[22m   [31merror[39m  'React' must be in scope when using JSX          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m12:9[22m   [31merror[39m  'React' must be in scope when using JSX          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m18:34[22m  [31merror[39m  'functionSearch' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m  [2m20:9[22m   [31merror[39m  'React' must be in scope when using JSX          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m24:7[22m   [31merror[39m  'React' must be in scope when using JSX          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m25:7[22m   [31merror[39m  'React' must be in scope when using JSX          [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\ShippingService.js[24m[0m
+[0m   [2m6:53[22m  [31merror[39m  'details' is missing in props validation                [2mreact/prop-types[22m[0m
+[0m   [2m6:61[22m  [31merror[39m  'details.checkoutPrice' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m   [2m8:12[22m  [31merror[39m  'details' is missing in props validation                [2mreact/prop-types[22m[0m
+[0m   [2m8:20[22m  [31merror[39m  'details.checkoutPrice' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m  [2m13:31[22m  [31merror[39m  'details' is missing in props validation                [2mreact/prop-types[22m[0m
+[0m  [2m13:39[22m  [31merror[39m  'details.checkoutPrice' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m  [2m16:47[22m  [31merror[39m  'details' is missing in props validation                [2mreact/prop-types[22m[0m
+[0m  [2m16:55[22m  [31merror[39m  'details.checkoutPrice' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\SideList.js[24m[0m
+[0m   [2m7:5[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m8:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m9:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m23:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m24:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m25:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m29:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m34:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m35:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m39:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\SideMenu.js[24m[0m
+[0m   [2m6:5[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m7:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m8:19[22m  [31merror[39m  'to' is missing in props validation      [2mreact/prop-types[22m[0m
+[0m  [2m11:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:38[22m  [31merror[39m  'icon' is missing in props validation    [2mreact/prop-types[22m[0m
+[0m  [2m12:28[22m  [31merror[39m  'label' is missing in props validation   [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\Slider.js[24m[0m
+[0m  [2m58:13[22m  [31merror[39m  Visible, non-interactive elements with click handlers must have at least one keyboard listener  [2mjsx-a11y/click-events-have-key-events[22m[0m
+[0m  [2m58:13[22m  [31merror[39m  Non-interactive elements should not be assigned mouse or keyboard event listeners               [2mjsx-a11y/no-noninteractive-element-interactions[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\components\StarRating.js[24m[0m
+[0m   [2m7:46[22m  [31merror[39m  'initialRating' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m  [2m15:13[22m  [31merror[39m  'fixedRating' is missing in props validation    [2mreact/prop-types[22m[0m
+[0m  [2m16:32[22m  [31merror[39m  'initialRating' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m  [2m18:9[22m   [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m26:20[22m  [31merror[39m  'maxRating' is missing in props validation      [2mreact/prop-types[22m[0m
+[0m  [2m27:32[22m  [31merror[39m  'maxRating' is missing in props validation      [2mreact/prop-types[22m[0m
+[0m  [2m29:9[22m   [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m35:19[22m  [31merror[39m  'enterRating' is missing in props validation    [2mreact/prop-types[22m[0m
+[0m  [2m35:40[22m  [31merror[39m  'enterRating' is missing in props validation    [2mreact/prop-types[22m[0m
+[0m  [2m41:10[22m  [31merror[39m  'React' must be in scope when using JSX         [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\context\adminContext.js[24m[0m
+[0m  [2m24:14[22m  [31merror[39m  'children' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\context\adminOrdersContext.js[24m[0m
+[0m  [2m33:14[22m  [31merror[39m  'children' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\context\adminUserContext.js[24m[0m
+[0m  [2m28:14[22m  [31merror[39m  'children' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\context\cartContext.js[24m[0m
+[0m  [2m37:14[22m  [31merror[39m  'children' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\context\itemContext.js[24m[0m
+[0m  [2m74:14[22m  [31merror[39m  'children' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\context\sellerOrderContext.js[24m[0m
+[0m  [2m36:14[22m  [31merror[39m  'children' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\context\storeContext.js[24m[0m
+[0m  [2m49:14[22m  [31merror[39m  'children' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\context\userContext.js[24m[0m
+[0m  [2m82:14[22m  [31merror[39m  'children' is missing in props validation  [2mreact/prop-types[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Admin\Admin.js[24m[0m
+[0m   [2m8:5[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m9:7[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m10:9[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:9[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m25:9[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m26:9[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m27:9[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m30:7[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Admin\UserList.js[24m[0m
+[0m   [2m9:5[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m10:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m12:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m26:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m27:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m28:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m29:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m30:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m31:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m34:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m35:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m39:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m40:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m41:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m43:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m44:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m50:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m51:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m52:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m53:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m54:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m55:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m59:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m61:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m62:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m63:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m64:19[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m65:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m66:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m67:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m68:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m69:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m70:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m71:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m73:21[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Admin\add-user.js[24m[0m
+[0m    [2m7:5[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m    [2m8:7[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m    [2m9:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m10:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m24:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m25:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m26:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m27:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m28:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m29:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m32:7[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m33:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m37:11[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m38:13[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m39:13[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m41:11[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m42:13[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m48:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m49:11[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m50:13[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m51:13[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m52:15[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m57:11[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m58:13[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m59:15[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m60:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m61:19[22m  [31merror[39m  A form label must be associated with a control       [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m   [2m61:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m61:26[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead  [2mreact/no-unknown-property[22m[0m
+[0m   [2m62:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m69:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m71:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m72:19[22m  [31merror[39m  A form label must be associated with a control       [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m   [2m72:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m72:26[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead  [2mreact/no-unknown-property[22m[0m
+[0m   [2m73:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m80:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m83:15[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m84:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m85:19[22m  [31merror[39m  A form label must be associated with a control       [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m   [2m85:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m85:26[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead  [2mreact/no-unknown-property[22m[0m
+[0m   [2m86:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m93:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m95:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m96:19[22m  [31merror[39m  A form label must be associated with a control       [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m   [2m96:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m96:26[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead  [2mreact/no-unknown-property[22m[0m
+[0m   [2m97:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m104:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m106:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m107:19[22m  [31merror[39m  A form label must be associated with a control       [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m107:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m107:26[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead  [2mreact/no-unknown-property[22m[0m
+[0m  [2m108:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m115:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m118:15[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m119:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m120:19[22m  [31merror[39m  A form label must be associated with a control       [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m120:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m120:26[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead  [2mreact/no-unknown-property[22m[0m
+[0m  [2m121:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Admin\adminprofile.js[24m[0m
+[0m   [2m11:5[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m12:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m13:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m14:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m28:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m29:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m30:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m31:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m32:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m33:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m36:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m37:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m41:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m42:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m43:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m45:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m46:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m52:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m53:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m54:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m55:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m56:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m60:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m64:19[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m67:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m68:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m69:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m71:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m72:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m73:19[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m77:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m78:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m79:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m80:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m81:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m82:39[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m85:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m86:37[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m89:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m91:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m92:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m93:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m94:38[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m96:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m97:53[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m100:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Admin\orderlist.js[24m[0m
+[0m   [2m40:5[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m41:7[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m42:9[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m43:11[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m57:9[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m58:11[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m59:11[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m62:7[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m63:9[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m67:11[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m68:13[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m69:13[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m71:11[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m72:13[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m78:9[22m   [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m79:11[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m80:13[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m82:11[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m83:13[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m84:15[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m88:17[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m89:19[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m90:21[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m91:21[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m92:21[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m93:21[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m94:21[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m95:21[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m96:21[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m103:21[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m104:23[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m104:27[22m  [31merror[39m  The scope prop can only be used on <th> elements                 [2mjsx-a11y/scope[22m[0m
+[0m  [2m105:23[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m106:23[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m107:23[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m108:23[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m111:23[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m112:23[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m112:27[22m  [31merror[39m  The scope prop can only be used on <th> elements                 [2mjsx-a11y/scope[22m[0m
+[0m  [2m114:27[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m141:27[22m  [31merror[39m  'React' must be in scope when using JSX                          [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m142:29[22m  [31merror[39m  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m  [2m142:44[22m  [31merror[39m  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Buyer\Buyer.js[24m[0m
+[0m   [2m82:5[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m83:7[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m84:7[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m85:9[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m86:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m87:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m88:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m89:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m93:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m98:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m100:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m108:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m109:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m110:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m113:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m114:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m115:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m117:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m118:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m119:19[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m120:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m121:23[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m122:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m123:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m124:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m125:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m126:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m127:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m128:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m133:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m136:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m137:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m137:33[22m  [31merror[39m  The scope prop can only be used on <th> elements                                                                                                                                                   [2mjsx-a11y/scope[22m[0m
+[0m  [2m138:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m139:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m140:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m141:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m146:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m147:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m149:33[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m151:45[22m  [31merror[39m  'e' is defined but never used                                                                                                                                                                      [2mno-unused-vars[22m[0m
+[0m  [2m167:33[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m169:45[22m  [31merror[39m  'e' is defined but never used                                                                                                                                                                      [2mno-unused-vars[22m[0m
+[0m  [2m195:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m195:17[22m  [31merror[39m  Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                     [2mjsx-a11y/click-events-have-key-events[22m[0m
+[0m  [2m195:17[22m  [31merror[39m  Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element  [2mjsx-a11y/no-static-element-interactions[22m[0m
+[0m  [2m204:19[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m206:23[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m207:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m208:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m210:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m211:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m212:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m213:31[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m214:33[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m215:35[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m216:37[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m219:33[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m221:31[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m226:33[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m227:35[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m228:37[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m231:33[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m233:31[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m238:33[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m239:35[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m240:37[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m243:33[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m245:31[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m250:33[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m251:35[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m252:37[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m255:33[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m259:31[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m273:23[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m274:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m275:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m277:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m278:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m279:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m280:31[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m286:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m291:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Buyer\Cart.js[24m[0m
+[0m   [2m79:33[22m  [31merror[39m  'e' is defined but never used                                                                                                                                                                      [2mno-unused-vars[22m[0m
+[0m  [2m104:9[22m   [31merror[39m  Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                     [2mjsx-a11y/click-events-have-key-events[22m[0m
+[0m  [2m104:9[22m   [31merror[39m  Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element  [2mjsx-a11y/no-static-element-interactions[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Buyer\Product.js[24m[0m
+[0m   [2m8:5[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m9:7[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m10:7[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:7[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m12:9[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m13:9[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m15:7[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m16:7[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Seller\Add-Product.js[24m[0m
+[0m    [2m6:10[22m  [31merror[39m  'UseStoreContext' is defined but never used          [2mno-unused-vars[22m[0m
+[0m   [2m36:11[22m  [31merror[39m  'data' is assigned a value but never used            [2mno-unused-vars[22m[0m
+[0m   [2m57:5[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m59:7[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m60:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m61:11[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m75:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m76:11[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m77:11[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m78:11[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m81:7[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m82:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m86:11[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m87:13[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m88:13[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m90:11[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m91:13[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m97:9[22m   [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m98:11[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m99:13[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m100:15[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m101:15[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m102:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m109:13[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m110:15[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m111:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m112:19[22m  [31merror[39m  A form label must be associated with a control       [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m112:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m112:26[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead  [2mreact/no-unknown-property[22m[0m
+[0m  [2m113:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m121:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m123:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m124:19[22m  [31merror[39m  A form label must be associated with a control       [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m124:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m124:26[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead  [2mreact/no-unknown-property[22m[0m
+[0m  [2m125:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m133:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m136:15[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m137:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m138:19[22m  [31merror[39m  A form label must be associated with a control       [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m138:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m138:26[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead  [2mreact/no-unknown-property[22m[0m
+[0m  [2m139:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m147:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m149:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m150:19[22m  [31merror[39m  A form label must be associated with a control       [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m150:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m150:26[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead  [2mreact/no-unknown-property[22m[0m
+[0m  [2m151:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m160:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m163:15[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m164:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m165:19[22m  [31merror[39m  A form label must be associated with a control       [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m165:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m165:26[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead  [2mreact/no-unknown-property[22m[0m
+[0m  [2m166:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m174:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m176:17[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m177:19[22m  [31merror[39m  A form label must be associated with a control       [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m177:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m177:26[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead  [2mreact/no-unknown-property[22m[0m
+[0m  [2m178:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m186:19[22m  [31merror[39m  'React' must be in scope when using JSX              [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Seller\ProductList.js[24m[0m
+[0m   [2m41:29[22m  [31merror[39m  'id' is defined but never used                                                                                                                                                                     [2mno-unused-vars[22m[0m
+[0m   [2m76:5[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m78:7[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m79:9[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m80:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m94:9[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m95:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m96:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m99:7[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m100:9[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m104:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m106:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m107:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m109:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m111:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m117:9[22m   [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m118:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m120:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m121:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m122:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m123:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m127:11[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m128:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m129:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m130:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m132:19[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m133:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m134:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m135:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m136:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m137:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m138:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m141:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m145:23[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m146:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m147:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m148:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m149:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m150:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m151:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m152:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m154:39[22m  [31merror[39m  'e' is defined but never used                                                                                                                                                                      [2mno-unused-vars[22m[0m
+[0m  [2m164:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m167:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m169:39[22m  [31merror[39m  'e' is defined but never used                                                                                                                                                                      [2mno-unused-vars[22m[0m
+[0m  [2m171:29[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m182:13[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m182:13[22m  [31merror[39m  Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                     [2mjsx-a11y/click-events-have-key-events[22m[0m
+[0m  [2m182:13[22m  [31merror[39m  Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element  [2mjsx-a11y/no-static-element-interactions[22m[0m
+[0m  [2m191:15[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m192:17[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m193:19[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m194:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m195:23[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m196:23[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m197:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m204:21[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m205:23[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m206:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m207:27[22m  [31merror[39m  A form label must be associated with a control                                                                                                                                                     [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m207:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m207:34[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead                                                                                                                                                [2mreact/no-unknown-property[22m[0m
+[0m  [2m208:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m218:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m219:27[22m  [31merror[39m  A form label must be associated with a control                                                                                                                                                     [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m219:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m219:34[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead                                                                                                                                                [2mreact/no-unknown-property[22m[0m
+[0m  [2m222:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m233:23[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m234:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m235:27[22m  [31merror[39m  A form label must be associated with a control                                                                                                                                                     [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m235:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m235:34[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead                                                                                                                                                [2mreact/no-unknown-property[22m[0m
+[0m  [2m236:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m247:23[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m248:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m249:27[22m  [31merror[39m  A form label must be associated with a control                                                                                                                                                     [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m249:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m249:34[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead                                                                                                                                                [2mreact/no-unknown-property[22m[0m
+[0m  [2m250:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m260:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m262:25[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m263:27[22m  [31merror[39m  A form label must be associated with a control                                                                                                                                                     [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m263:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m263:34[22m  [31merror[39m  Unknown property 'for' found, use 'htmlFor' instead                                                                                                                                                [2mreact/no-unknown-property[22m[0m
+[0m  [2m264:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m273:27[22m  [31merror[39m  'React' must be in scope when using JSX                                                                                                                                                            [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Seller\Profile.js[24m[0m
+[0m   [2m9:5[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m10:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m12:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m26:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m27:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m28:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m29:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m32:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m33:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m37:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m38:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m39:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m41:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m42:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m48:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m49:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m50:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m51:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m52:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m56:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m60:19[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m63:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m64:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m65:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m67:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m68:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m69:19[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m73:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m74:13[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m75:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m76:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m77:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m78:33[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m80:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m81:37[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m83:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m85:15[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m86:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m87:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m88:38[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m90:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m91:41[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m93:17[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Seller\Seller.js[24m[0m
+[0m   [2m4:30[22m  [31merror[39m  'faUser' is defined but never used       [2mno-unused-vars[22m[0m
+[0m   [2m8:5[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m   [2m9:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m10:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m11:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m25:9[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m26:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m27:11[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m30:7[22m   [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Seller\Store.js[24m[0m
+[0m  [2m41:13[22m  [31merror[39m  A form label must be associated with a control  [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m  [2m51:13[22m  [31merror[39m  A form label must be associated with a control  [2mjsx-a11y/label-has-associated-control[22m[0m
+[0m[0m
+[0m[4mD:\WebApps\React\SSD-Project\frontend\src\pages\Seller\banner.js[24m[0m
+[0m  [2m3:5[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m  [2m4:7[22m  [31merror[39m  'React' must be in scope when using JSX  [2mreact/react-in-jsx-scope[22m[0m
+[0m[0m
+[0m[31m[1m✖ 968 problems (968 errors, 0 warnings)[22m[39m[0m
+[0m[31m[1m[22m[39m[31m[1m  17 errors and 0 warnings potentially fixable with the `--fix` option.[22m[39m[0m
+[0m[31m[1m[22m[39m[0m

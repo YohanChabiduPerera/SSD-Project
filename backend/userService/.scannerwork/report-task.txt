@@ -1,0 +1,6 @@
+projectKey=ssd-user
+serverUrl=http://localhost:9000
+serverVersion=10.5.0.89998
+dashboardUrl=http://localhost:9000/dashboard?id=ssd-user
+ceTaskId=f44bace7-c91f-4dfe-8c52-287dff059998
+ceTaskUrl=http://localhost:9000/api/ce/task?id=f44bace7-c91f-4dfe-8c52-287dff059998
