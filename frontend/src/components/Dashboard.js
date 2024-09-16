@@ -1,15 +1,15 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDollarSign,
   faTruck,
   faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
-import { UseUserContext } from "../context/useUserContext";
-import { useBackendAPI } from "../context/useBackendAPI";
-import { Navigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 import { useAdminContext } from "../context/useAdminContext";
 import { useAdminUserContext } from "../context/useAdminUserContext";
+import { useBackendAPI } from "../context/useBackendAPI";
+import { UseUserContext } from "../context/useUserContext";
 
 function Dashboard() {
   const { logoutUser } = UseUserContext();
@@ -138,7 +138,7 @@ function Dashboard() {
                   </span>
                   <div className="text">
                     <h6 className="mb-2 card-title">Users</h6>{" "}
-                    <span>{userCount} (including admin)</span>
+                    <span>{userCount}</span>
                   </div>
                 </article>
               </div>

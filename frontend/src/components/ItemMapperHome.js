@@ -1,16 +1,21 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useMemo, useState } from "react";
 import Item from "./Item";
-import { UseItemContext } from "../context/useItemContext";
 
-export const ItemMapperHome = () => {
-  const { items } = UseItemContext();
+export const ItemMapperHome = (props) => {
+  const { items, dispatch } = props.UseItemContext();
   const [sortedItems, setSortedItems] = useState([]);
 
-  useEffect(() => {
-    if (items.length > 0 && sortedItems.length === 0) {
-      setSortedItems([...items].sort(() => 0.5 - Math.random()));
+  // useMemo to memoize the sortedItems array
+  const memoizedSortedItems = useMemo(() => {
+    if (items.length > 0) {
+      return [...items].sort(() => 0.5 - Math.random()); // Shuffle items randomly
     }
-  }, [items]);
+    return [];
+  }, [items]); // Only update if 'items' changes
+
+  useEffect(() => {
+    setSortedItems(memoizedSortedItems);
+  }, [memoizedSortedItems]);
 
   return (
     <div
@@ -25,7 +30,12 @@ export const ItemMapperHome = () => {
           key={dat._id}
           style={{ flexBasis: `${100 / Math.min(sortedItems.length, 8)}%` }}
         >
-          <Item details={dat} />
+          <Item
+            details={dat}
+            itemDispatch={dispatch}
+            UseUserContext={props.UseUserContext}
+            useCartContext={props.useCartContext}
+          />
         </div>
       ))}
     </div>

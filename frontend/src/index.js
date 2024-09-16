@@ -1,30 +1,30 @@
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { ItemContextProvider } from "./context/itemContext";
-import { CartContextProvider } from "./context/cartContext";
-import { UserContextProvider } from "./context/userContext";
-import { StoreContextProvider } from "./context/storeContext";
-import { SellerOrderContextProvider } from "./context/sellerOrderContext";
+import App from "./App";
 import { AdminContextProvider } from "./context/adminContext";
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { AdminOrderContextProvider } from "./context/adminOrdersContext";
 import { AdminUserContextProvider } from "./context/adminUserContext";
+import { CartContextProvider } from "./context/cartContext";
+import { ItemContextProvider } from "./context/itemContext";
+import { SellerOrderContextProvider } from "./context/sellerOrderContext";
+import { StoreContextProvider } from "./context/storeContext";
+import { UserContextProvider } from "./context/userContext";
+import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <PayPalScriptProvider
-        options={{
-          "client-id":
-            "Ae0K1qpBCZ331xu7kH8SIQSEjtGDFsDQ9qONYWEzWH8YWXnEy-k3Zx7pTi9QTO10zjWsy2if8zRytoj6",
-        }}
-      >
-        <UserContextProvider>
-          <ItemContextProvider>
+      <UserContextProvider>
+        <ItemContextProvider>
+          <PayPalScriptProvider
+            options={{
+              "client-id":
+                "Ae0K1qpBCZ331xu7kH8SIQSEjtGDFsDQ9qONYWEzWH8YWXnEy-k3Zx7pTi9QTO10zjWsy2if8zRytoj6",
+            }}
+          >
             <StoreContextProvider>
               <SellerOrderContextProvider>
                 <AdminContextProvider>
@@ -38,9 +38,9 @@ root.render(
                 </AdminContextProvider>
               </SellerOrderContextProvider>
             </StoreContextProvider>
-          </ItemContextProvider>
-        </UserContextProvider>
-      </PayPalScriptProvider>
+          </PayPalScriptProvider>
+        </ItemContextProvider>
+      </UserContextProvider>
     </React.StrictMode>
   </BrowserRouter>
 );

@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const validator = require("validator");
+import mongoose from "mongoose";
+import validator from "validator";
+import bcrypt from "bcryptjs";
 
-const bcrypt = require("bcryptjs");
+const { Schema } = mongoose;
 
 const userSchema = new Schema({
   userName: {
@@ -31,7 +31,7 @@ const userSchema = new Schema({
   storeID: String,
 });
 
-//Creating User schema functions
+// Creating User schema functions
 userSchema.statics.signup = async function (
   userName,
   password,
@@ -42,18 +42,23 @@ userSchema.statics.signup = async function (
 ) {
   const exist = await this.find({ userName });
 
-  if (!userName || !password || !contact || !address)
+  if (!userName || !password || !contact || !address) {
     throw Error("Please fill all fields");
-  if (!validator.isEmail(userName)) throw Error("Email is invalid");
-  if (exist.length === 1)
-    if (exist[0].role == role) throw Error("Email is already in use");
-
-  if (exist.length > 1) throw Error("Email is already in use");
+  }
+  if (!validator.isEmail(userName)) {
+    throw Error("Email is invalid");
+  }
+  if (exist.length === 1 && exist[0].role === role) {
+    throw Error("Email is already in use");
+  }
+  if (exist.length > 1) {
+    throw Error("Email is already in use");
+  }
 
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
 
-  const singedUser = await this.create({
+  const signedUser = await this.create({
     userName,
     password: hash,
     contact,
@@ -62,20 +67,27 @@ userSchema.statics.signup = async function (
     role,
   });
 
-  return singedUser; //To return a signedup new user object
+  return signedUser; // To return a signed-up new user object
 };
 
 userSchema.statics.login = async function (userName, password, role) {
-  if (!userName || !password) throw Error("Please fill all fields");
+  if (!userName || !password) {
+    throw Error("Please fill all fields");
+  }
 
   const user = await this.findOne({ userName, role });
-  if (!user) throw Error("User Name doesn't exist");
+  if (!user) {
+    throw Error("User Name doesn't exist");
+  }
 
-  const match = await bcrypt.compare(password, user.password); //returns true or false
+  const match = await bcrypt.compare(password, user.password); // returns true or false
 
-  if (!match) throw Error("Incorrect Password");
+  if (!match) {
+    throw Error("Incorrect Password");
+  }
 
   return user;
 };
 
-module.exports = mongoose.model("User", userSchema);
+// Export the Mongoose model as default export
+export default mongoose.model("User", userSchema);

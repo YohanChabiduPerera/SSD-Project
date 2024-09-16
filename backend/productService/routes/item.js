@@ -9,6 +9,7 @@ const {
   getOneItem,
   deleteItem,
   deleteAllItemsFromStore,
+  getAllItemsWithPagination,
 } = require("../controller/itemController");
 
 // Route for adding a new item
@@ -37,5 +38,7 @@ router.patch("/updateItem", updateItem);
 
 // Route for deleting all items for a specific store by store ID
 router.delete("/deleteStoreItems/:id", deleteAllItemsFromStore);
+
+router.get("/pagination", getAllItemsWithPagination); // This will now handle pagination (page and limit)
 
 module.exports = router;

@@ -1,32 +1,51 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ItemContext } from "./itemContext";
 import axios from "axios";
 
 export const UseItemContext = () => {
   const itemContext = useContext(ItemContext);
-  const { dispatch, items } = itemContext;
+  const { dispatch, items, page } = itemContext;
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data } = await axios.get("https://localhost:8081/api/product/");
-        dispatch({
-          type: "SetItems",
-          payload: data,
-        });
+        // Fetching data from API with pagination
+        const { data } = await axios.get(
+          `https://localhost:8081/api/product/pagination?page=${page}&limit=10`
+        );
+
+        // Check if the response contains the items array
+        if (Array.isArray(data.items)) {
+          dispatch({
+            type: "SetItems",
+            payload: data.items, // Append new items to the existing ones
+          });
+
+          if (data.items.length < 20) {
+            setHasMore(false); // No more items to load if less than 20 items are returned
+          }
+        } else {
+          console.error("Items not found in the response", data);
+        }
       } catch (err) {
         console.log(err);
       }
     }
     fetchData();
-  }, []);
+  }, [page]);
 
   function hasUserReviewedItem(itemId, userId) {
     const item = items.find((item) => item.id === itemId);
-
-    const hasReviewed = item.reviews.some((review) => review.userId === userId);
-
-    return hasReviewed;
+    return item?.reviews.some((review) => review.userId === userId);
   }
-  return { itemContext, dispatch, items, hasUserReviewedItem };
+
+  return {
+    itemContext,
+    dispatch,
+    items,
+    hasUserReviewedItem,
+    page,
+    hasMore,
+  };
 };

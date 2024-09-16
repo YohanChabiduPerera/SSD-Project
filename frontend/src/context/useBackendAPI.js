@@ -24,63 +24,121 @@ export function useBackendAPI() {
   return {
     registerUser: async function (userDetails) {
       try {
-        const { data } = await axios.post(
+        // Make the API call to register the user
+        const response = await axios.post(
           "https://localhost:8080/api/user/signup/",
-          userDetails
+          userDetails,
+          {
+            withCredentials: true, // Send cookies with requests
+          }
         );
 
-        localStorage.setItem("user", JSON.stringify(data));
+        // Check if the response contains data
+        if (response && response.data) {
+          const data = response.data;
 
-        dispatch({ type: "SetUser", payload: [data] });
+          // Store user data in localStorage
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              _id: data._id,
+              userName: data.userName,
+              image: data.image,
+              role: data.role,
+              token: data.token,
+              storeID: data.storeID,
+            })
+          );
 
-        //Here we send an email once the user is registered
-        SendEmail({
-          user_name: userDetails.userName,
-          role: userDetails.role,
-        });
+          // Update the user context with the new user data
+          dispatch({ type: "SetUser", payload: [data] });
 
-        alert("Account Created Successfully");
+          // Send an email notification to the user (this function would be defined elsewhere)
+          SendEmail({
+            user_name: userDetails.userName,
+            role: userDetails.role,
+          });
 
-        //To remove the existing cart for a new account
-        cartDispatch({ type: "ClearCart" });
-        clearCartContext();
+          // Notify the user of successful registration
+          alert("Account Created Successfully");
 
-        if (data.role === "Buyer") navigate("/buyer/product");
-        else if (data.role === "Merchant") navigate("/seller/store");
+          // Clear the cart for new users
+          cartDispatch({ type: "ClearCart" });
+          clearCartContext();
+
+          // Navigate to appropriate routes based on the user role
+          if (data.role === "Buyer") navigate("/buyer/product");
+          else if (data.role === "Merchant") navigate("/seller/store");
+        } else {
+          // If no data is received, show a general error message
+          alert("Registration failed. No response from the server.");
+        }
       } catch (err) {
-        alert("Ooops.. There seems to be an error. Try again later");
-        console.log(err);
+        // Handle errors and show the error message from the backend
+        const errorMessage =
+          err.response?.data?.err ||
+          "Oops.. Registration failed. Please try again later.";
+        alert(errorMessage);
+        console.error("Error during registration:", err);
       }
     },
     login: async function (userDetails) {
       try {
-        const { data } = await axios.post(
-          "https://localhost:8080/api/user/login/",
-          userDetails
+        // Make the API call to log in the user
+        const response = await axios.post(
+          "https://localhost:8080/api/user/login",
+          userDetails,
+          {
+            withCredentials: true, // Send cookies with requests
+          }
         );
 
-        if (data.role) {
-          async function configureUser() {
-            localStorage.setItem("user", JSON.stringify(data));
+        // Check if the response contains data
+        if (response && response.data) {
+          const data = response.data;
 
+          // Ensure the user role is part of the response
+          if (data.role) {
+            console.log(data);
+            // Store user data in localStorage
+            localStorage.setItem(
+              "user",
+              JSON.stringify({
+                _id: data._id,
+                userName: data.userName,
+                image: data.image,
+                role: data.role,
+                token: data.token,
+                storeID: data.storeID,
+              })
+            );
+
+            // Update the user context with the logged-in user data
             dispatch({ type: "SetUser", payload: [data] });
-          }
-          await configureUser();
 
-          //now once the merchant or user is successfully registered,we try to redirect him to his store page once he is registered
-          if (user.role === "Buyer") navigate("/buyer/product");
-          else if (user.role === "Merchant")
-            user.storeID ? navigate("/seller") : navigate("/seller/store");
-          else if (user.role === "Admin") navigate("/admin");
+            // Redirect based on user role
+            if (data.role === "Buyer") navigate("/buyer/product");
+            else if (data.role === "Merchant") {
+              // Check if the merchant has a store ID, navigate accordingly
+              data.storeID ? navigate("/seller") : navigate("/seller/store");
+            } else if (data.role === "Admin") navigate("/admin");
+          } else {
+            // If role is not present, show an error message
+            alert(data.err || "User role not found in the response");
+          }
         } else {
-          alert(data.err);
+          // If no data is received, show a general error message
+          alert("Login failed. No response from the server.");
         }
       } catch (err) {
-        console.log(err);
-        alert(err.response.data.err);
-        return err.response.data.err;
+        // Handle errors and show the error message from the backend
+        const errorMessage =
+          err.response?.data?.err || "Login failed. Please try again.";
+        alert(errorMessage);
+        console.error("Error during login:", err);
       }
     },
+
     updateUser: async function ({ userId, userName, image }) {
       try {
         const { data } = await axios.patch(
@@ -89,10 +147,34 @@ export function useBackendAPI() {
             userId,
             userName,
             image,
+          },
+          {
+            withCredentials: true, // Send cookies with requests
           }
         );
 
-        localStorage.setItem("user", JSON.stringify(data));
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            _id: data._id,
+            userName: data.userName,
+            image: data.image,
+            role: data.role,
+            token: data.token,
+            storeID: data.storeID,
+          })
+        );
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            _id: data._id,
+            userName: data.userName,
+            image: data.image,
+            role: data.role,
+            token: data.token,
+            storeID: data.storeID,
+          })
+        );
 
         dispatch({
           type: "SetUser",
@@ -114,10 +196,7 @@ export function useBackendAPI() {
             userID: user1[0]._id,
           },
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -132,10 +211,7 @@ export function useBackendAPI() {
             itemList: info,
           },
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -176,10 +252,7 @@ export function useBackendAPI() {
           "https://localhost:8082/api/store/add/",
           store,
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -203,10 +276,7 @@ export function useBackendAPI() {
         const { data } = await axios.get(
           "https://localhost:8083/api/payment/getStoreTotal/" + storeID,
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
         return data;
@@ -220,10 +290,7 @@ export function useBackendAPI() {
         const { data } = await axios.get(
           "https://localhost:8082/api/store/getStoreItemCount/" + storeID,
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
         return data.itemCount;
@@ -237,10 +304,7 @@ export function useBackendAPI() {
         const { data } = await axios.get(
           "https://localhost:8082/api/store/get/" + storeID,
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
         return data.storeName;
@@ -256,10 +320,7 @@ export function useBackendAPI() {
         const { data } = await axios.get(
           "https://localhost:8082/api/store/get/" + user.storeID,
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -286,10 +347,7 @@ export function useBackendAPI() {
             item: data,
           },
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -317,10 +375,7 @@ export function useBackendAPI() {
             itemID,
           },
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -348,10 +403,7 @@ export function useBackendAPI() {
             item: data,
           },
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -369,10 +421,7 @@ export function useBackendAPI() {
         const { data } = await axios.get(
           "https://localhost:8082/api/order/getStoreOrder/" + storeID,
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -388,10 +437,7 @@ export function useBackendAPI() {
           "https://localhost:8082/api/order/updateOrderStatus/",
           { orderID, status },
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -399,10 +445,7 @@ export function useBackendAPI() {
           "https://localhost:8083/api/payment/updatePaymentStatus/",
           { paymentID: data.paymentID, status },
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -433,20 +476,14 @@ export function useBackendAPI() {
         const adminRevenue = await axios.get(
           "https://localhost:8083/api/payment/getAdminTotal",
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
         const adminTotalOrders = await axios.get(
           "https://localhost:8082/api/order/getOrderCountForAdmin/",
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -470,10 +507,7 @@ export function useBackendAPI() {
           await axios.delete(
             "https://localhost:8082/api/store/delete/" + data.storeID,
             {
-              headers: {
-                Authorization: `Bearer ${user.token}`,
-                role: user.role,
-              },
+              withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
             }
           );
 
@@ -498,10 +532,7 @@ export function useBackendAPI() {
         const { data } = await axios.get(
           "https://localhost:8082/api/order/getAllStoreOrders/",
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -515,10 +546,7 @@ export function useBackendAPI() {
         const { data } = await axios.get(
           `https://localhost:8082/api/order/getAllStoreOrders/${userID}`,
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
@@ -556,20 +584,14 @@ export function useBackendAPI() {
             review,
           },
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 
         const orderDetails = await axios.patch(
           "https://localhost:8082/api/order/setReviewStatus/" + orderID,
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 

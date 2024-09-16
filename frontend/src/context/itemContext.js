@@ -6,19 +6,24 @@ export const ItemContext = createContext();
 export const ItemContextProvider = (props) => {
   const [item, dispatch] = useReducer(reducer, {
     items: [],
+    page: 1,
   });
 
   function reducer(state, action) {
     switch (action.type) {
       case "CreateItem":
-        return { items: [action.payload, ...state.items] };
+        return {
+          ...state,
+          items: [action.payload, ...state.items],
+        };
 
       case "SetItems":
-        return { items: action.payload };
+        return {
+          ...state,
+          items: action.payload, // Append new items to existing items
+        };
 
       case "AddReview":
-        //[{userID, userName, rating, review},...{}] what a review contains
-        //the payload struture {_id (item), userID, userName, rating, review}
         return {
           ...state,
           items: state.items.map((itm) => {
@@ -41,7 +46,7 @@ export const ItemContextProvider = (props) => {
           }),
         };
 
-      case "DeleteReview": {
+      case "DeleteReview":
         return {
           ...state,
           items: state.items.map((itm) => {
@@ -55,13 +60,17 @@ export const ItemContextProvider = (props) => {
             } else return itm;
           }),
         };
-      }
 
       case "DeleteItems":
         return {
-          items: state.items.filter((data) => {
-            return data._id !== action.payload._id;
-          }),
+          ...state,
+          items: state.items.filter((data) => data._id !== action.payload._id),
+        };
+
+      case "SetPage":
+        return {
+          ...state,
+          page: action.payload,
         };
 
       default:

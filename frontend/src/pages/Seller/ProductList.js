@@ -140,7 +140,7 @@ export default function ProductList() {
                 </thead>
                 <tbody>
                   {/* // Map through the items array and display each item in a table row*/}
-                  {items.map((dat) => {
+                  {items?.map((dat) => {
                     return (
                       <tr key={dat._id}>
                         <td>{dat._id.slice(-4)}</td>

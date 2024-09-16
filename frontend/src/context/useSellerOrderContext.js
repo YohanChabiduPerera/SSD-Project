@@ -15,17 +15,32 @@ export const useSellerOrderContext = () => {
 
   useEffect(() => {
     async function getStoreInfo() {
-      const data = await getAllItemsFromOneStore(user.storeID);
-      const itemCount = await getStoreItemCount(user.storeID);
-      const { total, orderCount } = await getTotalSalesAmount(user.storeID);
+      try {
+        const data = await getAllItemsFromOneStore(user.storeID);
+        const itemCount = await getStoreItemCount(user.storeID);
+        const response = await getTotalSalesAmount(user.storeID);
 
-      dispatch({
-        type: "AddOrder",
-        payload: { data, dashBoardDetails: { total, orderCount, itemCount } },
-      });
+        console.log("API Response:", response); // Log the response here
+
+        if (response) {
+          const { total, orderCount } = response; // Destructure safely if response exists
+          dispatch({
+            type: "AddOrder",
+            payload: {
+              data,
+              dashBoardDetails: { total, orderCount, itemCount },
+            },
+          });
+        } else {
+          console.error("No response from API or response is undefined.");
+        }
+      } catch (err) {
+        console.error("Error fetching store info:", err);
+      }
     }
+
     getStoreInfo();
-  }, []);
+  }, [dispatch, user]);
 
   return { sellerOrderContext, dispatch, order };
 };

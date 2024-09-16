@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import SideMenu from "../../components/SideMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBox, faDashboard, faPenToSquare, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBox,
+  faDashboard,
+  faPenToSquare,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import pic from "../../assets/f1.png";
 
 export default function Profile() {

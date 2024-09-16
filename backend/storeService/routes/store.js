@@ -15,6 +15,12 @@ const {
 } = require("../controller/storeController");
 
 router.use(requireAuth);
+/* `router.use(requireAuth);` is using the `requireAuth` middleware function for all routes defined
+after this line in the router. This means that before any of the routes defined below this line are
+executed, the `requireAuth` middleware function will be called to check if the user is
+authenticated. If the user is not authenticated, the middleware function may prevent access to the
+routes or perform some other action based on the authentication status. */
+// router.use(requireAuth);
 //create store
 router.post("/add", createStore);
 //display
