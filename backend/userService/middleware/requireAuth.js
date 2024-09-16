@@ -1,15 +1,17 @@
-const https = require("https");
-const fetch = require("node-fetch");
-const fs = require("fs");
-const jwt = require("jsonwebtoken");
+import https from "https";
+import fetch from "node-fetch";
+import fs from "fs";
+import jwt from "jsonwebtoken";
 
+// Custom HTTPS agent for SSL certificate
 const httpsAgent = new https.Agent({
-  rejectUnauthorized: false, // Bypass the SSL certificate verification
-  ca: fs.readFileSync("../certificate/rootCA.pem"), // Path to your self-signed CA
+  rejectUnauthorized: false, // Bypass SSL certificate verification
+  ca: fs.readFileSync("../certificate/rootCA.pem"),
 });
 
-const requireAuth = async (req, res, next) => {
-  const token = req.cookies.token;
+export const requireAuth = async (req, res, next) => {
+  const token = req.cookies?.token;
+
   if (!token) {
     return res.status(401).json({ error: "Authorization token not found" });
   }
@@ -27,9 +29,7 @@ const requireAuth = async (req, res, next) => {
     req.user = data;
     next();
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(401).json({ error: "Unauthorized Request" });
   }
 };
-
-module.exports = { requireAuth };

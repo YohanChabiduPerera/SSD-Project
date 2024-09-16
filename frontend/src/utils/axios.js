@@ -23,7 +23,7 @@ const baseURLs = [
   { name: "user", baseURL: "https://localhost:8080/api/user" },
   { name: "item", baseURL: "https://localhost:8081/api/product" },
   { name: "store", baseURL: "https://localhost:8082/api/store" },
-  { name: "order", baseURL: "https://localhost:8082/api/order/" },
+  { name: "order", baseURL: "https://localhost:8082/api/order" },
   { name: "payment", baseURL: "https://localhost:8083/api/payment" },
 ];
 
@@ -45,5 +45,12 @@ export const {
 export const updateAxiosCsrfToken = () => {
   [userApi, itemApi, storeApi, orderApi, paymentApi].forEach((api) => {
     api.defaults.headers["x-csrf-token"] = getCsrfToken();
+  });
+};
+
+export const clearAxiosHeadersOnLogout = () => {
+  // Remove CSRF token or other sensitive headers from all instances
+  [userApi, itemApi, storeApi, orderApi, paymentApi].forEach((api) => {
+    delete api.defaults.headers["x-csrf-token"];
   });
 };

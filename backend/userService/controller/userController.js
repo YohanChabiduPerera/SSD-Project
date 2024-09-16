@@ -5,9 +5,6 @@ import crypto from "crypto";
 // To generate a token
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.SECRET, { expiresIn: "3d" });
-  // 1st argument -> object for payload
-  // 2nd argument -> secret string only known to our server (in the .env file)
-  // 3rd argument -> optional. Specifies that the token expires in 3 days
 };
 
 // To generate a CSRF token
@@ -114,7 +111,6 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   try {
     const data = await userModel.findByIdAndDelete(req.params.id);
-    console.log(data);
     res.json(data);
   } catch (err) {
     console.log(err.message);
@@ -141,7 +137,6 @@ const updateUserStore = async (req, res) => {
       { _id: userID },
       { storeID }
     );
-    console.log(updatedUser);
     res.json(updatedUser);
   } catch (err) {
     console.log(err);

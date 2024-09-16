@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false, // Bypass the SSL certificate verification
-  ca: fs.readFileSync("../certificate/rootCA.pem"), // Path to your self-signed CA
+  ca: fs.readFileSync("../certificate/rootCA.pem"),
 });
 
 const requireAuth = async (req, res, next) => {

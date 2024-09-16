@@ -4,9 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useBackendAPI } from "../context/useBackendAPI";
-import NavBar from "./Navbar";
 import { UseUserContext } from "../context/useUserContext";
-import { updateAxiosCsrfToken } from "../utils/axios";
+import NavBar from "./Navbar";
 
 // Defining the Header function
 function Header() {
@@ -26,7 +25,6 @@ function Header() {
   // Defining function for logging out the user
   const logoutFunction = () => {
     logoutUser();
-    updateAxiosCsrfToken();
   };
 
   // Creating a reference to the input field for the user name
