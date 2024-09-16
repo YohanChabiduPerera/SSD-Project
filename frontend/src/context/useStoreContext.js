@@ -17,9 +17,6 @@ export const UseStoreContext = () => {
             "https://localhost:8082/api/store/get/" + user1[0].storeID,
             {
               withCredentials: true, // Send cookies with requests (including the JWT token)
-              headers: {
-                "x-csrf-token": getCsrfToken(), // Include the CSRF token in the request header
-              },
             }
           );
 

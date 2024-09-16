@@ -43,8 +43,7 @@ export const {
 
 // Function to update the CSRF token in all state-changing instances
 export const updateAxiosCsrfToken = () => {
-  const csrfToken = getCsrfToken();
   [userApi, itemApi, storeApi, orderApi, paymentApi].forEach((api) => {
-    api.defaults.headers["x-csrf-token"] = csrfToken;
+    api.defaults.headers["x-csrf-token"] = getCsrfToken();
   });
 };

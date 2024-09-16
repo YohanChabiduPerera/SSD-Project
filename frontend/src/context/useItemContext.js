@@ -16,9 +16,6 @@ export const UseItemContext = () => {
           `https://localhost:8081/api/product/pagination?page=${page}&limit=10`,
           {
             withCredentials: true, // Send cookies with requests (including the JWT token)
-            headers: {
-              "x-csrf-token": getCsrfToken(), // Include the CSRF token in the request header
-            },
           }
         );
 

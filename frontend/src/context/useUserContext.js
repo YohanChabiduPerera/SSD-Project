@@ -22,9 +22,6 @@ export const UseUserContext = () => {
           `https://localhost:8082/api/order/getAllStoreOrders/${user._id}`,
           {
             withCredentials: true, // Send cookies with requests (including the JWT token)
-            headers: {
-              "x-csrf-token": getCsrfToken(),
-            },
           }
         );
 
