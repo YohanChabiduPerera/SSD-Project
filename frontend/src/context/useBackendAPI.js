@@ -46,6 +46,7 @@ export function useBackendAPI() {
               image: data.image,
               role: data.role,
               token: data.token,
+              storeID: data.storeID,
             })
           );
 
@@ -108,6 +109,7 @@ export function useBackendAPI() {
                 image: data.image,
                 role: data.role,
                 token: data.token,
+                storeID: data.storeID,
               })
             );
 
@@ -159,6 +161,18 @@ export function useBackendAPI() {
             image: data.image,
             role: data.role,
             token: data.token,
+            storeID: data.storeID,
+          })
+        );
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            _id: data._id,
+            userName: data.userName,
+            image: data.image,
+            role: data.role,
+            token: data.token,
+            storeID: data.storeID,
           })
         );
 
@@ -431,10 +445,7 @@ export function useBackendAPI() {
           "https://localhost:8083/api/payment/updatePaymentStatus/",
           { paymentID: data.paymentID, status },
           {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              role: user.role,
-            },
+            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
           }
         );
 

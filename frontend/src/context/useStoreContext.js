@@ -15,10 +15,7 @@ export const UseStoreContext = () => {
           const { data } = await axios.get(
             "https://localhost:8082/api/store/get/" + user1[0].storeID,
             {
-              headers: {
-                Authorization: `Bearer ${user1[0].token}`,
-                role: user1[0].role,
-              },
+              withCredentials: true,
             }
           );
 
