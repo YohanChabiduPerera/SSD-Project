@@ -191,57 +191,63 @@ function Dashboard() {
                       </th>
                     </tr>
                   </thead>
-                  {users
-                    .filter(
-                      (usr) =>
-                        (userRole === "" || usr.role === userRole) &&
-                        usr.role !== "Admin"
-                    )
-                    .map((usr) => {
-                      return (
-                        <tr
-                          key={usr._id}
-                          style={{ textAlign: "center", height: "50px" }}
-                        >
-                          <td style={{ textAlign: "center" }}>
-                            {usr._id.slice(-4)}
-                          </td>
-                          <td style={{ textAlign: "center" }}>
-                            {usr.userName}
-                          </td>
-                          <td style={{ textAlign: "center" }}>{usr.role}</td>
-                          <td style={{ textAlign: "center" }}>{usr.contact}</td>
-                          <td style={{ textAlign: "center" }}>{usr.address}</td>
-                          <td style={{ textAlign: "center" }}>
-                            <button
-                              onClick={(e) =>
-                                removeUser(e, usr._id, usr.userName)
-                              }
-                              style={{
-                                padding: "8px 12px",
-                                borderRadius: "4px",
-                                border: "none",
-                                fontSize: "16px",
-                                fontFamily: "sans-serif",
-                                cursor: "pointer",
-                                backgroundColor: "#fff",
-                                color: "#ff4d4f",
-                                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-                                float: "right",
-                              }}
-                              onMouseEnter={(e) =>
-                                (e.target.style.backgroundColor = "#f1f1f1")
-                              }
-                              onMouseLeave={(e) =>
-                                (e.target.style.backgroundColor = "#fff")
-                              }
-                            >
-                              Remove User
-                            </button>
-                          </td>
-                        </tr>
-                      );
-                    })}
+                  <tbody>
+                    {users
+                      ?.filter(
+                        (usr) =>
+                          (userRole === "" || usr.role === userRole) &&
+                          usr.role !== "Admin"
+                      )
+                      .map((usr) => {
+                        return (
+                          <tr
+                            key={usr._id}
+                            style={{ textAlign: "center", height: "50px" }}
+                          >
+                            <td style={{ textAlign: "center" }}>
+                              {usr._id.slice(-4)}
+                            </td>
+                            <td style={{ textAlign: "center" }}>
+                              {usr.userName}
+                            </td>
+                            <td style={{ textAlign: "center" }}>{usr.role}</td>
+                            <td style={{ textAlign: "center" }}>
+                              {usr.contact}
+                            </td>
+                            <td style={{ textAlign: "center" }}>
+                              {usr.address}
+                            </td>
+                            <td style={{ textAlign: "center" }}>
+                              <button
+                                onClick={(e) =>
+                                  removeUser(e, usr._id, usr.userName)
+                                }
+                                style={{
+                                  padding: "8px 12px",
+                                  borderRadius: "4px",
+                                  border: "none",
+                                  fontSize: "16px",
+                                  fontFamily: "sans-serif",
+                                  cursor: "pointer",
+                                  backgroundColor: "#fff",
+                                  color: "#ff4d4f",
+                                  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                                  float: "right",
+                                }}
+                                onMouseEnter={(e) =>
+                                  (e.target.style.backgroundColor = "#f1f1f1")
+                                }
+                                onMouseLeave={(e) =>
+                                  (e.target.style.backgroundColor = "#fff")
+                                }
+                              >
+                                Remove User
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                  </tbody>
                 </table>
               </div>
             </div>

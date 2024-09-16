@@ -8,6 +8,7 @@ export const setUserInLocalStorage = (data) => {
       role: data.role,
       token: data.token,
       storeID: data.storeID,
+      address: data.address,
     })
   );
 };

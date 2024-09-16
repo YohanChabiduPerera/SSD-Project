@@ -110,12 +110,19 @@ export function useBackendAPI() {
     // Purchase item
     purchaseItem: async function (details) {
       try {
+        // Step 1: Create Payment
         const { data } = await paymentApi.post("/add/", {
           amount: details.total,
           itemList: info,
           userID: user1[0]._id,
         });
 
+        // If payment fails, return early
+        if (!data || !data._id) {
+          throw new Error("Payment creation failed");
+        }
+
+        // Step 2: Create Order
         const orderDetails = await orderApi.post("/add/", {
           userID: user1[0]._id,
           paymentID: data._id,
@@ -124,29 +131,51 @@ export function useBackendAPI() {
           itemList: info,
         });
 
+        // If order creation fails, return early
+        if (!orderDetails || !orderDetails.data || !orderDetails.data._id) {
+          throw new Error("Order creation failed");
+        }
+
+        // Step 3: Update Items in stock (using Promise.all for concurrency)
         const status = await Promise.all(
-          info.map((rec) =>
-            itemApi.patch("/updateItem/", {
-              itemID: rec.itemID,
-              redQuantity: rec.itemQuantity,
-            })
-          )
+          info.map(async (rec) => {
+            try {
+              return await itemApi.patch("/updateItem/", {
+                itemID: rec.itemID,
+                redQuantity: rec.itemQuantity,
+              });
+            } catch (err) {
+              throw new Error(
+                `Failed to update item ${rec.itemID}: ${err.message}`
+              );
+            }
+          })
         );
 
-        if (status) {
-          SendEmail({
-            user_name: user1[0].userName,
-            role: "purchase",
-            paymentID: data._id,
-            orderID: orderDetails.data._id,
-            amount: details.total,
-          });
-          alert("Payment Successful");
-          cartDispatch({ type: "ClearCart" });
-          navigate("/");
+        // Check if status contains any errors
+        if (!status || status.some((s) => !s)) {
+          throw new Error("Item update failed");
         }
+
+        // Step 4: Send email and show success alert only if everything succeeded
+        await SendEmail({
+          user_name: user1[0].userName,
+          role: "purchase",
+          paymentID: data._id,
+          orderID: orderDetails.data._id,
+          amount: details.total,
+          address: user1[0].address,
+        });
+
+        alert("Payment Successful");
+        cartDispatch({ type: "ClearCart" });
+        clearCartContext();
+        navigate("/");
       } catch (err) {
-        handleItemError(err);
+        // Log the error and show the error message to the user
+        console.error("Error during purchase: ", err.message);
+        alert(`Error: ${err.message}`);
+        handleItemError(err); // Pass the error to your error handler
       }
     },
 

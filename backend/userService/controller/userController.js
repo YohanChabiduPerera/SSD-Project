@@ -145,7 +145,7 @@ const updateUserStore = async (req, res) => {
 };
 
 // Get user count for admin
-const getUserCount = async (req, res) => {
+const getUserCount = async (_, res) => {
   try {
     const data = await userModel.find();
     res.json({ userCount: data.length });
