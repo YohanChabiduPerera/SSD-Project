@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import userModel from "../models/User.js";
 import crypto from "crypto";
+import logger from "../logger.js";  // Import the logger
 
 // To generate a token
 const createToken = (id) => {
@@ -36,15 +37,15 @@ const userLogin = async (req, res) => {
       maxAge: 3 * 24 * 60 * 60 * 1000,
     });
 
-    // Send back user data (without token)
+    logger.info(`User logged in successfully: ${userName}`);
     res.status(200).json({ ...user.toObject() });
   } catch (err) {
-    console.log(err.message);
+    logger.error(`Login failed for ${req.body.userName}: ${err.message}`);
     res.status(401).json({ err: err.message });
   }
 };
 
-// Similar changes for sign-up
+// User sign-up function
 const userSignUp = async (req, res) => {
   const { userName, password, contact, address, role, image } = req.body;
   try {
@@ -69,15 +70,16 @@ const userSignUp = async (req, res) => {
 
     // Set the CSRF token as a non-HttpOnly cookie
     res.cookie("csrfToken", csrfToken, {
-      httpOnly: false, // Accessible to client-side JavaScript
+      httpOnly: false,
       secure: process.env.NODE_ENV === "production",
       sameSite: "Strict",
       maxAge: 3 * 24 * 60 * 60 * 1000,
     });
 
+    logger.info(`User signed up successfully: ${userName}`);
     res.status(201).json({ ...user.toObject() });
   } catch (err) {
-    console.log(err.message);
+    logger.error(`Signup failed for ${userName}: ${err.message}`);
     res.status(400).json({ err: err.message });
   }
 };
@@ -86,13 +88,15 @@ const userSignUp = async (req, res) => {
 const getAllUsers = async (req, res) => {
   try {
     const users = await userModel.find().select("-image");
+    logger.info(`Retrieved all users. Count: ${users.length}`);
     res.json({ users, userCount: users.length });
   } catch (err) {
+    logger.error(`Error fetching users: ${err.message}`);
     res.send(err.message);
   }
 };
 
-// Update user function
+// Update user
 const updateUser = async (req, res) => {
   const { userId, userName, image } = req.body;
   try {
@@ -101,19 +105,21 @@ const updateUser = async (req, res) => {
       { userName, image },
       { new: true }
     );
+    logger.info(`User updated successfully: ${userId}`);
     return res.json(user);
   } catch (err) {
-    console.log(err.message);
+    logger.error(`Error updating user ${userId}: ${err.message}`);
   }
 };
 
-// Delete user function
+// Delete user
 const deleteUser = async (req, res) => {
   try {
     const data = await userModel.findByIdAndDelete(req.params.id);
+    logger.info(`User deleted: ${req.params.id}`);
     res.json(data);
   } catch (err) {
-    console.log(err.message);
+    logger.error(`Error deleting user ${req.params.id}: ${err.message}`);
     res.send(err.message);
   }
 };
@@ -123,9 +129,10 @@ const getOneUser = async (req, res) => {
   const { id, role } = req.params;
   try {
     const user = await userModel.find({ _id: id, role });
+    logger.info(`User found: ${id}`);
     res.status(200).json(user);
   } catch (err) {
-    console.log(err.message);
+    logger.error(`Error fetching user ${id}: ${err.message}`);
   }
 };
 
@@ -137,9 +144,10 @@ const updateUserStore = async (req, res) => {
       { _id: userID },
       { storeID }
     );
+    logger.info(`User's store updated: ${userID}`);
     res.json(updatedUser);
   } catch (err) {
-    console.log(err);
+    logger.error(`Error updating user's store ${userID}: ${err.message}`);
     res.json(err);
   }
 };
@@ -148,13 +156,14 @@ const updateUserStore = async (req, res) => {
 const getUserCount = async (_, res) => {
   try {
     const data = await userModel.find();
+    logger.info(`Total user count: ${data.length}`);
     res.json({ userCount: data.length });
   } catch (err) {
+    logger.error(`Error fetching user count: ${err.message}`);
     res.send(err.message);
   }
 };
 
-// Export functions for use in other files
 export {
   userLogin,
   userSignUp,

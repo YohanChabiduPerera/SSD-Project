@@ -1,5 +1,6 @@
 // Importing Store model
 let Store = require("../models/Store");
+let logger = require('../logger');
 
 // Creating a new store in the database
 const createStore = async (req, res) => {
@@ -16,12 +17,13 @@ const createStore = async (req, res) => {
   await newStore
     .save()
     .then(() => {
+      logger.info(`Store created successfully: ${newStore}`);
       // Sending the newly created store object as response
       res.json(newStore);
     })
     .catch((err) => {
       // If there is an error, logging the error message and sending it as response
-      console.log(err.message);
+      logger.error(`Error creating store: ${err.message}`);
       res.send(err.message);
     });
 };
@@ -30,10 +32,12 @@ const createStore = async (req, res) => {
 const getAllStore = async (req, res) => {
   await Store.find()
     .then((store) => {
+      logger.info('All stores retrieved successfully.');
       // Sending all store objects as response
       res.json(store);
     })
     .catch((err) => {
+      logger.error(`Error retrieving stores: ${err.message}`);
       // If there is an error, sending the error message as response
       res.send(err.message);
     });
@@ -55,9 +59,12 @@ const updateStore = async (req, res) => {
       { _id: storeID },
       updateStore,
       { new: true }
-    ); // Sending the updated store object as response
+    );
+    logger.info(`Store updated successfully: ${updatedStore}`);
+    // Sending the updated store object as response
     res.send(updatedStore);
   } catch (err) {
+    logger.error(`Error updating store: ${err.message}`);
     // If there is an error, sending the error message as response
     res.send(err.message);
   }
@@ -68,9 +75,11 @@ const deleteStore = async (req, res) => {
   try {
     // Finding the store by the given ID and deleting it from the database
     const data = await Store.findByIdAndDelete(req.params.id);
+    logger.info(`Store deleted successfully: ${data}`);
     // Sending the deleted store object as response
     res.json(data);
   } catch (err) {
+    logger.error(`Error deleting store: ${err.message}`);
     // If there is an error, sending the error message as response
     res.send(err.message);
   }
@@ -83,8 +92,10 @@ const getOneStore = async (req, res) => {
   try {
     // Finding the store by the given ID, excluding the image field
     const data = await Store.findById(id).select("-storeItem.image");
+    logger.info(`Store retrieved by ID: ${data}`);
     res.json(data);
   } catch (err) {
+    logger.error(`Error retrieving store by ID: ${err.message}`);
     // If there is an error, sending the error message as response
     res.send(err.message);
   }
@@ -95,15 +106,17 @@ const getStoreDescription = async (req, res) => {
   try {
     // Finding the store by the given ID and selecting the 'description' field
     const data = await Store.findById(req.params.id, { description });
+    logger.info(`Store description retrieved successfully: ${data}`);
     // Sending the store's description as response
     res.json(data);
   } catch (err) {
+    logger.error(`Error retrieving store description: ${err.message}`);
     // If there is an error, sending the error message as response
     res.send(err.message);
   }
 };
 
-//get the itemCount from store
+// Get the item count from the store
 const getStoreItemCount = async (req, res) => {
   const storeID = req.params.id;
 
@@ -113,13 +126,15 @@ const getStoreItemCount = async (req, res) => {
       "-storeItem.itemImage"
     );
 
+    logger.info(`Store item count retrieved successfully: ${data.storeItem.length}`);
     res.json({ itemCount: data.storeItem.length });
   } catch (err) {
+    logger.error(`Error retrieving store item count: ${err.message}`);
     res.send(err.message);
   }
 };
 
-//add items to store
+// Add items to store
 const addStoreItem = async (req, res) => {
   const { item, storeID } = req.body;
 
@@ -136,13 +151,15 @@ const addStoreItem = async (req, res) => {
       { new: true }
     );
 
+    logger.info(`Item added to store successfully: ${updatedStore}`);
     res.send(updatedStore);
   } catch (err) {
+    logger.error(`Error adding item to store: ${err.message}`);
     res.send(err.message);
   }
 };
 
-//modify the items in the store
+// Modify the items in the store
 const modifyStoreItem = async (req, res) => {
   const { item, storeID } = req.body;
 
@@ -167,13 +184,15 @@ const modifyStoreItem = async (req, res) => {
       { new: true }
     );
 
+    logger.info(`Store item modified successfully: ${updatedStore}`);
     res.send(updatedStore);
   } catch (err) {
+    logger.error(`Error modifying store item: ${err.message}`);
     res.send(err.message);
   }
 };
 
-//delete item from store
+// Delete item from store
 const deleteStoreItem = async (req, res) => {
   const { storeID, itemID } = req.body;
 
@@ -190,15 +209,17 @@ const deleteStoreItem = async (req, res) => {
       { new: true }
     );
 
+    logger.info(`Item deleted from store successfully: ${updatedStore}`);
     res.send(updatedStore);
   } catch (err) {
+    logger.error(`Error deleting item from store: ${err.message}`);
     res.send(err.message);
   }
 };
 
-//add store review
+// Add store review
 const addReview = async (req, res) => {
-  //to this data is just passed through the body (all of them)
+  // To this data is just passed through the body (all of them)
   const { review, storeID, userID, userName, rating } = req.body; //_id is userID
 
   try {
@@ -218,14 +239,16 @@ const addReview = async (req, res) => {
         { _id: storeID },
         { reviews: descArr }
       );
+      logger.info(`Review added successfully: ${data}`);
       res.json(data);
     }
   } catch (err) {
+    logger.error(`Error adding review: ${err.message}`);
     res.json(err.message);
   }
 };
 
-//exporting necessary functions to be used in the route file
+// Exporting necessary functions to be used in the route file
 module.exports = {
   createStore,
   getAllStore,

@@ -26,7 +26,8 @@
     "node-fetch": "^2.7.0",
     "nodemon": "^2.0.22",
     "query-string": "^8.1.0",
-    "validator": "^13.9.0"
+    "validator": "^13.9.0",
+    "winston": "^3.14.2"
   },
   "type": "module"
 }
