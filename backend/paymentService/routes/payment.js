@@ -22,7 +22,7 @@ router.post("/add", csrfProtection, createPayment);
 router.get("/", getAllPayment);
 
 // Update a payment (state-changing, requires CSRF protection)
-router.put("/update/", csrfProtection, updatePayment);
+// router.put("/update/", csrfProtection, updatePayment);
 
 // Delete a payment (state-changing, requires CSRF protection)
 router.delete("/delete/", csrfProtection, deletePayment);
