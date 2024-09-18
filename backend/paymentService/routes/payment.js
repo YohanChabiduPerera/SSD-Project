@@ -8,7 +8,6 @@ const {
   deletePayment,
   updatePayment,
   getTotalPaymentPerStore,
-  updatePaymentStatus,
   getTotalPaymentForAdmin,
 } = require("../controller/paymentController");
 
@@ -31,7 +30,7 @@ router.delete("/delete/", csrfProtection, deletePayment);
 router.get("/getStoreTotal/:id", getTotalPaymentPerStore);
 
 // Update the payment status (state-changing, requires CSRF protection)
-router.patch("/updatePaymentStatus", csrfProtection, updatePaymentStatus);
+router.patch("/updatePaymentStatus", csrfProtection, updatePayment);
 
 // Get the total payments for the admin (read-only, no CSRF protection needed)
 router.get("/getAdminTotal", getTotalPaymentForAdmin);
