@@ -16,7 +16,8 @@ const createOrder = async (req, res) => {
     const data = await newOrder.save(); // Save the new order to the database
     res.json(data); // Send a JSON response containing the newly created order data
   } catch (err) {
-    res.json(err.message); // Send a JSON response with the error message if there was an error saving the order to the database
+    res.json(err.message); // Send a JSON response with the error message if there was an error saving the order to the
+    console.log("errordabba", err.message);
   }
 };
 

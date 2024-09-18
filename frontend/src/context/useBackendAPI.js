@@ -1,10 +1,32 @@
-import axios from "axios";
-import { UseUserContext } from "./useUserContext";
 import { useNavigate } from "react-router-dom";
 import { SendEmail } from "../components/SendEmail";
+import {
+  itemApi,
+  orderApi,
+  orderApiNSCR,
+  paymentApi,
+  paymentApiNSCR,
+  storeApi,
+  storeApiNSCR,
+  updateAxiosCsrfToken,
+  userApi,
+  userApiNSCR,
+} from "../utils/axios";
+import {
+  cannotFetchStoreNameAlert,
+  cannotModifyAlert,
+  cannotRemoveItemAlert,
+  cannotUploadItemAlert,
+  consoleError,
+  consoleErrorWithAlert,
+  handleError,
+  handleItemError,
+  tryAgainLaterAlert,
+} from "../utils/handleError";
+import { setUserInLocalStorage } from "../utils/localStorage";
 import { useCartContext } from "./useCartContext";
 import { UseStoreContext } from "./useStoreContext";
-// import { SmsSender } from "../components/SendSMS";
+import { UseUserContext } from "./useUserContext";
 
 export function useBackendAPI() {
   const { info } = useCartContext();
@@ -12,257 +34,164 @@ export function useBackendAPI() {
   const clearCartContext = useCartContext().clearCart;
   const { dispatch, user1, setStore, getUser } = UseUserContext();
   const storeDispatch = UseStoreContext().dispatch;
-
-  //To fetch the user in the localstorage
+  const navigate = useNavigate();
   const user = getUser();
 
-  // //import the sms sender
-  // const {sendSMS} = SmsSender();
-
-  const navigate = useNavigate();
+  // After login or signup, refresh the CSRF token in Axios instances
 
   return {
     registerUser: async function (userDetails) {
       try {
-        // Make the API call to register the user
-        const response = await axios.post(
-          "https://localhost:8080/api/user/signup/",
-          userDetails,
-          {
-            withCredentials: true, // Send cookies with requests
-          }
-        );
+        const response = await userApi.post("/signup/", userDetails);
 
-        // Check if the response contains data
         if (response && response.data) {
           const data = response.data;
-
-          // Store user data in localStorage
-          localStorage.setItem(
-            "user",
-            JSON.stringify({
-              _id: data._id,
-              userName: data.userName,
-              image: data.image,
-              role: data.role,
-              token: data.token,
-              storeID: data.storeID,
-            })
-          );
-
-          // Update the user context with the new user data
+          updateAxiosCsrfToken();
+          setUserInLocalStorage(data);
           dispatch({ type: "SetUser", payload: [data] });
-
-          // Send an email notification to the user (this function would be defined elsewhere)
           SendEmail({
             user_name: userDetails.userName,
             role: userDetails.role,
           });
-
-          // Notify the user of successful registration
           alert("Account Created Successfully");
-
-          // Clear the cart for new users
           cartDispatch({ type: "ClearCart" });
           clearCartContext();
-
-          // Navigate to appropriate routes based on the user role
           if (data.role === "Buyer") navigate("/buyer/product");
           else if (data.role === "Merchant") navigate("/seller/store");
         } else {
-          // If no data is received, show a general error message
           alert("Registration failed. No response from the server.");
         }
       } catch (err) {
-        // Handle errors and show the error message from the backend
-        const errorMessage =
-          err.response?.data?.err ||
-          "Oops.. Registration failed. Please try again later.";
-        alert(errorMessage);
-        console.error("Error during registration:", err);
+        handleError(err);
       }
     },
+
     login: async function (userDetails) {
       try {
-        // Make the API call to log in the user
-        const response = await axios.post(
-          "https://localhost:8080/api/user/login",
-          userDetails,
-          {
-            withCredentials: true, // Send cookies with requests
-          }
-        );
+        const response = await userApi.post("/login/", userDetails);
 
-        // Check if the response contains data
         if (response && response.data) {
           const data = response.data;
+          updateAxiosCsrfToken();
 
-          // Ensure the user role is part of the response
           if (data.role) {
-            console.log(data);
-            // Store user data in localStorage
-            localStorage.setItem(
-              "user",
-              JSON.stringify({
-                _id: data._id,
-                userName: data.userName,
-                image: data.image,
-                role: data.role,
-                token: data.token,
-                storeID: data.storeID,
-              })
-            );
-
-            // Update the user context with the logged-in user data
+            setUserInLocalStorage(data);
             dispatch({ type: "SetUser", payload: [data] });
-
-            // Redirect based on user role
             if (data.role === "Buyer") navigate("/buyer/product");
-            else if (data.role === "Merchant") {
-              // Check if the merchant has a store ID, navigate accordingly
+            else if (data.role === "Merchant")
               data.storeID ? navigate("/seller") : navigate("/seller/store");
-            } else if (data.role === "Admin") navigate("/admin");
+            else if (data.role === "Admin") navigate("/admin");
           } else {
-            // If role is not present, show an error message
             alert(data.err || "User role not found in the response");
           }
         } else {
-          // If no data is received, show a general error message
           alert("Login failed. No response from the server.");
         }
       } catch (err) {
-        // Handle errors and show the error message from the backend
-        const errorMessage =
-          err.response?.data?.err || "Login failed. Please try again.";
-        alert(errorMessage);
-        console.error("Error during login:", err);
+        handleError(err);
       }
     },
 
+    // Update user details
     updateUser: async function ({ userId, userName, image }) {
       try {
-        const { data } = await axios.patch(
-          "https://localhost:8080/api/user/update/",
-          {
-            userId,
-            userName,
-            image,
-          },
-          {
-            withCredentials: true, // Send cookies with requests
-          }
-        );
-
-        localStorage.setItem(
-          "user",
-          JSON.stringify({
-            _id: data._id,
-            userName: data.userName,
-            image: data.image,
-            role: data.role,
-            token: data.token,
-            storeID: data.storeID,
-          })
-        );
-        localStorage.setItem(
-          "user",
-          JSON.stringify({
-            _id: data._id,
-            userName: data.userName,
-            image: data.image,
-            role: data.role,
-            token: data.token,
-            storeID: data.storeID,
-          })
-        );
-
-        dispatch({
-          type: "SetUser",
-          payload: data,
+        const { data } = await userApi.patch("/update/", {
+          userId,
+          userName,
+          image,
         });
+        setUserInLocalStorage(data);
+        dispatch({ type: "SetUser", payload: data });
       } catch (err) {
         return err.message;
       }
     },
 
+    // Purchase item
     purchaseItem: async function (details) {
-      //To create a new payment record
       try {
-        const { data } = await axios.post(
-          "https://localhost:8083/api/payment/add/",
-          {
-            amount: details.total,
-            itemList: info,
-            userID: user1[0]._id,
-          },
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
-
-        //To create a new Order record
-        const orderDetails = await axios.post(
-          "https://localhost:8082/api/order/add/",
-          {
-            userID: user1[0]._id,
-            paymentID: data._id,
-            address: user1[0].address,
-            storeID: info[0].storeID,
-            itemList: info,
-          },
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
-
-        //To update the itemCount once the purchase is done
-        const status = await info.map((rec) => {
-          return axios.patch("https://localhost:8081/api/product/updateItem/", {
-            itemID: rec.itemID,
-            redQuantity: rec.itemQuantity,
-          });
+        // Step 1: Create Payment
+        const { data } = await paymentApi.post("/add/", {
+          amount: details.total,
+          itemList: info,
+          userID: user1[0]._id,
         });
 
-        if (status) {
-          SendEmail({
-            user_name: user1[0].userName,
-            role: "purchase",
-            paymentID: data._id,
-            orderID: orderDetails.data._id,
-            amount: details.total,
-          });
-
-          // sendSMS();
-
-          alert("Payment Successful");
-          cartDispatch({ type: "ClearCart" });
-          navigate("/");
+        // If payment fails, return early
+        if (!data || !data._id) {
+          throw new Error("Payment creation failed");
         }
+
+        // Step 2: Create Order
+        const orderDetails = await orderApi.post("/add/", {
+          userID: user1[0]._id,
+          paymentID: data._id,
+          address: user1[0].address,
+          storeID: info[0].storeID,
+          itemList: info,
+        });
+
+        // If order creation fails, return early
+        if (!orderDetails || !orderDetails.data || !orderDetails.data._id) {
+          throw new Error("Order creation failed");
+        }
+
+        // Step 3: Update Items in stock (using Promise.all for concurrency)
+        const status = await Promise.all(
+          info.map(async (rec) => {
+            try {
+              return await itemApi.patch("/updateItem/", {
+                itemID: rec.itemID,
+                redQuantity: rec.itemQuantity,
+              });
+            } catch (err) {
+              throw new Error(
+                `Failed to update item ${rec.itemID}: ${err.message}`
+              );
+            }
+          })
+        );
+
+        // Check if status contains any errors
+        if (!status || status.some((s) => !s)) {
+          throw new Error("Item update failed");
+        }
+
+        // Step 4: Send email and show success alert only if everything succeeded
+        await SendEmail({
+          user_name: user1[0].userName,
+          role: "purchase",
+          paymentID: data._id,
+          orderID: orderDetails.data._id,
+          amount: details.total,
+          address: user1[0].address,
+        });
+
+        alert("Payment Successful");
+        cartDispatch({ type: "ClearCart" });
+        clearCartContext();
+        navigate("/");
       } catch (err) {
-        console.log(err);
-        alert(err.message);
-        return err.message;
+        // Log the error and show the error message to the user
+        console.error("Error during purchase: ", err.message);
+        alert(`Error: ${err.message}`);
+        handleItemError(err); // Pass the error to your error handler
       }
     },
+
+    // Create a store
     createStore: async function (store) {
       store.merchantID = user._id;
 
       try {
-        const { data } = await axios.post(
-          "https://localhost:8082/api/store/add/",
-          store,
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
+        const { data } = await storeApi.post("/add/", store);
 
-        await axios.patch("https://localhost:8080/api/user/updateUserStore/", {
+        await userApi.patch("/updateUserStore/", {
           userID: user._id,
           storeID: data._id,
         });
 
         setStore(data._id);
-
         navigate("/seller");
 
         return true;
@@ -271,220 +200,150 @@ export function useBackendAPI() {
       }
     },
 
+    // Get total sales amount for a store
     getTotalSalesAmount: async function (storeID) {
       try {
-        const { data } = await axios.get(
-          "https://localhost:8083/api/payment/getStoreTotal/" + storeID,
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
+        const { data } = await paymentApiNSCR.get(`/getStoreTotal/${storeID}`);
         return data;
       } catch (err) {
-        console.log(err);
+        consoleError(err);
       }
     },
 
+    // Get store item count
     getStoreItemCount: async function (storeID) {
       try {
-        const { data } = await axios.get(
-          "https://localhost:8082/api/store/getStoreItemCount/" + storeID,
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
+        const { data } = await storeApiNSCR.get(
+          `/getStoreItemCount/${storeID}`
         );
         return data.itemCount;
       } catch (err) {
-        console.log(err);
+        consoleError(err);
       }
     },
 
+    // Get store name
     getStoreName: async function (storeID) {
       try {
-        const { data } = await axios.get(
-          "https://localhost:8082/api/store/get/" + storeID,
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
+        const { data } = await storeApiNSCR.get(`/get/${storeID}`);
         return data.storeName;
       } catch (err) {
-        alert(
-          "There seems to be an error. Store Name cannot be fethched at the moment"
-        );
+        cannotFetchStoreNameAlert();
       }
     },
 
+    // Get products of the store
     getProductsOfStore: async function () {
       try {
-        const { data } = await axios.get(
-          "https://localhost:8082/api/store/get/" + user.storeID,
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
-
-        const { storeItem } = data;
-        return storeItem;
+        const { data } = await storeApiNSCR.get(`/get/${user.storeID}`);
+        return data.storeItem;
       } catch (err) {
-        alert(
-          "There seems to be an error. Store Name cannot be fethched at the moment"
-        );
+        cannotFetchStoreNameAlert();
       }
     },
 
+    // Save product
     saveProduct: async function (product) {
       try {
-        const { data } = await axios.post(
-          "https://localhost:8081/api/product/addItem/",
-          product
-        );
+        const { data } = await itemApi.post("/addItem/", product);
 
-        await axios.patch(
-          "https://localhost:8082/api/store/updateItem/",
-          {
-            storeID: user1[0].storeID,
-            item: data,
-          },
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
+        await storeApi.patch("/updateItem/", {
+          storeID: user1[0].storeID,
+          item: data,
+        });
 
         storeDispatch({ type: "AddItem", payload: data });
-
         alert("Item Added Successfully");
         return data;
       } catch (err) {
-        alert(
-          "There seems to be an error. Item cannot be uploaded at the moment"
-        );
+        cannotUploadItemAlert();
       }
     },
 
+    // Remove product
     removeItem: async function (itemID) {
       try {
-        await axios.delete(
-          "https://localhost:8081/api/product/deleteItem/" + itemID
-        );
+        await itemApi.delete(`/deleteItem/${itemID}`);
 
-        await axios.patch(
-          "https://localhost:8082/api/store/deleteStoreItem/",
-          {
-            storeID: user1[0].storeID,
-            itemID,
-          },
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
+        await storeApi.patch("/deleteStoreItem/", {
+          storeID: user1[0].storeID,
+          itemID,
+        });
 
         storeDispatch({ type: "DeleteItem", payload: { _id: itemID } });
-
         alert("Item Removed from the store");
       } catch (err) {
-        alert(
-          "There seems to be an error. Item cannot be removed at the moment"
-        );
+        cannotRemoveItemAlert();
       }
     },
 
+    // Update product
     updateItem: async function (product) {
       try {
-        const { data } = await axios.patch(
-          "https://localhost:8081/api/product/updateItem/",
-          product
-        );
+        const { data } = await itemApi.patch("/updateItem/", product);
 
-        await axios.patch(
-          "https://localhost:8082/api/store/modifyItem/",
-          {
-            storeID: user1[0].storeID,
-            item: data,
-          },
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
+        await storeApi.patch("/modifyItem/", {
+          storeID: user1[0].storeID,
+          item: data,
+        });
 
         storeDispatch({ type: "ModifyItem", payload: data });
-
         alert("Item details updated");
       } catch (err) {
-        alert(
-          "There seems to be an error. Item cannot be modified at the moment"
-        );
+        cannotModifyAlert();
       }
     },
+
+    // Get all items from one store
     getAllItemsFromOneStore: async function (storeID) {
       try {
-        const { data } = await axios.get(
-          "https://localhost:8082/api/order/getStoreOrder/" + storeID,
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
-
+        const { data } = await orderApiNSCR.get(`/getStoreOrder/${storeID}`);
         return data;
       } catch (err) {
-        console.log(err);
+        consoleError(err);
       }
     },
 
+    // Update order and payment status
     updateOrderAndPaymentStatus: async function (orderID, status) {
       try {
-        const { data } = await axios.patch(
-          "https://localhost:8082/api/order/updateOrderStatus/",
-          { orderID, status },
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
+        const { data } = await orderApi.patch("/updateOrderStatus/", {
+          orderID,
+          status,
+        });
 
-        const response = await axios.patch(
-          "https://localhost:8083/api/payment/updatePaymentStatus/",
-          { paymentID: data.paymentID, status },
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
+        const response = await paymentApi.patch("/updatePaymentStatus/", {
+          paymentID: data.paymentID,
+          status,
+        });
 
         if (response) {
           return data;
         } else {
           alert(
-            "There seems to be a error in the order service.. please try later"
+            "There seems to be an error in the order service.. please try later"
           );
         }
       } catch (err) {
-        console.log(err);
-        alert(
-          "There seems to be a error in the order service.. please try later"
+        consoleErrorWithAlert(
+          err,
+          "There seems to be an error in the order service.. please try later"
         );
       }
     },
 
+    // Get users for the admin page
     getUsersForAdminPage: async function () {
-      const { data } = await axios.get("https://localhost:8080/api/user/");
-
-      console.log(data);
+      const { data } = await userApiNSCR.get("/");
       return data;
     },
 
+    // Get user count for admin
     getUserCountForAdmin: async function () {
       try {
-        const adminRevenue = await axios.get(
-          "https://localhost:8083/api/payment/getAdminTotal",
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
-
-        const adminTotalOrders = await axios.get(
-          "https://localhost:8082/api/order/getOrderCountForAdmin/",
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
+        const adminRevenue = await paymentApiNSCR.get("/getAdminTotal");
+        const adminTotalOrders = await orderApiNSCR.get(
+          "/getOrderCountForAdmin/"
         );
 
         return {
@@ -492,30 +351,18 @@ export function useBackendAPI() {
           amountForStore: adminRevenue.data.amountForStore,
         };
       } catch (err) {
-        console.log(err);
+        consoleError(err);
       }
     },
+
+    // Delete user
     deleteUser: async function (userID) {
       try {
-        //To delete the user
-        const { data } = await axios.delete(
-          "https://localhost:8080/api/user/deleteUser/" + userID
-        );
+        const { data } = await userApi.delete(`/deleteUser/${userID}`);
 
         if (data.storeID) {
-          //To delete his store
-          await axios.delete(
-            "https://localhost:8082/api/store/delete/" + data.storeID,
-            {
-              withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-            }
-          );
-
-          //To delete the items of his store
-          await axios.delete(
-            "https://localhost:8081/api/product/deleteStoreItems/" +
-              data.storeID
-          );
+          await storeApi.delete(`/delete/${data.storeID}`);
+          await itemApi.delete(`/deleteStoreItems/${data.storeID}`);
         }
 
         if (data) {
@@ -523,81 +370,70 @@ export function useBackendAPI() {
           return data;
         }
       } catch (err) {
-        console.log(err);
+        consoleError(err);
         return err;
       }
     },
+
+    // Get all store orders
     getAllStoreOrders: async function () {
       try {
-        const { data } = await axios.get(
-          "https://localhost:8082/api/order/getAllStoreOrders/",
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
-
+        const { data } = await orderApiNSCR.get("/getAllStoreOrders/");
         return data;
       } catch (err) {
-        console.log(err);
+        consoleError(err);
       }
     },
+
+    // Get all user orders
     getAllUserOrders: async function (userID) {
       try {
-        const { data } = await axios.get(
-          `https://localhost:8082/api/order/getAllStoreOrders/${userID}`,
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
-
+        const { data } = await orderApiNSCR.get(`/getAllStoreOrders/${userID}`);
         return data;
       } catch (err) {
-        console.log(err);
+        consoleError(err);
       }
     },
+
+    // Add review to product
     addReviewProduct: async function (details) {
       try {
         const { rating, itemID, review } = details;
 
-        const { data } = await axios.patch(
-          "https://localhost:8081/api/product/addReview/",
-          { userID: user._id, userName: user.userName, rating, itemID, review }
-        );
+        const { data } = await itemApi.patch("/addReview/", {
+          userID: user._id,
+          userName: user.userName,
+          rating,
+          itemID,
+          review,
+        });
 
         return data;
       } catch (err) {
-        alert("Oops.. We are facing an issue right now. Please try again");
+        tryAgainLaterAlert();
       }
     },
 
+    // Add review to store
     addReviewStore: async function (details) {
       try {
         const { rating, storeID, review, orderID } = details;
 
-        await axios.patch(
-          "https://localhost:8082/api/store/addReview/",
-          {
-            userID: user._id,
-            userName: user.userName,
-            rating,
-            storeID,
-            review,
-          },
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
-        );
+        await storeApi.patch("/addReview/", {
+          userID: user._id,
+          userName: user.userName,
+          rating,
+          storeID,
+          review,
+        });
 
-        const orderDetails = await axios.patch(
-          "https://localhost:8082/api/order/setReviewStatus/" + orderID,
-          {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
-          }
+        const orderDetails = await orderApi.patch(
+          `/setReviewStatus/${orderID}`
         );
 
         return orderDetails;
       } catch (err) {
-        alert("Oops.. We are facing an issue right now. Please try again");
+        tryAgainLaterAlert();
       }
     },
   };

@@ -27,8 +27,6 @@ export default function Item(props) {
         setSelectedItem((prev) => prev + 1);
         dispatch({ type: "UpdateCart", payload: data });
         updateCart(data);
-
-        alert("Item Added To Cart");
       }
     }
   }

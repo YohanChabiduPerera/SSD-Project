@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useBackendAPI } from "../context/useBackendAPI";
-import NavBar from "./Navbar";
 import { UseUserContext } from "../context/useUserContext";
+import NavBar from "./Navbar";
 
 // Defining the Header function
 function Header() {

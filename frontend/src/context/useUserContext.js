@@ -15,12 +15,10 @@ export const UseUserContext = () => {
           payload: [user],
         });
 
-        console.log("userId", user._id);
-
         const { data } = await axios.get(
           `https://localhost:8082/api/order/getAllStoreOrders/${user._id}`,
           {
-            withCredentials: true, // Send cookies with the request (JWT in HttpOnly cookie)
+            withCredentials: true,
           }
         );
 

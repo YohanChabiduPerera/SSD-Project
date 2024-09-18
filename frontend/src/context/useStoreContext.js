@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { StoreContext } from "./storeContext";
 import { UseUserContext } from "./useUserContext";
 import axios from "axios";
+import { getCsrfToken } from "../utils/csrf";
 
 export const UseStoreContext = () => {
   const storeContext = useContext(StoreContext);
@@ -15,7 +16,7 @@ export const UseStoreContext = () => {
           const { data } = await axios.get(
             "https://localhost:8082/api/store/get/" + user1[0].storeID,
             {
-              withCredentials: true,
+              withCredentials: true, // Send cookies with requests (including the JWT token)
             }
           );
 

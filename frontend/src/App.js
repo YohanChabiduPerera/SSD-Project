@@ -14,6 +14,7 @@ const MemoizedAdminRoutes = memo(AdminRoutes);
 const MemoizedBaseRoutes = memo(BaseRoutes);
 
 export default function App() {
+  // Access user1 from the context
   const { user1 } = UseUserContext();
 
   let element;
@@ -21,7 +22,7 @@ export default function App() {
     case "Merchant":
       element = <Navigate to="/seller" />;
       break;
-    case "n":
+    case "Admin":
       element = <Navigate to="/admin" />;
       break;
     default:
