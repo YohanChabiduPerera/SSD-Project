@@ -9,13 +9,15 @@ import {
   SignoutGoogleButton,
 } from "./GoogleAuthComponents";
 
-export const GoogleOAuth = () => {
+export const GoogleOAuth = ({ loginHandler }) => {
   const [user, setUser] = useState(null); // Initialize as null
   const [profile, setProfile] = useState(null); // Initialize as null
   const [contacts, setContacts] = useState([]); // Initialize contacts as an empty array
 
   const login = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
+    onSuccess: (codeResponse) => {
+      setUser(codeResponse);
+    },
     onError: (error) => alert("Login Failed:", error),
     scope,
   });
@@ -24,7 +26,7 @@ export const GoogleOAuth = () => {
   const logOut = () => {
     googleLogout();
     setProfile(null);
-    setContacts([]); // Reset contacts on logout
+    // setContacts([]); // Reset contacts on logout
   };
 
   useEffect(() => {
@@ -33,25 +35,45 @@ export const GoogleOAuth = () => {
         .then((res) => setProfile(res.data))
         .catch((err) => console.log(err));
 
-      fetchUserContacts(user.access_token)
-        .then((res) => {
-          if (res.data.connections) {
-            setContacts(res.data.connections); // Set contacts if data exists
-          } else {
-            setContacts([]); // Set an empty array if no connections found
-          }
-        })
-        .catch((err) => console.log(err));
+      // fetchUserContacts(user.access_token)
+      //   .then((res) => {
+      //     if (res.data.connections) {
+      //       setContacts(res.data.connections); // Set contacts if data exists
+      //     } else {
+      //       setContacts([]); // Set an empty array if no connections found
+      //     }
+      //   })
+      //   .catch((err) => console.log(err));
     }
   }, [user]);
+
+  useEffect(() => {
+    if (profile) {
+      const userDetails = {
+        userName: profile.email,
+        image: profile.picture,
+        loginType: "googleAuth",
+        googleAuthAccessToken: user.access_token,
+      };
+
+      loginHandler(userDetails)
+        .then(() => {
+          // Successful login, you can leave this empty if you don't need to handle anything after success
+        })
+        .catch((error) => {
+          // Handle errors if needed
+          console.error("Error during login:", error);
+        });
+    }
+  }, [profile]);
 
   return (
     <div>
       {profile ? (
         <div>
-          <GoogleUserInfo profile={profile} />
-          <SignoutGoogleButton logOut={logOut} />
-          <GoogleContact contacts={contacts || []} />
+          {/* <GoogleUserInfo profile={profile} /> */}
+          {/* <SignoutGoogleButton logOut={logOut} /> */}
+          {/* <GoogleContact contacts={contacts || []} /> */}
         </div>
       ) : (
         <SignInWithGoogleButton login={login} />

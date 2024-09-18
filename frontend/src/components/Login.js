@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import pic from "../assets/login.png";
@@ -56,6 +55,17 @@ export default function Login() {
     if (info) alert(info);
   };
 
+  const googleAuthLoginHandler = async (userDetails) => {
+    const role = existUserRole || selectedUserRole;
+
+    const info = await login({
+      ...userDetails, // Contains userName, image, and googleAuthAccessToken
+      role,
+    });
+
+    if (info) alert(info);
+  };
+
   function setAdminFunction() {
     if (!existUserRole) setExistUserRole(selectedUserRole);
 
@@ -65,21 +75,6 @@ export default function Login() {
     });
     setIsAdmin(true);
   }
-
-  // const serverUrl = process.env.REACT_APP_SERVER_URL;
-
-  const handleLogin = async () => {
-    try {
-      // Gets authentication url from backend server
-      const {
-        data: { url },
-      } = await axios.get(`https://localhost:3000/auth/url`);
-      // Navigate to consent screen
-      window.location.assign(url);
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   return (
     <div>
@@ -124,7 +119,9 @@ export default function Login() {
                 className="btn btn-primary"
                 value="Sign In"
               />
-              <GoogleOAuth />
+              {!isAdmin && (
+                <GoogleOAuth loginHandler={googleAuthLoginHandler} />
+              )}
             </div>
 
             {!isAdmin ? (
