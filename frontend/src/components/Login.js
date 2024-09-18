@@ -1,11 +1,12 @@
+import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import pic from "../assets/login.png";
 import { useBackendAPI } from "../context/useBackendAPI";
 import { UseUserContext } from "../context/useUserContext";
 import Footer from "./Footer";
+import { GoogleOAuth } from "./GoogleLogin";
 import Header from "./Header";
-import axios from "axios";
 import "./Login.css";
 
 export default function Login() {
@@ -123,12 +124,7 @@ export default function Login() {
                 className="btn btn-primary"
                 value="Sign In"
               />
-              <input
-                type="button"
-                className="googleLoginBtn"
-                onClick={handleLogin}
-                value="Google"
-              />
+              <GoogleOAuth />
             </div>
 
             {!isAdmin ? (

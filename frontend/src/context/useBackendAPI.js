@@ -27,6 +27,7 @@ import { setUserInLocalStorage } from "../utils/localStorage";
 import { useCartContext } from "./useCartContext";
 import { UseStoreContext } from "./useStoreContext";
 import { UseUserContext } from "./useUserContext";
+import axios from "axios";
 
 export function useBackendAPI() {
   const { info } = useCartContext();
@@ -89,6 +90,44 @@ export function useBackendAPI() {
         }
       } catch (err) {
         handleError(err);
+      }
+    },
+
+    getGoogleProfile: async (accessToken) => {
+      try {
+        const response = await axios.get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+              Accept: "application/json",
+            },
+          }
+        );
+        return response.data;
+      } catch (err) {
+        consoleError(err);
+        throw new Error("Failed to fetch Google profile");
+      }
+    },
+
+    // Google OAuth: Fetch user contacts using Google access token
+
+    getGoogleContacts: async (accessToken) => {
+      try {
+        const response = await axios.get(
+          `https://people.googleapis.com/v1/people/me/connections?personFields=names,emailAddresses`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+              Accept: "application/json",
+            },
+          }
+        );
+        return response.data.connections || [];
+      } catch (err) {
+        consoleError(err);
+        throw new Error("Failed to fetch Google contacts");
       }
     },
 
