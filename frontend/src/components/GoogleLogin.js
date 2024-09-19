@@ -1,18 +1,13 @@
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import { useEffect, useState } from "react";
-import { fetchUserContacts, fetchUserProfile } from "../utils/googleApi";
+import { fetchUserProfile } from "../utils/googleApi";
 import { scope } from "../utils/googleAuth";
-import {
-  GoogleContact,
-  GoogleUserInfo,
-  SignInWithGoogleButton,
-  SignoutGoogleButton,
-} from "./GoogleAuthComponents";
+import { SignInWithGoogleButton } from "./GoogleAuthComponents";
 
-export const GoogleOAuth = ({ loginHandler }) => {
+export const GoogleOAuth = ({ submitHandler, state }) => {
   const [user, setUser] = useState(null); // Initialize as null
   const [profile, setProfile] = useState(null); // Initialize as null
-  const [contacts, setContacts] = useState([]); // Initialize contacts as an empty array
+  // const [contacts, setContacts] = useState([]); // Initialize contacts as an empty array
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
@@ -56,7 +51,7 @@ export const GoogleOAuth = ({ loginHandler }) => {
         googleAuthAccessToken: user.access_token,
       };
 
-      loginHandler(userDetails)
+      submitHandler(userDetails)
         .then(() => {
           // Successful login, you can leave this empty if you don't need to handle anything after success
         })
@@ -69,15 +64,13 @@ export const GoogleOAuth = ({ loginHandler }) => {
 
   return (
     <div>
-      {profile ? (
-        <div>
-          {/* <GoogleUserInfo profile={profile} /> */}
-          {/* <SignoutGoogleButton logOut={logOut} /> */}
-          {/* <GoogleContact contacts={contacts || []} /> */}
-        </div>
-      ) : (
-        <SignInWithGoogleButton login={login} />
-      )}
+      {/* <div> */}
+      {/* <GoogleUserInfo profile={profile} /> */}
+      {/* <SignoutGoogleButton logOut={logOut} /> */}
+      {/* <GoogleContact contacts={contacts || []} /> */}
+      {/* </div> */}
+
+      <SignInWithGoogleButton login={login} state={state} />
     </div>
   );
 };

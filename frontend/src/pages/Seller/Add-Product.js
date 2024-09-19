@@ -5,6 +5,7 @@ import { useBackendAPI } from "../../context/useBackendAPI";
 import { UseUserContext } from "../../context/useUserContext";
 import { UseStoreContext } from "../../context/useStoreContext";
 import { faBox, faDashboard, faUser } from "@fortawesome/free-solid-svg-icons";
+import DOMPurify from "dompurify"; // Import DOMPurify for sanitizing input
 
 export default function AddProduct() {
   const { user1 } = UseUserContext();
@@ -28,23 +29,55 @@ export default function AddProduct() {
     discount = useRef(),
     imageInputRef = useRef(null);
 
+  // Function to encode input
+  const encodeInput = (input) => {
+    const div = document.createElement("div");
+    div.appendChild(document.createTextNode(input));
+    return div.innerHTML;
+  };
+
   const onSubmitHandler = async (event) => {
     event.preventDefault();
 
+    // Get the store name based on the storeID
     const storeName = await getStoreName(user1[0].storeID);
 
+    // Sanitize and encode inputs to protect against XSS attacks
+    const sanitizedItemName = encodeInput(
+      DOMPurify.sanitize(itemName.current.value.trim())
+    );
+    const sanitizedDescription = encodeInput(
+      DOMPurify.sanitize(description.current.value.trim())
+    );
+    const sanitizedPrice = encodeInput(
+      DOMPurify.sanitize(price.current.value.trim())
+    );
+    const sanitizedQuantity = encodeInput(
+      DOMPurify.sanitize(quantity.current.value.trim())
+    );
+    const sanitizedDiscount = encodeInput(
+      DOMPurify.sanitize(discount.current.value.trim())
+    );
+
+    // Log sanitized and encoded values for testing
+    // console.log("Sanitized and Encoded Item Name:", sanitizedItemName);
+    // console.log("Sanitized and Encoded Description:", sanitizedDescription);
+    // console.log("Sanitized and Encoded Price:", sanitizedPrice);
+    // console.log("Sanitized and Encoded Quantity:", sanitizedQuantity);
+    // console.log("Sanitized and Encoded Discount:", sanitizedDiscount);
+
     const data = await saveProduct({
-      itemName: itemName.current.value,
-      description: description.current.value,
+      itemName: sanitizedItemName,
+      description: sanitizedDescription,
       storeName,
       storeID: user1[0].storeID,
-      price: price.current.value,
-      quantity: quantity.current.value,
+      price: sanitizedPrice,
+      quantity: sanitizedQuantity,
       image,
-      discount: discount.current.value,
+      discount: sanitizedDiscount,
     });
 
-    //To clear the form after submission
+    // Clear the form after submission
     itemName.current.value = "";
     description.current.value = "";
     price.current.value = "";
@@ -109,7 +142,7 @@ export default function AddProduct() {
             <div className="card-body">
               <div className="row">
                 <div className="col-md-4 mb-3">
-                  <label for="validationCustom01">Product title</label>
+                  <label htmlFor="validationCustom01">Product title</label>
                   <input
                     type="text"
                     className="form-control"
@@ -121,7 +154,9 @@ export default function AddProduct() {
                   <div className="valid-feedback">Looks good!</div>
                 </div>
                 <div className="col">
-                  <label for="validationCustom01">Product description</label>
+                  <label htmlFor="validationCustom01">
+                    Product description
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -135,7 +170,7 @@ export default function AddProduct() {
               </div>
               <div className="row">
                 <div className="col">
-                  <label for="validationCustom01">Quantity</label>
+                  <label htmlFor="validationCustom01">Quantity</label>
                   <input
                     type="number"
                     className="form-control"
@@ -147,7 +182,7 @@ export default function AddProduct() {
                   <div className="valid-feedback">Looks good!</div>
                 </div>
                 <div className="col">
-                  <label for="validationCustom01">Image</label>
+                  <label htmlFor="validationCustom01">Image</label>
                   <input
                     type="file"
                     className="form-control"
@@ -162,7 +197,7 @@ export default function AddProduct() {
               </div>
               <div className="row">
                 <div className="col-md-4 mb-3">
-                  <label for="validationCustom01">Unit Price</label>
+                  <label htmlFor="validationCustom01">Unit Price</label>
                   <input
                     type="text"
                     className="form-control"
@@ -174,7 +209,7 @@ export default function AddProduct() {
                   <div className="valid-feedback">Looks good!</div>
                 </div>
                 <div className="col-md-4 mb-3">
-                  <label for="validationCustom01">Discount</label>
+                  <label htmlFor="validationCustom01">Discount</label>
                   <input
                     type="text"
                     className="form-control"
