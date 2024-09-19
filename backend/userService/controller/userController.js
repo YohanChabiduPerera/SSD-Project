@@ -15,8 +15,18 @@ const createCsrfToken = () => {
 // User login function with Double Submit Cookie pattern
 const userLogin = async (req, res) => {
   try {
-    const { userName, password, role } = req.body;
-    const user = await userModel.login(userName, password, role);
+    const { userName, password, role, image, googleAuthAccessToken } = req.body;
+    let loginType = req.body.loginType || "systemLogin";
+
+    const user = await userModel.login(
+      userName,
+      password,
+      role,
+      loginType,
+      image,
+      googleAuthAccessToken
+    );
+
     const token = createToken(user._id);
     const csrfToken = createCsrfToken();
 

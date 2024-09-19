@@ -2,12 +2,11 @@ let Order = require("../models/Order");
 
 // Create a new order
 const createOrder = async (req, res) => {
-  const { userID, storeID, paymentID, address, itemList } = req.body;
+  const { userID, storeID, paymentID, itemList } = req.body;
 
   const newOrder = new Order({
     userID,
     paymentID,
-    address,
     storeID,
     itemList,
   });

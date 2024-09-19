@@ -4,8 +4,8 @@ import pic from "../assets/login.png";
 import { useBackendAPI } from "../context/useBackendAPI";
 import { UseUserContext } from "../context/useUserContext";
 import Footer from "./Footer";
+import { GoogleOAuth } from "./GoogleLogin";
 import Header from "./Header";
-import axios from "axios";
 import "./Login.css";
 
 export default function Login() {
@@ -55,6 +55,17 @@ export default function Login() {
     if (info) alert(info);
   };
 
+  const googleAuthLoginHandler = async (userDetails) => {
+    const role = existUserRole || selectedUserRole;
+
+    const info = await login({
+      ...userDetails, // Contains userName, image, and googleAuthAccessToken
+      role,
+    });
+
+    if (info) alert(info);
+  };
+
   function setAdminFunction() {
     if (!existUserRole) setExistUserRole(selectedUserRole);
 
@@ -64,21 +75,6 @@ export default function Login() {
     });
     setIsAdmin(true);
   }
-
-  // const serverUrl = process.env.REACT_APP_SERVER_URL;
-
-  const handleLogin = async () => {
-    try {
-      // Gets authentication url from backend server
-      const {
-        data: { url },
-      } = await axios.get(`https://localhost:3000/auth/url`);
-      // Navigate to consent screen
-      window.location.assign(url);
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   return (
     <div>
@@ -123,12 +119,12 @@ export default function Login() {
                 className="btn btn-primary"
                 value="Sign In"
               />
-              <input
-                type="button"
-                className="googleLoginBtn"
-                onClick={handleLogin}
-                value="Google"
-              />
+              {!isAdmin && (
+                <GoogleOAuth
+                  submitHandler={googleAuthLoginHandler}
+                  state={"Login"}
+                />
+              )}
             </div>
 
             {!isAdmin ? (
