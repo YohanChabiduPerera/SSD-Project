@@ -17,6 +17,10 @@ const createCsrfToken = () => {
 const userLogin = async (req, res) => {
   try {
     const { userName, password, role, image, googleAuthAccessToken } = req.body;
+    let { loginType } = req.body;
+
+    loginType = loginType || "systemLogin";
+
     logger.info("User login attempt", { userName, loginType });
 
     const user = await userModel.login(
@@ -141,7 +145,10 @@ const deleteUser = async (req, res) => {
     logger.info("User deleted successfully", { userID: req.params.id });
     res.json(data);
   } catch (err) {
-    logger.error("Error deleting user", { userID: req.params.id, error: err.message });
+    logger.error("Error deleting user", {
+      userID: req.params.id,
+      error: err.message,
+    });
     res.send(err.message);
   }
 };
@@ -174,7 +181,11 @@ const updateUserStore = async (req, res) => {
     logger.info("User's store updated successfully", { userID, storeID });
     res.json(updatedUser);
   } catch (err) {
-    logger.error("Error updating user's store", { userID, storeID, error: err.message });
+    logger.error("Error updating user's store", {
+      userID,
+      storeID,
+      error: err.message,
+    });
     res.json(err);
   }
 };
