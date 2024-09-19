@@ -21,26 +21,14 @@ export default function Store() {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    // Log original inputs
-    // console.log("Original Store Name:", storeName.current.value);
-    // console.log("Original Location:", location.current.value);
-
     // Sanitize and encode inputs to protect against XSS attacks
     const sanitizedStoreName = DOMPurify.sanitize(
       storeName.current.value.trim()
     );
     const sanitizedLocation = DOMPurify.sanitize(location.current.value.trim());
 
-    // Log sanitized inputs
-    // console.log("Sanitized Store Name:", sanitizedStoreName);
-    // console.log("Sanitized Location:", sanitizedLocation);
-
     const encodedStoreName = encodeInput(sanitizedStoreName);
     const encodedLocation = encodeInput(sanitizedLocation);
-
-    // Log encoded inputs
-    // console.log("Encoded Store Name:", encodedStoreName);
-    // console.log("Encoded Location:", encodedLocation);
 
     const store = {
       storeName: encodedStoreName,

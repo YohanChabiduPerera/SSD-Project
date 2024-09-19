@@ -12,15 +12,16 @@ import { useSellerOrderContext } from "../context/useSellerOrderContext";
 import { UseUserContext } from "../context/useUserContext";
 
 function DashWrapper() {
-  const { order, dispatch } = useSellerOrderContext();
+  const { order, dispatch, clearOrderState } = useSellerOrderContext();
 
   const [orders, setOrders] = useState(order.orders || []);
+
   const { dashBoardDetails } = order;
   const { total = 0, orderCount = 0, itemCount = 0 } = dashBoardDetails || {};
 
   useEffect(() => {
-    if (order && order.orders) {
-      setOrders(order.orders);
+    if (order?.orders && order.orders.length > 0) {
+      setOrders(order.orders); // Update orders when new data is fetched
     }
   }, [order?.orders]);
 
@@ -43,6 +44,7 @@ function DashWrapper() {
   const logoutFunction = () => {
     // Set merchantIsLoggedIn state to false
     setMerchantIsLoggedIn(false);
+    clearOrderState();
 
     // Show an alert to confirm the logout
     alert("Logged Out");
@@ -111,12 +113,12 @@ function DashWrapper() {
               <p>Whole data about your business here</p>
             </div>
             <div>
-              <input
-                type="Button"
+              <button
                 className="btn btn-primary"
-                onClick={(e) => logoutFunction()}
-                value="Logout"
-              />
+                onClick={logoutFunction} // No need to pass `(e)` if you're not using it
+              >
+                Logout
+              </button>
             </div>
           </div>
 
