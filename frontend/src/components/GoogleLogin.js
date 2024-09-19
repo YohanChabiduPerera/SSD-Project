@@ -28,19 +28,29 @@ export const GoogleOAuth = ({ submitHandler, state }) => {
     if (user && user.access_token) {
       fetchUserProfile(user.access_token)
         .then((res) => setProfile(res.data))
-        .catch((err) => console.log(err));
-
-      // fetchUserContacts(user.access_token)
-      //   .then((res) => {
-      //     if (res.data.connections) {
-      //       setContacts(res.data.connections); // Set contacts if data exists
-      //     } else {
-      //       setContacts([]); // Set an empty array if no connections found
-      //     }
-      //   })
-      //   .catch((err) => console.log(err));
+        .catch((err) => {
+          alert("Failed to retrieve user profile. Please try again.");
+        });
     }
   }, [user]);
+
+  // useEffect(() => {
+  //   if (user && user.access_token) {
+  //     fetchUserProfile(user.access_token)
+  //       .then((res) => setProfile(res.data))
+  //       .catch((err) => console.log(err));
+
+  //     // fetchUserContacts(user.access_token)
+  //     //   .then((res) => {
+  //     //     if (res.data.connections) {
+  //     //       setContacts(res.data.connections); // Set contacts if data exists
+  //     //     } else {
+  //     //       setContacts([]); // Set an empty array if no connections found
+  //     //     }
+  //     //   })
+  //     //   .catch((err) => console.log(err));
+  //   }
+  // }, [user]);
 
   useEffect(() => {
     if (profile) {
@@ -54,6 +64,7 @@ export const GoogleOAuth = ({ submitHandler, state }) => {
       submitHandler(userDetails)
         .then(() => {
           // Successful login, you can leave this empty if you don't need to handle anything after success
+          console.log(userDetails);
         })
         .catch((error) => {
           // Handle errors if needed

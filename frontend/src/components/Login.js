@@ -52,20 +52,18 @@ export default function Login() {
       password: password.current.value,
       role,
     });
-    if (info) alert(info);
+    console.log(info);
   };
-
-  console.log(existUserRole || selectedUserRole);
 
   const googleAuthLoginHandler = async (userDetails) => {
     const role = existUserRole || selectedUserRole;
-    console.log("role", role);
+
     const info = await login({
       ...userDetails, // Contains userName, image, and googleAuthAccessToken
       role,
     });
 
-    if (info) alert(info);
+    if (info) console.log(info);
   };
 
   function setAdminFunction() {
