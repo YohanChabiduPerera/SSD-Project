@@ -9,94 +9,49 @@ const {
   deletePayment,
   updatePayment,
   getTotalPaymentPerStore,
-  updatePaymentStatus,
   getTotalPaymentForAdmin,
 } = require("../controller/paymentController");
 
-// Middleware to log every incoming request
+// Apply authentication to all routes
 router.use((req, res, next) => {
-  logger.info(`Incoming request: ${req.method} ${req.originalUrl}`);
-  next();
+  logger.info("Authentication required for route", { route: req.originalUrl });
+  requireAuth(req, res, next);
 });
 
-// Apply authentication to all routes
-router.use(requireAuth);
-
 // Create a new payment (state-changing, requires CSRF protection)
-router.post("/add", csrfProtection, async (req, res, next) => {
-  try {
-    await createPayment(req, res);
-    logger.info("Payment created successfully", { userID: req.body.userID });
-  } catch (error) {
-    logger.error("Error creating payment", { error: error.message });
-    next(error);
-  }
+router.post("/add", csrfProtection, (req, res, next) => {
+  logger.info("POST /add accessed", { route: req.originalUrl });
+  createPayment(req, res, next);
 });
 
 // Get all payments (read-only, no CSRF protection needed)
-router.get("/", async (req, res, next) => {
-  try {
-    await getAllPayment(req, res);
-    logger.info("Fetched all payments");
-  } catch (error) {
-    logger.error("Error fetching payments", { error: error.message });
-    next(error);
-  }
-});
-
-// Update a payment (state-changing, requires CSRF protection)
-router.put("/update/", csrfProtection, async (req, res, next) => {
-  try {
-    await updatePayment(req, res);
-    logger.info("Payment updated", { paymentID: req.body.paymentID });
-  } catch (error) {
-    logger.error("Error updating payment", { error: error.message });
-    next(error);
-  }
+router.get("/", (req, res, next) => {
+  logger.info("GET / accessed", { route: req.originalUrl });
+  getAllPayment(req, res, next);
 });
 
 // Delete a payment (state-changing, requires CSRF protection)
-router.delete("/delete/", csrfProtection, async (req, res, next) => {
-  try {
-    await deletePayment(req, res);
-    logger.info("Payment deleted", { paymentID: req.body.paymentID });
-  } catch (error) {
-    logger.error("Error deleting payment", { error: error.message });
-    next(error);
-  }
+router.delete("/delete/", csrfProtection, (req, res, next) => {
+  logger.info("DELETE /delete accessed", { route: req.originalUrl });
+  deletePayment(req, res, next);
 });
 
 // Get the total payments made to a specific store (read-only, no CSRF protection needed)
-router.get("/getStoreTotal/:id", async (req, res, next) => {
-  try {
-    await getTotalPaymentPerStore(req, res);
-    logger.info("Fetched total payments for store", { storeID: req.params.id });
-  } catch (error) {
-    logger.error("Error fetching store total payments", { error: error.message });
-    next(error);
-  }
+router.get("/getStoreTotal/:id", (req, res, next) => {
+  logger.info("GET /getStoreTotal/:id accessed", { route: req.originalUrl, storeID: req.params.id });
+  getTotalPaymentPerStore(req, res, next);
 });
 
 // Update the payment status (state-changing, requires CSRF protection)
-router.patch("/updatePaymentStatus", csrfProtection, async (req, res, next) => {
-  try {
-    await updatePaymentStatus(req, res);
-    logger.info("Payment status updated", { paymentID: req.body.paymentID });
-  } catch (error) {
-    logger.error("Error updating payment status", { error: error.message });
-    next(error);
-  }
+router.patch("/updatePaymentStatus", csrfProtection, (req, res, next) => {
+  logger.info("PATCH /updatePaymentStatus accessed", { route: req.originalUrl });
+  updatePayment(req, res, next);
 });
 
 // Get the total payments for the admin (read-only, no CSRF protection needed)
-router.get("/getAdminTotal", async (req, res, next) => {
-  try {
-    await getTotalPaymentForAdmin(req, res);
-    logger.info("Fetched total payments for admin");
-  } catch (error) {
-    logger.error("Error fetching admin total payments", { error: error.message });
-    next(error);
-  }
+router.get("/getAdminTotal", (req, res, next) => {
+  logger.info("GET /getAdminTotal accessed", { route: req.originalUrl });
+  getTotalPaymentForAdmin(req, res, next);
 });
 
 module.exports = router;

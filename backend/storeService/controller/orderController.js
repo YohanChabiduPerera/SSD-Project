@@ -1,37 +1,40 @@
-const Order = require("../models/Order");
-const logger = require("../logger"); // Import logger
+let Order = require("../models/Order");
+let logger = require("../logger.js"); // Import the logger
 
 // Create a new order
 const createOrder = async (req, res) => {
-  const { userID, storeID, paymentID, address, itemList } = req.body;
+  const { userID, storeID, paymentID, itemList } = req.body;
+
+  logger.info("Creating a new order", { userID, storeID, paymentID });
 
   const newOrder = new Order({
     userID,
     paymentID,
-    address,
     storeID,
     itemList,
   });
 
   try {
-    const data = await newOrder.save();
-    logger.info("Order created successfully", { orderID: data._id, userID });
-    res.json(data);
+    const data = await newOrder.save(); // Save the new order to the database
+    logger.info("Order created successfully", { orderID: data._id });
+    res.json(data); // Send a JSON response containing the newly created order data
   } catch (err) {
-    logger.error("Error creating order", { error: err.message, userID });
-    res.json(err.message);
+    logger.error("Error creating order", { error: err.message });
+    res.json(err.message); // Send a JSON response with the error message if there was an error saving the order
   }
 };
 
 // Get all orders
 const getAllOrder = async (req, res) => {
+  logger.info("Fetching all orders");
+
   try {
-    const data = await Order.find();
-    logger.info("Fetched all orders successfully");
-    res.json(data);
+    const data = await Order.find(); // Find all orders in the database
+    logger.info("All orders retrieved successfully", { count: data.length });
+    res.json(data); // Send a JSON response containing all the orders
   } catch (err) {
-    logger.error("Error fetching orders", { error: err.message });
-    res.send(err.message);
+    logger.error("Error fetching all orders", { error: err.message });
+    res.send(err.message); // Send a response with the error message if there was an error getting the orders
   }
 };
 
@@ -39,32 +42,47 @@ const getAllOrder = async (req, res) => {
 const updateOrder = async (req, res) => {
   const { orderID, status } = req.body;
 
+  logger.info("Updating order", { orderID, status });
+
   try {
-    const updatedOrder = await Order.findByIdAndUpdate(orderID, { status }, { new: true });
-    logger.info("Order updated successfully", { orderID, status });
-    res.status(200).send({ Status: "Order updated", order: updatedOrder });
+    const updateStore = { status };
+    const update = await Order.findByIdAndUpdate(orderID, updateStore, {
+      new: true,
+    }); // Find the order by ID and update its status
+    logger.info("Order updated successfully", { orderID });
+    res.status(200).send({ Status: "Order updated", order: update }); // Send a success response with the updated order data
   } catch (err) {
     logger.error("Error updating order", { orderID, error: err.message });
-    res.status(500).send({ status: "Error with updating data" });
+    res.status(500).send({ status: "Error with updating data" }); // Send an error response if there was an error updating the order
   }
 };
 
 // Get a single order by ID
 const getOneOrder = async (req, res) => {
+  logger.info("Fetching order by ID", { orderID: req.params.id });
+
   try {
-    const order = await Order.findById(req.params.id);
-    logger.info("Fetched order successfully", { orderID: req.params.id });
-    res.status(200).send(order);
+    const order = await Order.findById(req.params.id); // Find the order by ID
+    logger.info("Order retrieved successfully", { orderID: req.params.id });
+    res.status(200).send(order); // Send a JSON response with the order data
   } catch (err) {
     logger.error("Error fetching order", { orderID: req.params.id, error: err.message });
-    res.status(500).send({ status: "Error Fetching Order", error: err.message });
+    res
+      .status(500)
+      .send({ status: "Error Fetching Order", error: err.message }); // Send an error response if there was an error getting the order
   }
 };
 
 // Get all orders for a specific store
 const getAllOrderPerStore = async (req, res) => {
+  logger.info("Fetching all orders for store", { storeID: req.params.id });
+
   try {
-    const orders = await Order.find({ storeID: req.params.id }).select("-itemList.itemImage");
+    // Find all orders for the specified store, excluding the itemImage field
+    const orders = await Order.find({ storeID: req.params.id }).select(
+      "-itemList.itemImage"
+    );
+
     const result = orders.map((order) => ({
       ...order.toObject(),
       totalAmount: order.itemList.reduce(
@@ -72,21 +90,28 @@ const getAllOrderPerStore = async (req, res) => {
         0
       ),
     }));
-    logger.info("Fetched orders for store successfully", { storeID: req.params.id });
-    res.json(result);
+
+    logger.info("Orders retrieved successfully for store", { storeID: req.params.id });
+    res.json(result); // Send a JSON response containing all the orders for the specified store
   } catch (error) {
     logger.error("Error fetching orders for store", { storeID: req.params.id, error: error.message });
-    res.status(500).json({ error: "Failed to get orders for store" });
+    res.status(500).json({ error: "Failed to get orders for store" }); // Send an error response if there was an error getting the orders for the store
   }
 };
 
-// Update the status of an order
+// Update the order status
 const updateOrderStatus = async (req, res) => {
   const { orderID, status } = req.body;
 
+  logger.info("Updating order status", { orderID, status });
+
   try {
-    const data = await Order.findByIdAndUpdate(orderID, { status }, { new: true });
-    logger.info("Order status updated", { orderID, status });
+    const data = await Order.findByIdAndUpdate(
+      orderID,
+      { status },
+      { new: true }
+    );
+    logger.info("Order status updated successfully", { orderID });
     res.json(data);
   } catch (err) {
     logger.error("Error updating order status", { orderID, error: err.message });
@@ -94,24 +119,28 @@ const updateOrderStatus = async (req, res) => {
   }
 };
 
-// Get order count for admin dashboard
+// Get the count of all orders for the admin dashboard
 const getOrderCountForAdmin = async (req, res) => {
+  logger.info("Fetching order count for admin");
+
   try {
     const orderCount = await Order.countDocuments();
-    logger.info("Fetched order count for admin", { orderCount });
+    logger.info("Order count retrieved successfully", { count: orderCount });
     res.json({ orderCount });
   } catch (err) {
-    logger.error("Error fetching order count", { error: err.message });
+    logger.error("Error fetching order count for admin", { error: err.message });
     res.send(err.message);
   }
 };
 
 // Get all orders for all stores
 const getAllStoreOrders = async (req, res) => {
+  logger.info("Fetching all orders for all stores");
+
   try {
-    const data = await Order.find().select("-itemList.itemImage");
-    logger.info("Fetched all store orders successfully");
-    res.json(data);
+    const data = await Order.find().select("-itemList.itemImage"); // Get all orders from MongoDB database using Mongoose, excluding the itemImage field
+    logger.info("All store orders retrieved successfully", { count: data.length });
+    res.json(data); // Send orders in response
   } catch (err) {
     logger.error("Error fetching all store orders", { error: err.message });
     res.send(err.message);
@@ -120,24 +149,30 @@ const getAllStoreOrders = async (req, res) => {
 
 // Get all orders for a particular user
 const getAllUserOrders = async (req, res) => {
+  logger.info("Fetching all orders for user", { userID: req.params.id });
+
   try {
     const data = await Order.find({ userID: req.params.id });
-    logger.info("Fetched all orders for user", { userID: req.params.id });
+    logger.info("Orders retrieved successfully for user", { userID: req.params.id, count: data.length });
     res.json(data);
   } catch (err) {
-    logger.error("Error fetching orders for user", { userID: req.params.id, error: err.message });
+    logger.error("Error fetching user orders", { userID: req.params.id, error: err.message });
     res.send(err.message);
   }
 };
 
-// Set reviewed status of an order
+// Set the reviewed status of an order
 const setReviewStatus = async (req, res) => {
+  logger.info("Setting review status for order", { orderID: req.params.id });
+
   try {
-    const data = await Order.findByIdAndUpdate(req.params.id, { reviewed: true });
-    logger.info("Order review status updated", { orderID: req.params.id });
+    const data = await Order.findByIdAndUpdate(req.params.id, {
+      reviewed: true,
+    });
+    logger.info("Review status set successfully for order", { orderID: req.params.id });
     res.json(data);
   } catch (err) {
-    logger.error("Error updating review status", { orderID: req.params.id, error: err.message });
+    logger.error("Error setting review status for order", { orderID: req.params.id, error: err.message });
     res.send(err.message);
   }
 };
