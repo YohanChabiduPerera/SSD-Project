@@ -120,7 +120,10 @@ export default function Login() {
                 value="Sign In"
               />
               {!isAdmin && (
-                <GoogleOAuth loginHandler={googleAuthLoginHandler} />
+                <GoogleOAuth
+                  submitHandler={googleAuthLoginHandler}
+                  state={"Login"}
+                />
               )}
             </div>
 

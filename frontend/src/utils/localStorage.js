@@ -6,9 +6,7 @@ export const setUserInLocalStorage = (data) => {
       userName: data.userName,
       image: data.image,
       role: data.role,
-      token: data.token,
       storeID: data.storeID,
-      address: data.address,
     })
   );
 };

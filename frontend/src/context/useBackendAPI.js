@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { SendEmail } from "../components/SendEmail";
 import {
@@ -27,7 +28,6 @@ import { setUserInLocalStorage } from "../utils/localStorage";
 import { useCartContext } from "./useCartContext";
 import { UseStoreContext } from "./useStoreContext";
 import { UseUserContext } from "./useUserContext";
-import axios from "axios";
 
 export function useBackendAPI() {
   const { info } = useCartContext();
@@ -82,6 +82,8 @@ export function useBackendAPI() {
             else if (data.role === "Merchant")
               data.storeID ? navigate("/seller") : navigate("/seller/store");
             else if (data.role === "Admin") navigate("/admin");
+
+            return "Success";
           } else {
             alert(data.err || "User role not found in the response");
           }

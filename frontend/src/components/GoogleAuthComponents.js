@@ -37,12 +37,12 @@ export const GoogleUserInfo = ({ profile }) => {
   );
 };
 
-export const SignInWithGoogleButton = ({ login }) => {
+export const SignInWithGoogleButton = ({ login, state }) => {
   return (
     <div>
       <button className={styles.googleButton} onClick={login}>
         <img src={googleImage} alt="Google Logo" />
-        Sign in with Google
+        {state === "Login" ? "Sign in with Google" : "Sign up with Google"}
       </button>
     </div>
   );

@@ -7,6 +7,9 @@ import { useBackendAPI } from "../context/useBackendAPI";
 import avatar from "../assets/addphoto.png";
 import { EncodedFile } from "../assets/encodedImage";
 import { UseUserContext } from "../context/useUserContext";
+import { GoogleOAuth } from "./GoogleLogin";
+import { SendEmail } from "./SendEmail";
+import { GoogleContact } from "./GoogleAuthComponents";
 
 export default function Register() {
   const [profilePic, setProfilePic] = useState(avatar);
@@ -28,7 +31,7 @@ export default function Register() {
     reader.onerror = (error) => console.log("error: ", error);
   }
 
-  const { registerUser } = useBackendAPI();
+  const { registerUser, login } = useBackendAPI();
 
   //To register Merchant
   async function registerMerchant() {
@@ -47,6 +50,23 @@ export default function Register() {
 
     await registerUser(dataToSave);
   }
+
+  const googleAuthLoginHandler = async (userDetails) => {
+    const role = selectedUserRole;
+
+    const info = await login({
+      ...userDetails, // Contains userName, image, and googleAuthAccessToken
+      role,
+    });
+
+    if (info === "Success") {
+      SendEmail({
+        user_name: userDetails.userName,
+        role: userDetails.role,
+        signupWithGoogleOAuth: true,
+      });
+    }
+  };
 
   return (
     <div>
@@ -155,6 +175,10 @@ export default function Register() {
                 type="submit"
                 className="btn btn-primary"
                 value="Sign Up"
+              />
+              <GoogleOAuth
+                state={"Register"}
+                submitHandler={googleAuthLoginHandler}
               />
             </div>
             <p className="forgot-password text-center">
