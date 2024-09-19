@@ -17,8 +17,6 @@ const createCsrfToken = () => {
 const userLogin = async (req, res) => {
   try {
     const { userName, password, role, image, googleAuthAccessToken } = req.body;
-    let loginType = req.body.loginType || "systemLogin";
-
     logger.info("User login attempt", { userName, loginType });
 
     const user = await userModel.login(

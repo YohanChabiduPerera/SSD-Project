@@ -4,8 +4,8 @@ let logger = require("../logger.js"); // Import the logger
 // Create a new order
 const createOrder = async (req, res) => {
   const { userID, storeID, paymentID, itemList } = req.body;
-
   logger.info("Creating a new order", { userID, storeID, paymentID });
+
 
   const newOrder = new Order({
     userID,

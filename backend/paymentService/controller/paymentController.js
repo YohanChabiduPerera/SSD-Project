@@ -5,7 +5,6 @@ const logger = require("../logger.js");
 // This function creates a new payment and saves it to the database
 const createPayment = async (req, res) => {
   const { amount, itemList, userID } = req.body;
-
   logger.info("Creating a new payment", { userID, amount });
 
   const newPayment = new Payment({
@@ -20,6 +19,7 @@ const createPayment = async (req, res) => {
     res.status(201).json(data); // 201 status code for successful creation
   } catch (err) {
     logger.error("Error creating payment", { error: err.message });
+    
     if (err.name === "ValidationError") {
       res.status(400).json({ error: err.message }); // Return validation errors
     } else {
@@ -45,7 +45,6 @@ const getAllPayment = async (req, res) => {
 // This function updates a payment's status
 const updatePayment = async (req, res) => {
   const { paymentID, status } = req.body;
-
   logger.info("Updating payment", { paymentID, status });
 
   if (!mongoose.Types.ObjectId.isValid(paymentID)) {
@@ -69,6 +68,7 @@ const updatePayment = async (req, res) => {
     res.status(200).json(updatedPayment);
   } catch (err) {
     logger.error("Error updating payment", { paymentID, error: err.message });
+
     res.status(500).json({ error: err.message });
   }
 };
@@ -96,6 +96,7 @@ const deletePayment = async (req, res) => {
     res.status(200).json({ status: "Payment deleted" });
   } catch (err) {
     logger.error("Error deleting payment", { paymentID, error: err.message });
+
     res.status(500).json({ error: err.message });
   }
 };
@@ -103,7 +104,6 @@ const deletePayment = async (req, res) => {
 // This function calculates the total payment amount for a particular store and the number of orders
 const getTotalPaymentPerStore = async (req, res) => {
   const storeID = req.params.id;
-
   logger.info("Calculating total payment for store", { storeID });
 
   if (!mongoose.Types.ObjectId.isValid(storeID)) {
@@ -139,6 +139,7 @@ const getTotalPaymentPerStore = async (req, res) => {
 
     if (!results || results.length === 0) {
       logger.warn("No payments found for store", { storeID });
+
       return res.status(404).json({ total: 0, orderCount: 0 });
     }
 

@@ -54,3 +54,19 @@ export const clearAxiosHeadersOnLogout = () => {
     delete api.defaults.headers["x-csrf-token"];
   });
 };
+
+// below are the request for googleAPI
+const googleApi = (accessToken) => {
+  return axios.create({
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      Accept: "application/json",
+    },
+  });
+};
+
+// Helper function to make a GET request to Google API
+export const getGoogleAPIResponse = (url, access_token) => {
+  const api = googleApi(access_token);
+  return api.get(url);
+};
