@@ -66,8 +66,6 @@ function DashWrapper() {
     }
   };
 
-  console.log(orderCount);
-
   //To display th status of the order
   function getOrderStatus(data) {
     if (data.status === "Confirmed") {
@@ -115,12 +113,12 @@ function DashWrapper() {
               <p>Whole data about your business here</p>
             </div>
             <div>
-              <input
-                type="Button"
+              <button
                 className="btn btn-primary"
-                onClick={(e) => logoutFunction()}
-                value="Logout"
-              />
+                onClick={logoutFunction} // No need to pass `(e)` if you're not using it
+              >
+                Logout
+              </button>
             </div>
           </div>
 

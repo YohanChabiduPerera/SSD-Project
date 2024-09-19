@@ -59,13 +59,6 @@ export default function AddProduct() {
       DOMPurify.sanitize(discount.current.value.trim())
     );
 
-    // Log sanitized and encoded values for testing
-    // console.log("Sanitized and Encoded Item Name:", sanitizedItemName);
-    // console.log("Sanitized and Encoded Description:", sanitizedDescription);
-    // console.log("Sanitized and Encoded Price:", sanitizedPrice);
-    // console.log("Sanitized and Encoded Quantity:", sanitizedQuantity);
-    // console.log("Sanitized and Encoded Discount:", sanitizedDiscount);
-
     const data = await saveProduct({
       itemName: sanitizedItemName,
       description: sanitizedDescription,
