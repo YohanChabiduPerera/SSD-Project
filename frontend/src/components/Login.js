@@ -55,9 +55,11 @@ export default function Login() {
     if (info) alert(info);
   };
 
+  console.log(existUserRole || selectedUserRole);
+
   const googleAuthLoginHandler = async (userDetails) => {
     const role = existUserRole || selectedUserRole;
-
+    console.log("role", role);
     const info = await login({
       ...userDetails, // Contains userName, image, and googleAuthAccessToken
       role,
