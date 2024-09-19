@@ -5,14 +5,14 @@ import { EncodedFile } from "../assets/encodedImage";
 import pic from "../assets/register.png";
 import { useBackendAPI } from "../context/useBackendAPI";
 import { UseUserContext } from "../context/useUserContext";
-import Footer from "./Footer";
-import { GoogleOAuth } from "./GoogleLogin";
-import Header from "./Header";
-import { SendEmail } from "./SendEmail";
 import {
   sanitizeAndEncodeInputs,
   validateForm,
 } from "../utils/registerFormValidation";
+import Footer from "./Footer";
+import { GoogleOAuth } from "./GoogleLogin";
+import Header from "./Header";
+import { SendEmail } from "./SendEmail";
 
 // Import validation and sanitization functions
 
