@@ -244,10 +244,14 @@ export function useBackendAPI() {
     // Get total sales amount for a store
     getTotalSalesAmount: async function (storeID) {
       try {
-        const { data } = await paymentApiNSCR.get(`/getStoreTotal/${storeID}`);
+        let { data } = await paymentApiNSCR.get(`/getStoreTotal/${storeID}`);
+
+        data = data ?? 0; // Fallback to 0 if data is null or undefined
+
         return data;
       } catch (err) {
         consoleError(err);
+        return 0; // Optionally, you might want to return 0 or handle it differently on error
       }
     },
 
@@ -257,7 +261,8 @@ export function useBackendAPI() {
         const { data } = await storeApiNSCR.get(
           `/getStoreItemCount/${storeID}`
         );
-        return data.itemCount;
+        const { itemCount } = data;
+        return itemCount;
       } catch (err) {
         consoleError(err);
       }

@@ -1,8 +1,7 @@
+import axios from "axios";
 import { useContext, useEffect } from "react";
 import { StoreContext } from "./storeContext";
 import { UseUserContext } from "./useUserContext";
-import axios from "axios";
-import { getCsrfToken } from "../utils/csrf";
 
 export const UseStoreContext = () => {
   const storeContext = useContext(StoreContext);
@@ -32,5 +31,9 @@ export const UseStoreContext = () => {
     fetchData();
   }, []);
 
-  return { storeContext, dispatch, items };
+  const clearOrderState = () => {
+    dispatch({ type: "ClearAll" });
+  };
+
+  return { storeContext, dispatch, items, clearOrderState };
 };

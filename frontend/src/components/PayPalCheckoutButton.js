@@ -17,7 +17,6 @@ export function PayPalCheckoutButton(props) {
     //To convert the lkr to usd
 
     await purchaseItem({ total: usdAmount });
-    console.log(orderId);
   };
 
   return (
@@ -40,7 +39,6 @@ export function PayPalCheckoutButton(props) {
         }}
         onApprove={async (data, actions) => {
           const order = await actions.order.capture();
-          console.log(order);
 
           handleApprove(data.orderID);
         }}
@@ -50,7 +48,6 @@ export function PayPalCheckoutButton(props) {
         }}
         onError={(err) => {
           setError(err);
-          console.log(err);
         }}
       />
     </>

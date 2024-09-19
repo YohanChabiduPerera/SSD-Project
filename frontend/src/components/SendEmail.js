@@ -36,11 +36,9 @@ export const SendEmail = (email) => {
     .send("service_gonv5lf", template, email, "IO-tHKTjIpByN9aF9")
     .then(
       (result) => {
-        console.log(result.text);
         return result.text;
       },
       (error) => {
-        console.log(error.text);
         return error.text;
       }
     );
