@@ -3,10 +3,7 @@ import { check, validationResult } from "express-validator";
 
 // Basic validation for login
 export const validateUserLogin = [
-  check("userName")
-    .isEmail()
-    .withMessage("Please enter a valid email")
-    .normalizeEmail(),
+  check("userName").isEmail().withMessage("Please enter a valid email"),
   check("password")
     .if((value, { req }) => req.body.loginType !== "googleAuth") // Skip password check for Google OAuth
     .notEmpty()

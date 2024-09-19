@@ -19,17 +19,6 @@ const userLogin = async (req, res) => {
     const { userName, password, role, image, googleAuthAccessToken } = req.body;
     let { loginType } = req.body;
 
-    console.log(req.body);
-
-    console.log(
-      userName,
-      password,
-      role,
-      image,
-      googleAuthAccessToken,
-      loginType
-    );
-
     loginType = loginType || "systemLogin";
 
     logger.info("User login attempt", { userName, loginType });

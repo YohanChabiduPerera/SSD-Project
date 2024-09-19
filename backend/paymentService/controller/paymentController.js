@@ -89,26 +89,23 @@ const getTotalPaymentPerStore = async (req, res) => {
 
   try {
     const results = await Payment.aggregate([
-      { $unwind: "$itemList" },
-      {
-        $lookup: {
-          from: "items", // Items collection
-          localField: "itemList",
-          foreignField: "_id",
-          as: "itemDetails",
-        },
-      },
-      { $unwind: "$itemDetails" },
-      { $match: { "itemDetails.storeID": storeID } },
+      { $unwind: "$itemList" }, // Unwind the itemList array
+      { $match: { "itemList.storeID": storeID } }, // Match only items from the provided store
       {
         $group: {
-          _id: null,
-          totalAmount: {
+          _id: "$_id", // Group by the payment record (_id) to calculate total per order
+          orderTotal: {
             $sum: {
-              $multiply: ["$itemDetails.price", "$itemDetails.quantity"],
+              $multiply: ["$itemList.itemPrice", "$itemList.itemQuantity"], // Calculate total for each order
             },
           },
-          orderCount: { $sum: 1 },
+        },
+      },
+      {
+        $group: {
+          _id: null, // Group everything into a single result
+          totalAmount: { $sum: "$orderTotal" }, // Sum all the order totals
+          orderCount: { $sum: 1 }, // Count the number of unique orders
         },
       },
     ]);

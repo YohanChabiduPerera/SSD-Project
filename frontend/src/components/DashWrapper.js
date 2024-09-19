@@ -17,7 +17,7 @@ function DashWrapper() {
   const [orders, setOrders] = useState(order.orders || []);
 
   const { dashBoardDetails } = order;
-  const { total = 0, orderCount = 0, itemCount = 0 } = dashBoardDetails || {};
+  let { total = 0, orderCount = 0, itemCount = 0 } = dashBoardDetails || {};
 
   useEffect(() => {
     if (order?.orders && order.orders.length > 0) {
@@ -44,10 +44,14 @@ function DashWrapper() {
   const logoutFunction = () => {
     // Set merchantIsLoggedIn state to false
     setMerchantIsLoggedIn(false);
-    clearOrderState();
+    const logoutStatus = clearOrderState();
 
-    // Show an alert to confirm the logout
-    alert("Logged Out");
+    setOrders([]);
+    total = 0;
+    orderCount = 0;
+    itemCount = 0;
+
+    if (logoutStatus) alert("Logged Out");
   };
 
   //To change the status of the order

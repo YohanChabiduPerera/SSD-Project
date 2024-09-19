@@ -246,6 +246,8 @@ export function useBackendAPI() {
       try {
         let { data } = await paymentApiNSCR.get(`/getStoreTotal/${storeID}`);
 
+        console.log("oorku puthu", data);
+
         data = data ?? 0; // Fallback to 0 if data is null or undefined
 
         return data;
