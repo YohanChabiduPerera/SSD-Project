@@ -1,68 +1,85 @@
-// Importing the Payment model
 const Payment = require("../models/Payment");
 const mongoose = require("mongoose");
 
-// Create a new payment
+// This function creates a new payment and saves it to the database
 const createPayment = async (req, res) => {
-  const { amount, itemList, userID, storeID } = req.body;
+  const { amount, itemList, userID } = req.body;
 
   const newPayment = new Payment({
-    amount: Number(amount),
+    amount,
     itemList,
     userID,
-    storeID,
   });
 
   try {
     const data = await newPayment.save();
-    res.json(data);
+    res.status(201).json(data); // 201 status code for successful creation
   } catch (err) {
-    res.status(500).send(err.message);
+    if (err.name === "ValidationError") {
+      res.status(400).json({ error: err.message }); // Return validation errors
+    } else {
+      res.status(500).json({ error: err.message });
+    }
   }
 };
 
-// Get all payments
+// This function retrieves all payments from the database
 const getAllPayment = async (req, res) => {
   try {
-    const payments = await Payment.find();
-    res.json(payments);
+    const payments = await Payment.find().populate("itemList"); // Populate item details
+    res.status(200).json(payments);
   } catch (err) {
-    res.status(500).send(err.message);
+    res.status(500).json({ error: err.message });
   }
 };
 
-// Update payment status
+// This function updates a payment's status
 const updatePayment = async (req, res) => {
   const { paymentID, status } = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(paymentID)) {
+    return res.status(400).json({ error: "Invalid payment ID" });
+  }
 
   try {
     const updatedPayment = await Payment.findOneAndUpdate(
       { _id: paymentID },
       { status },
-      { new: true }
+      { new: true, runValidators: true } // Apply validators during the update
     );
-    if (!updatedPayment) return res.status(404).send("Payment not found");
-    res.json(updatedPayment);
+
+    if (!updatedPayment) {
+      return res.status(404).json({ error: "Payment not found" });
+    }
+
+    res.status(200).json(updatedPayment);
   } catch (err) {
-    res.status(500).send({ status: "Error updating data", error: err.message });
+    res.status(500).json({ error: err.message });
   }
 };
 
-// Delete a payment
+// This function deletes a payment from the database
 const deletePayment = async (req, res) => {
   const { paymentID } = req.body;
 
+  if (!mongoose.Types.ObjectId.isValid(paymentID)) {
+    return res.status(400).json({ error: "Invalid payment ID" });
+  }
+
   try {
     const deletedPayment = await Payment.findByIdAndDelete(paymentID);
-    if (!deletedPayment) return res.status(404).send("Payment not found");
-    res.status(200).send({ status: "Payment Deleted" });
+
+    if (!deletedPayment) {
+      return res.status(404).json({ error: "Payment not found" });
+    }
+
+    res.status(200).json({ status: "Payment deleted" });
   } catch (err) {
-    res
-      .status(500)
-      .send({ status: "Error deleting payment", error: err.message });
+    res.status(500).json({ error: err.message });
   }
 };
 
+// This function calculates the total payment amount for a particular store and the number of orders
 const getTotalPaymentPerStore = async (req, res) => {
   const storeID = req.params.id;
 
@@ -73,63 +90,41 @@ const getTotalPaymentPerStore = async (req, res) => {
   try {
     const results = await Payment.aggregate([
       { $unwind: "$itemList" },
-      { $match: { "itemList.storeID": storeID } }, // Match items by store ID
       {
-        $group: {
-          _id: "$_id", // Group by the payment/order ID to get unique orders
-          totalAmount: {
-            $sum: {
-              $multiply: ["$itemList.itemPrice", "$itemList.itemQuantity"],
-            },
-          },
+        $lookup: {
+          from: "items", // Items collection
+          localField: "itemList",
+          foreignField: "_id",
+          as: "itemDetails",
         },
       },
+      { $unwind: "$itemDetails" },
+      { $match: { "itemDetails.storeID": storeID } },
       {
         $group: {
           _id: null,
-          totalAmount: { $sum: "$totalAmount" },
-          orderCount: { $addToSet: "$_id" }, // Use $addToSet to ensure unique order IDs
-        },
-      },
-      {
-        $project: {
-          totalAmount: 1,
-          orderCount: { $size: "$orderCount" }, // Count the number of unique orders
+          totalAmount: {
+            $sum: {
+              $multiply: ["$itemDetails.price", "$itemDetails.quantity"],
+            },
+          },
+          orderCount: { $sum: 1 },
         },
       },
     ]);
 
-    if (results.length > 0) {
-      const { totalAmount, orderCount } = results[0];
-      res.json({ total: totalAmount, orderCount });
-    } else {
-      res.json({ total: 0, orderCount: 0 });
+    if (!results || results.length === 0) {
+      return res.status(404).json({ total: 0, orderCount: 0 });
     }
+
+    const { totalAmount, orderCount } = results[0];
+    res.status(200).json({ total: totalAmount, orderCount });
   } catch (err) {
-    res.status(500).json({ error: "Server error", details: err.message });
+    res.status(500).json({ error: err.message });
   }
 };
 
-// Update payment status (simplified)
-const updatePaymentStatus = async (req, res) => {
-  const { paymentID, status } = req.body;
-
-  try {
-    const data = await Payment.findByIdAndUpdate(
-      paymentID,
-      { status },
-      { new: true }
-    );
-    if (!data) return res.status(404).send("Payment not found");
-    res.json(data);
-  } catch (err) {
-    res
-      .status(500)
-      .send({ error: "Error updating payment", details: err.message });
-  }
-};
-
-// Calculate total payment for admin (store commission)
+// This function retrieves total payments for admin
 const getTotalPaymentForAdmin = async (req, res) => {
   try {
     const result = await Payment.aggregate([
@@ -142,16 +137,20 @@ const getTotalPaymentForAdmin = async (req, res) => {
       {
         $project: {
           _id: 0,
-          amountForStore: { $multiply: ["$totalAmount", 0.15] }, // Admin commission of 15%
+          amountForStore: { $multiply: ["$totalAmount", 0.15] },
         },
       },
     ]);
 
-    res.json(result[0] || { amountForStore: 0 }); // Return result or default value
+    if (!result || result.length === 0) {
+      return res
+        .status(404)
+        .json({ error: "No payment data available for admin" });
+    }
+
+    res.status(200).json(result[0]);
   } catch (err) {
-    res
-      .status(500)
-      .send({ error: "Error calculating admin total", details: err.message });
+    res.status(500).json({ error: err.message });
   }
 };
 
@@ -162,6 +161,5 @@ module.exports = {
   updatePayment,
   deletePayment,
   getTotalPaymentPerStore,
-  updatePaymentStatus,
   getTotalPaymentForAdmin,
 };

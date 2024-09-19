@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import userModel from "../models/User.js";
 import crypto from "crypto";
+import logger from "../logger.js"; // Import logger
 
 // To generate a token
 const createToken = (id) => {
@@ -16,7 +17,7 @@ const createCsrfToken = () => {
 const userLogin = async (req, res) => {
   try {
     const { userName, password, role, image, googleAuthAccessToken } = req.body;
-    let loginType = req.body.loginType || "systemLogin";
+    logger.info("User login attempt", { userName, loginType });
 
     const user = await userModel.login(
       userName,
@@ -32,24 +33,24 @@ const userLogin = async (req, res) => {
 
     // Set the JWT as a HttpOnly cookie
     res.cookie("token", token, {
-      httpOnly: true, // Prevents JavaScript access
-      secure: process.env.NODE_ENV === "production", // Only send over HTTPS in production
-      sameSite: "Strict", // Prevents CSRF attacks
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Strict",
       maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days in milliseconds
     });
 
     // Set the CSRF token as a non-HttpOnly cookie
     res.cookie("csrfToken", csrfToken, {
-      httpOnly: false, // Must be accessible by JavaScript
+      httpOnly: false,
       secure: process.env.NODE_ENV === "production",
       sameSite: "Strict",
       maxAge: 3 * 24 * 60 * 60 * 1000,
     });
 
-    // Send back user data (without token)
+    logger.info("User login successful", { userID: user._id });
     res.status(200).json({ ...user.toObject() });
   } catch (err) {
-    console.log(err.message);
+    logger.error("User login failed", { error: err.message });
     res.status(401).json({ err: err.message });
   }
 };
@@ -58,6 +59,8 @@ const userLogin = async (req, res) => {
 const userSignUp = async (req, res) => {
   const { userName, password, contact, address, role, image } = req.body;
   try {
+    logger.info("User signup attempt", { userName, role });
+
     const user = await userModel.signup(
       userName,
       password,
@@ -66,6 +69,7 @@ const userSignUp = async (req, res) => {
       image,
       role
     );
+
     const token = createToken(user._id);
     const csrfToken = createCsrfToken();
 
@@ -79,15 +83,16 @@ const userSignUp = async (req, res) => {
 
     // Set the CSRF token as a non-HttpOnly cookie
     res.cookie("csrfToken", csrfToken, {
-      httpOnly: false, // Accessible to client-side JavaScript
+      httpOnly: false,
       secure: process.env.NODE_ENV === "production",
       sameSite: "Strict",
       maxAge: 3 * 24 * 60 * 60 * 1000,
     });
 
+    logger.info("User signup successful", { userID: user._id });
     res.status(201).json({ ...user.toObject() });
   } catch (err) {
-    console.log(err.message);
+    logger.error("User signup failed", { error: err.message });
     res.status(400).json({ err: err.message });
   }
 };
@@ -95,9 +100,14 @@ const userSignUp = async (req, res) => {
 // Get all users
 const getAllUsers = async (req, res) => {
   try {
+    logger.info("Fetching all users");
+
     const users = await userModel.find().select("-image");
+    logger.info("Users fetched successfully", { count: users.length });
+
     res.json({ users, userCount: users.length });
   } catch (err) {
+    logger.error("Error fetching users", { error: err.message });
     res.send(err.message);
   }
 };
@@ -105,25 +115,33 @@ const getAllUsers = async (req, res) => {
 // Update user function
 const updateUser = async (req, res) => {
   const { userId, userName, image } = req.body;
+
+  logger.info("Updating user", { userId });
+
   try {
     const user = await userModel.findOneAndUpdate(
       { _id: userId },
       { userName, image },
       { new: true }
     );
-    return res.json(user);
+    logger.info("User updated successfully", { userId });
+    res.json(user);
   } catch (err) {
-    console.log(err.message);
+    logger.error("Error updating user", { userId, error: err.message });
+    res.send(err.message);
   }
 };
 
 // Delete user function
 const deleteUser = async (req, res) => {
   try {
+    logger.info("Deleting user", { userID: req.params.id });
+
     const data = await userModel.findByIdAndDelete(req.params.id);
+    logger.info("User deleted successfully", { userID: req.params.id });
     res.json(data);
   } catch (err) {
-    console.log(err.message);
+    logger.error("Error deleting user", { userID: req.params.id, error: err.message });
     res.send(err.message);
   }
 };
@@ -131,35 +149,46 @@ const deleteUser = async (req, res) => {
 // Get one user by ID and role
 const getOneUser = async (req, res) => {
   const { id, role } = req.params;
+  logger.info("Fetching user by ID and role", { userID: id, role });
+
   try {
     const user = await userModel.find({ _id: id, role });
+    logger.info("User fetched successfully", { userID: id });
     res.status(200).json(user);
   } catch (err) {
-    console.log(err.message);
+    logger.error("Error fetching user", { userID: id, error: err.message });
+    res.send(err.message);
   }
 };
 
 // Update user's store
 const updateUserStore = async (req, res) => {
   const { userID, storeID } = req.body;
+  logger.info("Updating user's store", { userID, storeID });
+
   try {
     const updatedUser = await userModel.findOneAndUpdate(
       { _id: userID },
       { storeID }
     );
+    logger.info("User's store updated successfully", { userID, storeID });
     res.json(updatedUser);
   } catch (err) {
-    console.log(err);
+    logger.error("Error updating user's store", { userID, storeID, error: err.message });
     res.json(err);
   }
 };
 
 // Get user count for admin
 const getUserCount = async (_, res) => {
+  logger.info("Fetching user count");
+
   try {
     const data = await userModel.find();
+    logger.info("User count retrieved successfully", { count: data.length });
     res.json({ userCount: data.length });
   } catch (err) {
+    logger.error("Error fetching user count", { error: err.message });
     res.send(err.message);
   }
 };

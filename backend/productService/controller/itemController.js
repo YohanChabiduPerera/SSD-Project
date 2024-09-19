@@ -1,18 +1,20 @@
 const itemModel = require("../models/Item");
+const logger = require("../logger"); // Import the logger
 
 // Get all items
 const getAllItems = async (req, res) => {
   try {
     const data = await itemModel.find();
+    logger.info("Fetched all items");
     res.json(data);
   } catch (err) {
-    res.send(err.message);
+    logger.error("Error fetching items", { error: err.message });
+    res.status(500).send(err.message);
   }
 };
 
 // Add a new item
 const postItem = async (req, res) => {
-  // Get item details from request body
   const {
     itemName,
     image,
@@ -25,11 +27,9 @@ const postItem = async (req, res) => {
     storeID,
   } = req.body;
 
-  // Calculate total price after discount
   const totalPrice = price - (price * discount) / 100;
 
   try {
-    // Create a new item model
     const ItemModel = new itemModel({
       itemName,
       description,
@@ -43,43 +43,38 @@ const postItem = async (req, res) => {
       storeID,
     });
 
-    // Save the new item to the database
     const data = await ItemModel.save();
+    logger.info("Item added successfully", { itemName, storeID });
     res.json(data);
   } catch (err) {
-    res.json(err.message);
+    logger.error("Error adding item", { error: err.message });
+    res.status(500).json(err.message);
   }
 };
 
 // Get one item by ID
 const getOneItem = async (req, res) => {
-  // Get item ID from request body
   const { itemID } = req.body;
 
   try {
-    // Find the item in the database using its ID
-    const fetchedItem = itemModel.findOne({ _id: itemID });
-
+    const fetchedItem = await itemModel.findOne({ _id: itemID });
+    logger.info("Fetched item", { itemID });
     res.json(fetchedItem);
   } catch (err) {
-    res.json(err.message);
+    logger.error("Error fetching item", { error: err.message, itemID });
+    res.status(500).json(err.message);
   }
 };
 
 // Update an item
 const updateItem = async (req, res) => {
-  // Get item information from request body
   const itemInfo = req.body;
 
   try {
     let updatedInfo;
 
     if (itemInfo.redQuantity) {
-      // Reduce item quantity if redQuantity is provided
-      const { quantity } = await itemModel.findById(
-        itemInfo.itemID,
-        "quantity"
-      );
+      const { quantity } = await itemModel.findById(itemInfo.itemID, "quantity");
 
       if (quantity < itemInfo.redQuantity) {
         throw new Error("Not enough stock available");
@@ -90,22 +85,18 @@ const updateItem = async (req, res) => {
         { $inc: { quantity: -itemInfo.redQuantity } },
         { new: true }
       );
+      logger.info("Reduced item quantity", { itemID: itemInfo.itemID, reducedBy: itemInfo.redQuantity });
     } else {
-      // Calculate total price after discount
-      itemInfo.totalPrice =
-        itemInfo.price - (itemInfo.price * itemInfo.discount) / 100;
+      itemInfo.totalPrice = itemInfo.price - (itemInfo.price * itemInfo.discount) / 100;
 
-      // Update item details in the database
-      updatedInfo = await itemModel.findByIdAndUpdate(
-        itemInfo.itemID,
-        itemInfo,
-        { new: true }
-      );
+      updatedInfo = await itemModel.findByIdAndUpdate(itemInfo.itemID, itemInfo, { new: true });
+      logger.info("Updated item", { itemID: itemInfo.itemID });
     }
 
-    return res.json(updatedInfo);
+    res.json(updatedInfo);
   } catch (err) {
-    res.json(err.message);
+    logger.error("Error updating item", { error: err.message, itemID: itemInfo.itemID });
+    res.status(500).json(err.message);
   }
 };
 
@@ -114,131 +105,111 @@ const deleteItem = async (req, res) => {
   const id = req.params.id;
 
   try {
-    // Find the item in the database and delete it
     const deletedRecord = await itemModel.findByIdAndDelete(id);
+    logger.info("Deleted item", { itemID: id });
     res.json(deletedRecord);
   } catch (err) {
-    res.json(err.message);
+    logger.error("Error deleting item", { error: err.message, itemID: id });
+    res.status(500).json(err.message);
   }
 };
 
-//add a review for an item
+// Add a review for an item
 const addReview = async (req, res) => {
-  //to this data is just passed through the body (all of them)
-  const { review, itemID, userID, userName, rating } = req.body; //_id is userID
+  const { review, itemID, userID, userName, rating } = req.body;
 
   try {
     const insertReview = async (callback) => {
       const item = await itemModel.findOne({ _id: itemID });
-      if (item) await callback(item.reviews); //item.reviews is an array
+      if (item) await callback(item.reviews);
     };
 
     await insertReview(callBack);
 
     async function callBack(descArr) {
-      //an array is passed in the parameter
-
       descArr.push({ userID, userName, rating, review });
-
-      const data = await itemModel.findOneAndUpdate(
-        { _id: itemID },
-        { reviews: descArr }
-      );
+      const data = await itemModel.findOneAndUpdate({ _id: itemID }, { reviews: descArr });
+      logger.info("Added review", { itemID, userID, userName });
       res.json(data);
     }
   } catch (err) {
-    res.json(err.message);
+    logger.error("Error adding review", { error: err.message, itemID, userID });
+    res.status(500).json(err.message);
   }
 };
 
-//update a review for an item
+// Update a review for an item
 const modifyReview = async (req, res) => {
-  //to this data is just passed as normal text. all of them
-  const { review, itemID, userID, userName, rating } = req.body; //_id is userID
+  const { review, itemID, userID, userName, rating } = req.body;
 
   try {
     const removeReview = async (callback) => {
       const item = await itemModel.findOne({ _id: itemID });
-      if (item) await callBack(item.reviews); //item.reviews is an array
+      if (item) await callBack(item.reviews);
     };
 
     removeReview();
   } catch (err) {
-    res.json(err.message);
+    logger.error("Error modifying review", { error: err.message, itemID, userID });
+    res.status(500).json(err.message);
   }
 
   async function callBack(descArr) {
-    //an item review array is passed in the parameter
-
-    descArr = descArr.filter((obj) => {
-      return obj.userID != userID;
-    });
-
+    descArr = descArr.filter((obj) => obj.userID != userID);
     descArr.push({ userID, userName, rating, review });
-
-    const data = await itemModel.findOneAndUpdate(
-      { _id: itemID },
-      { reviews: descArr }
-    );
+    const data = await itemModel.findOneAndUpdate({ _id: itemID }, { reviews: descArr });
+    logger.info("Modified review", { itemID, userID, userName });
     res.json({ updatedInfo: data });
   }
 };
 
-//delete a review for an item
+// Delete a review for an item
 const deleteReview = (req, res) => {
-  //to this data is just passed as normal text. all of them
-  const { itemID, userID } = req.body; //_id is userID
+  const { itemID, userID } = req.body;
 
   try {
     const removeReview = async (callback) => {
       const item = await itemModel.findOne({ _id: itemID });
-      if (item) await callBack(item.reviews); //item.reviews is an array
+      if (item) await callBack(item.reviews);
     };
 
     removeReview();
   } catch (err) {
-    res.json(err.message);
+    logger.error("Error deleting review", { error: err.message, itemID, userID });
+    res.status(500).json(err.message);
   }
 
   async function callBack(descArr) {
-    // item review array is passed in the parameter
-
-    descArr = descArr.filter((obj) => {
-      return obj.userID != userID;
-    });
-
-    const data = await itemModel.findOneAndUpdate(
-      { _id: itemID },
-      { reviews: descArr }
-    );
+    descArr = descArr.filter((obj) => obj.userID != userID);
+    const data = await itemModel.findOneAndUpdate({ _id: itemID }, { reviews: descArr });
+    logger.info("Deleted review", { itemID, userID });
     res.json({ updatedInfo: data });
   }
 };
 
-//delete all store items
-const deleteAllItemsFromStore = async function (req, res) {
+// Delete all store items
+const deleteAllItemsFromStore = async (req, res) => {
   try {
     const data = await itemModel.deleteMany({ storeID: req.params.id });
+    logger.info("Deleted all items from store", { storeID: req.params.id });
     res.json(data);
   } catch (err) {
-    res.send(err.message);
+    logger.error("Error deleting all items from store", { error: err.message, storeID: req.params.id });
+    res.status(500).send(err.message);
   }
 };
 
+// Get all items with pagination
 const getAllItemsWithPagination = async (req, res) => {
-  const page = parseInt(req.query.page) || 1; // Default page is 1
-  const limit = parseInt(req.query.limit) || 10; // Default limit is 20 items per page
-
-  const skip = (page - 1) * limit; // Calculate how many items to skip
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
 
   try {
-    // Fetch the items with pagination
     const data = await itemModel.find().skip(skip).limit(limit);
-
-    // Get the total count of items
     const totalItems = await itemModel.countDocuments();
 
-    // Send the response with items, current page, and total count
+    logger.info("Fetched items with pagination", { page, limit });
     res.json({
       items: data,
       currentPage: page,
@@ -246,6 +217,7 @@ const getAllItemsWithPagination = async (req, res) => {
       totalItems,
     });
   } catch (err) {
+    logger.error("Error fetching items with pagination", { error: err.message, page, limit });
     res.status(500).send(err.message);
   }
 };
