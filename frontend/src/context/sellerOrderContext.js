@@ -4,10 +4,10 @@ import React from "react";
 export const SellerOrderContext = createContext();
 
 export const SellerOrderContextProvider = (props) => {
-  const [order, dispatch] = useReducer(reducer, {
+  const initialState = {
     orders: [],
     dashBoardDetails: {},
-  });
+  };
 
   function reducer(state, action) {
     switch (action.type) {
@@ -16,6 +16,7 @@ export const SellerOrderContextProvider = (props) => {
           orders: action.payload.data,
           dashBoardDetails: action.payload.dashBoardDetails,
         };
+
       case "DispatchOrder":
         return {
           ...state,
@@ -26,10 +27,17 @@ export const SellerOrderContextProvider = (props) => {
           ),
         };
 
+      case "ClearAll": // New case for clearing all data
+        return {
+          ...initialState, // Reset the state to the initial state
+        };
+
       default:
         return state;
     }
   }
+
+  const [order, dispatch] = useReducer(reducer, initialState);
 
   return (
     <SellerOrderContext.Provider value={{ order, dispatch }}>

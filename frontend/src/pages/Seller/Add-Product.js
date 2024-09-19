@@ -107,7 +107,6 @@ export default function AddProduct() {
         </div>
         <div className="items">
           <SideMenu to="/seller" icon={faDashboard} label="Dashboard" />
-          <SideMenu to="/seller/profile" icon={faUser} label="Profile" />
           <SideMenu to="/seller/product" icon={faBox} label="Products" />
         </div>
       </section>
