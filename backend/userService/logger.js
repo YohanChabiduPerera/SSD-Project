@@ -1,9 +1,12 @@
 import winston from 'winston';
+import moment from 'moment-timezone';
 
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(
-    winston.format.timestamp(),
+    winston.format.timestamp({
+      format: () => moment().tz('Asia/Colombo').format('YYYY-MM-DD HH:mm:ss')  // Timestamp in Sri Lanka time
+    }),
     winston.format.printf(({ timestamp, level, message }) => {
       return `${timestamp} ${level}: ${message}`;
     })
