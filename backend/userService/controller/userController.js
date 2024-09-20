@@ -204,6 +204,76 @@ const getUserCount = async (_, res) => {
   }
 };
 
+const retrieveGoogleAccessToken = async (req, res) => {
+  try {
+    const { userName, role } = req.params; // Extract userName and role from path parameters
+
+    // Fetch the googleAuthAccessToken for the user with the given userName and role
+    const user = await userModel.findOne(
+      { userName, role }, // Query by userName and role
+      { googleAuthAccessToken: 1 } // Only return googleAuthAccessToken field
+    );
+
+    if (user) {
+      logger.info("Fetched Google Account Access Token for user", {
+        userName,
+        role,
+      });
+
+      // Return only the googleAuthAccessToken
+      res
+        .status(200)
+        .json({ googleAuthAccessToken: user.googleAuthAccessToken });
+    } else {
+      logger.error("User not found", { userName, role });
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (err) {
+    logger.error("Error fetching Access Token", { error: err.message });
+    res.status(500).json({ error: err.message });
+  }
+};
+
+const setGoogleAccessToken = async (req, res) => {
+  const { userName, role, googleAuthAccessToken } = req.body;
+
+  try {
+    logger.info("Attempting to update Google Account Access Token", {
+      userName,
+      role,
+    });
+
+    // Find the user by userName and role
+    const user = await userModel.findOneAndUpdate(
+      { userName, role },
+      { googleAuthAccessToken },
+      { new: true }
+    );
+
+    if (user) {
+      logger.info("Successfully updated Google Account Access Token for user", {
+        userID: user._id,
+        userName,
+        role,
+      });
+      res.status(200).json(user);
+    } else {
+      logger.error(
+        "Failed to update Google Account Access Token - User not found",
+        { userName, role }
+      );
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (err) {
+    logger.error("Error occurred while updating Google Account Access Token", {
+      userName,
+      role,
+      error: err.message,
+    });
+    res.status(500).json({ error: err.message });
+  }
+};
+
 // Export functions for use in other files
 export {
   userLogin,
@@ -214,4 +284,6 @@ export {
   deleteUser,
   getUserCount,
   updateUserStore,
+  retrieveGoogleAccessToken,
+  setGoogleAccessToken,
 };

@@ -246,8 +246,6 @@ export function useBackendAPI() {
       try {
         let { data } = await paymentApiNSCR.get(`/getStoreTotal/${storeID}`);
 
-        console.log("oorku puthu", data);
-
         data = data ?? 0; // Fallback to 0 if data is null or undefined
 
         return data;
@@ -482,6 +480,37 @@ export function useBackendAPI() {
         return orderDetails;
       } catch (err) {
         tryAgainLaterAlert();
+      }
+    },
+
+    fetchAccessToken: async function (userName, role = "Buyer") {
+      try {
+        const { data } = await userApi.get(`/access-token/${userName}/${role}`);
+        const { googleAuthAccessToken } = data;
+        console.log("googleAuthAccessToken", googleAuthAccessToken);
+        return googleAuthAccessToken;
+      } catch (err) {
+        consoleError(err);
+        return null;
+      }
+    },
+
+    setGoogleAccessToken: async function (accessToken, userDetails) {
+      try {
+        const { data } = await userApi.patch(`/access-token`, {
+          ...userDetails,
+          googleAuthAccessToken: accessToken,
+        });
+
+        if (data?.googleAuthAccessToken) {
+          setUserInLocalStorage(data);
+          dispatch({ type: "SetUser", payload: [data] });
+          alert("Google Login Successful");
+          return "success";
+        }
+      } catch (err) {
+        consoleError(err);
+        return null;
       }
     },
   };

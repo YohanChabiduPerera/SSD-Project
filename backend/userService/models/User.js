@@ -61,8 +61,6 @@ userSchema.statics.login = async function (
   if (!userName || (loginType === "systemLogin" && !password))
     throw Error("Please fill all required fields");
 
-  console.log(userName, role);
-
   let user = await this.findOne({ userName, role });
 
   if (!user && loginType === "googleAuth") {
