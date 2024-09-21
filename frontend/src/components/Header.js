@@ -1,48 +1,39 @@
-// Importing necessary modules
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useBackendAPI } from "../context/useBackendAPI";
-import NavBar from "./Navbar";
 import { UseUserContext } from "../context/useUserContext";
+import NavBar from "./Navbar";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Defining the Header function
 function Header() {
-  // Destructuring variables from the useUserContext hook
   const { logoutUser, dispatch, getUser } = UseUserContext();
-
   const user = getUser();
 
   // Setting initial state for showing the user profile popup
   const [showPopup, setShowPopup] = useState(false);
-
-  // Defining function for closing the user profile popup
-  const handleClosePopup = () => {
-    setShowPopup(false);
-  };
-
-  // Defining function for logging out the user
-  const logoutFunction = () => {
-    logoutUser();
-  };
+  const [isGoogleImage, setIsGoogleImage] = useState(false); // New state for Google image
 
   // Creating a reference to the input field for the user name
   const userName = useRef();
-
-  // Setting initial state for the user profile picture as an empty string
   const [profilePic, setProfilePic] = useState("");
 
-  useEffect(() => {
-    setProfilePic(user?.image);
-  }, [user?.image]);
+  // Close the popup
+  const handleClosePopup = () => setShowPopup(false);
+
+  // Logout function
+  const logoutFunction = () => logoutUser();
 
   useEffect(() => {
-    async function setProfilePicture() {
-      if (user?.image) setProfilePic(user.image);
+    if (user?.image) {
+      setProfilePic(user.image); // Set the profile picture
+      // Check if the image is from Google
+      setIsGoogleImage(
+        user.image.startsWith("https://lh3.googleusercontent.com/")
+      );
     }
-    setProfilePicture();
-  }, []);
+  }, [user?.image]);
 
   // Function for converting the selected image file to base64 format
   function convertToBase64(e) {
@@ -62,11 +53,10 @@ function Header() {
     await updateUser({
       userId: user._id,
       userName: userName.current.value,
-      image: profilePic,
+      image: profilePic, // Handle both base64 and Google image URLs
     });
   };
 
-  // Rendering the Header component
   return (
     <header>
       <h1>RB&NS</h1>
@@ -85,7 +75,7 @@ function Header() {
               {/* Displaying the user profile picture*/}
               {profilePic && (
                 <img
-                  src={profilePic}
+                  src={profilePic} // Handles both Google URL and Base64
                   alt={user.userName}
                   style={{
                     width: "25px",
@@ -93,19 +83,21 @@ function Header() {
                     borderRadius: "40px",
                     marginTop: "10px",
                   }}
-                  onClick={(e) => {
-                    setShowPopup(true);
+                  onClick={() => {
+                    // Only allow opening the popup if it's not a Google image
+                    if (!isGoogleImage) {
+                      setShowPopup(true);
+                    }
                   }}
                 />
               )}
             </div>
           ) : (
-            // Displaying a link to the login page if the user is not logged in
             <Link
               to="/login"
-              onClick={(e) => {
-                dispatch({ type: "SetUserRole", userRole: "Buyer" });
-              }}
+              onClick={() =>
+                dispatch({ type: "SetUserRole", userRole: "Buyer" })
+              }
             >
               Login
             </Link>
@@ -120,7 +112,7 @@ function Header() {
         )}
       </div>
 
-      {showPopup && (
+      {showPopup && !isGoogleImage && (
         <div
           className="popup"
           style={{ display: showPopup ? "flex" : "none", zIndex: "100" }}
@@ -133,7 +125,7 @@ function Header() {
           <div className="popup-content">
             {profilePic && (
               <img
-                src={profilePic}
+                src={profilePic} // Handles both Google URL and Base64
                 style={{
                   backgroundColor: "white",
                   width: "200px",
@@ -149,7 +141,11 @@ function Header() {
               <input
                 type="text"
                 defaultValue={user.userName}
-                style={{ border: "none", outline: "none", textAlign: "center" }}
+                style={{
+                  border: "none",
+                  outline: "none",
+                  textAlign: "center",
+                }}
                 onFocus={(event) => {
                   event.target.style.outline = "2px dashed black";
                 }}
@@ -169,7 +165,7 @@ function Header() {
                 color: "white",
                 backgroundColor: "black",
               }}
-              onChange={(e) => convertToBase64(e)}
+              onChange={convertToBase64}
             />
 
             <h2 style={{ color: "black" }}></h2>

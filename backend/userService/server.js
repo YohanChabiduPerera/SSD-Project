@@ -5,7 +5,6 @@ import express from "express";
 import fs from "fs";
 import https from "https";
 import mongoose from "mongoose";
-import authRouter from "./routes/auth.js";
 import userRouter from "./routes/user.js";
 
 // Load environment variables
@@ -51,5 +50,5 @@ mongoose
   .catch((err) => console.error(err.message));
 
 // Route setup
-app.use("/api/auth", authRouter);
+// app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);

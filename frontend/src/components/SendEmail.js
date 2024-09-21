@@ -23,6 +23,11 @@ export const SendEmail = (email) => {
     template = "template_3wg309d";
   }
 
+  if (email?.signupWithGoogleOAuth) {
+    message =
+      "Welcome to RB&NS. You have successfully logged in using your Google Account. Start exploring our products and enjoy shopping with us.";
+  }
+
   // Adding the message to the email object
   email.message = message;
 
@@ -31,11 +36,9 @@ export const SendEmail = (email) => {
     .send("service_gonv5lf", template, email, "IO-tHKTjIpByN9aF9")
     .then(
       (result) => {
-        console.log(result.text);
         return result.text;
       },
       (error) => {
-        console.log(error.text);
         return error.text;
       }
     );

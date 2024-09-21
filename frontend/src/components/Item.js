@@ -9,6 +9,8 @@ import { useBackendAPI } from "../context/useBackendAPI";
 import ReviewContainer from "./ReviewContainer";
 import StarRating from "./StarRating";
 
+import { ContactListPopupModel } from "./ContactListPopupModel";
+
 export default function Item(props) {
   //importing cartContext,dispath and info from the cartContext
   const { dispatch, info, updateCart } = props.useCartContext();
@@ -27,8 +29,6 @@ export default function Item(props) {
         setSelectedItem((prev) => prev + 1);
         dispatch({ type: "UpdateCart", payload: data });
         updateCart(data);
-
-        alert("Item Added To Cart");
       }
     }
   }
@@ -191,6 +191,10 @@ export default function Item(props) {
           }}
         >
           <div className="popup-content">
+            {user?.loginType === "googleAuth" && (
+              <ContactListPopupModel item={props.details} />
+            )}
+
             {handleOpenFrom === "View" ? (
               <>
                 <img src={props.details.image} alt={props.details.itemName} />

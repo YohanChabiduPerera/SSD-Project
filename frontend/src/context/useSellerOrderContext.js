@@ -7,7 +7,7 @@ export const useSellerOrderContext = () => {
   const sellerOrderContext = useContext(SellerOrderContext);
   const { dispatch, order } = sellerOrderContext;
 
-  const { getUser } = UseUserContext();
+  const { getUser, logoutUser } = UseUserContext();
   const user = getUser();
 
   const { getAllItemsFromOneStore, getStoreItemCount, getTotalSalesAmount } =
@@ -20,15 +20,19 @@ export const useSellerOrderContext = () => {
         const itemCount = await getStoreItemCount(user.storeID);
         const response = await getTotalSalesAmount(user.storeID);
 
-        console.log("API Response:", response); // Log the response here
+        console.log(data, itemCount, response);
 
         if (response) {
-          const { total, orderCount } = response; // Destructure safely if response exists
+          const { total = 0, orderCount = 0 } = response; // Destructure safely with default values
           dispatch({
             type: "AddOrder",
             payload: {
-              data,
-              dashBoardDetails: { total, orderCount, itemCount },
+              data: data || [], // Ensure data is not undefined
+              dashBoardDetails: {
+                total,
+                orderCount,
+                itemCount: itemCount || 0,
+              }, // Default values
             },
           });
         } else {
@@ -39,8 +43,20 @@ export const useSellerOrderContext = () => {
       }
     }
 
-    getStoreInfo();
+    if (user && user.storeID) {
+      getStoreInfo(); // Call API only if user and storeID are available
+    }
   }, [dispatch, user]);
 
-  return { sellerOrderContext, dispatch, order };
+  const clearOrderState = () => {
+    const loggedOutStatus = logoutUser();
+    if (loggedOutStatus) {
+      dispatch({ type: "ClearAll" });
+
+      return true;
+    }
+    return false;
+  };
+
+  return { sellerOrderContext, dispatch, order, clearOrderState };
 };

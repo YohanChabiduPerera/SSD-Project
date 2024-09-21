@@ -41,7 +41,6 @@ export default function Cart() {
         alert("Please add items to cart");
         return;
       }
-      console.log(info);
 
       if (user1[0] && checkoutPrice !== 0) {
         setShowPopup(true);

@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { useBackendAPI } from "../../context/useBackendAPI";
+import DOMPurify from "dompurify"; // Import DOMPurify for sanitizing input
 
 export default function Store() {
   const storeName = useRef();
@@ -10,17 +11,34 @@ export default function Store() {
 
   const { createStore } = useBackendAPI();
 
+  // Function to encode input
+  const encodeInput = (input) => {
+    const div = document.createElement("div");
+    div.appendChild(document.createTextNode(input));
+    return div.innerHTML;
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
+
+    // Sanitize and encode inputs to protect against XSS attacks
+    const sanitizedStoreName = DOMPurify.sanitize(
+      storeName.current.value.trim()
+    );
+    const sanitizedLocation = DOMPurify.sanitize(location.current.value.trim());
+
+    const encodedStoreName = encodeInput(sanitizedStoreName);
+    const encodedLocation = encodeInput(sanitizedLocation);
+
     const store = {
-      storeName: storeName.current.value,
-      location: location.current.value,
+      storeName: encodedStoreName,
+      location: encodedLocation,
     };
 
-    //To create a store and add it to the merchant's storeID field in the merchant doc as well
+    // Create the store and add it to the merchant's storeID field
     const status = await createStore(store);
 
-    //To notify the user with relevant alert message
+    // Notify the user with relevant alert message
     if (status) alert("Store Created Successfully");
     else alert("Store Cannot Be created at the moment.. Please try later");
   };

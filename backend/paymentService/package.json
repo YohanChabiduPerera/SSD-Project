@@ -20,13 +20,16 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "http-error": "^0.0.6",
+    "express-validator": "^7.2.0",
     "http-errors": "^2.0.0",
     "https-error": "^1.0.2",
+    "https-errors": "^2.0.0",
     "jsonwebtoken": "^9.0.0",
+    "moment-timezone": "^0.5.45",
     "mongoose": "^7.0.0",
     "node-fetch": "^2.7.0",
     "nodemon": "^2.0.22",
-    "validator": "^13.9.0"
+    "validator": "^13.9.0",
+    "winston": "^3.14.2"
   }
 }

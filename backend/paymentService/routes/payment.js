@@ -1,5 +1,6 @@
-const router = require("express").Router(); // Importing the Router class from the Express package
+const router = require("express").Router();
 const requireAuth = require("../middleware/requireAuth");
+const csrfProtection = require("../middleware/csrfProtection");
 
 const {
   createPayment,
@@ -7,29 +8,28 @@ const {
   deletePayment,
   updatePayment,
   getTotalPaymentPerStore,
-  updatePaymentStatus,
   getTotalPaymentForAdmin,
-} = require("../controller/paymentController"); // Importing the controller functions from '../controller/paymentController'
+} = require("../controller/paymentController");
 
+// Apply authentication to all routes
 router.use(requireAuth);
 
-//create a new payment
-router.post("/add", createPayment); // Handles POST requests to create a new payment using the createPayment() function
+// Create a new payment (state-changing, requires CSRF protection)
+router.post("/add", csrfProtection, createPayment);
 
-//get all payments
-router.get("/", getAllPayment); // Handles GET requests to get all payments using the getAllPayment() function
+// Get all payments (read-only, no CSRF protection needed)
+router.get("/", getAllPayment);
 
-//update all payments
-router.put("/update/", updatePayment); // Handles PUT requests to update payments using the updatePayment() function
+// Delete a payment (state-changing, requires CSRF protection)
+router.delete("/delete/", csrfProtection, deletePayment);
 
-//delete a payment
-router.delete("/delete/", deletePayment); // Handles DELETE requests to delete a payment using the deletePayment() function
+// Get the total payments made to a specific store (read-only, no CSRF protection needed)
+router.get("/getStoreTotal/:id", getTotalPaymentPerStore);
 
-//To get the total payments done to a certain store
-router.get("/getStoreTotal/:id", getTotalPaymentPerStore); // Handles GET requests to get the total payments made to a specific store using the getTotalPaymentPerStore() function
+// Update the payment status (state-changing, requires CSRF protection)
+router.patch("/updatePaymentStatus", csrfProtection, updatePayment);
 
-router.patch("/updatePaymentStatus", updatePaymentStatus); //Handles updating of payment status
+// Get the total payments for the admin (read-only, no CSRF protection needed)
+router.get("/getAdminTotal", getTotalPaymentForAdmin);
 
-router.get("/getAdminTotal", getTotalPaymentForAdmin); //Handles calculating the online store profit
-
-module.exports = router; // Exports the router instance for use in the app.
+module.exports = router;

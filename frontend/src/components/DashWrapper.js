@@ -1,26 +1,29 @@
 // Import necessary dependencies
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBox,
   faDollarSign,
   faTruck,
 } from "@fortawesome/free-solid-svg-icons";
-import { UseUserContext } from "../context/useUserContext";
-import { useBackendAPI } from "../context/useBackendAPI";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { useBackendAPI } from "../context/useBackendAPI";
 import { useSellerOrderContext } from "../context/useSellerOrderContext";
+import { UseUserContext } from "../context/useUserContext";
 
 function DashWrapper() {
-  const { order, dispatch } = useSellerOrderContext();
+  const { order, dispatch, clearOrderState } = useSellerOrderContext();
 
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState(order.orders || []);
+
   const { dashBoardDetails } = order;
-  const { total, orderCount, itemCount } = dashBoardDetails;
+  let { total = 0, orderCount = 0, itemCount = 0 } = dashBoardDetails || {};
 
   useEffect(() => {
-    setOrders(order.orders);
-  }, [order.orders]);
+    if (order?.orders && order.orders.length > 0) {
+      setOrders(order.orders); // Update orders when new data is fetched
+    }
+  }, [order?.orders]);
 
   // Access necessary functions and variables from custom hooks
   const { logoutUser } = UseUserContext();
@@ -41,9 +44,14 @@ function DashWrapper() {
   const logoutFunction = () => {
     // Set merchantIsLoggedIn state to false
     setMerchantIsLoggedIn(false);
+    const logoutStatus = clearOrderState();
 
-    // Show an alert to confirm the logout
-    alert("Logged Out");
+    setOrders([]);
+    total = 0;
+    orderCount = 0;
+    itemCount = 0;
+
+    if (logoutStatus) alert("Logged Out");
   };
 
   //To change the status of the order
@@ -109,12 +117,12 @@ function DashWrapper() {
               <p>Whole data about your business here</p>
             </div>
             <div>
-              <input
-                type="Button"
+              <button
                 className="btn btn-primary"
-                onClick={(e) => logoutFunction()}
-                value="Logout"
-              />
+                onClick={logoutFunction} // No need to pass `(e)` if you're not using it
+              >
+                Logout
+              </button>
             </div>
           </div>
 
@@ -184,20 +192,31 @@ function DashWrapper() {
                     </tr>
                   </thead>
                   <tbody>
-                    {orders.map((data) => {
-                      return (
-                        <tr key={data._id}>
-                          <td scope="col">{data._id.slice(-4)}</td>
-                          <td>{data.userID.slice(-4)}</td>
-                          <td>{data.orderedDate.substring(0, 10)}</td>
-                          <td>Rs. {data.totalAmount} </td>
-                          <td>{data.status}</td>
-                          <td className="text-center" style={{ color: "blue" }}>
-                            {getOrderStatus(data)}
-                          </td>
-                        </tr>
-                      );
-                    })}
+                    {orders && orders.length > 0 ? (
+                      orders.map((data) => {
+                        return (
+                          <tr key={data._id}>
+                            <td scope="col">{data._id.slice(-4)}</td>
+                            <td>{data.userID.slice(-4)}</td>
+                            <td>{data.orderedDate.substring(0, 10)}</td>
+                            <td>Rs. {data.totalAmount} </td>
+                            <td>{data.status}</td>
+                            <td
+                              className="text-center"
+                              style={{ color: "blue" }}
+                            >
+                              {getOrderStatus(data)}
+                            </td>
+                          </tr>
+                        );
+                      })
+                    ) : (
+                      <tr>
+                        <td colSpan="6" className="text-center">
+                          No orders available
+                        </td>
+                      </tr>
+                    )}
                   </tbody>
                 </table>
               </div>
