@@ -1,0 +1,5 @@
+{
+    "scripts": {
+      "sonar": "sonar-scanner"
+    }
+  }

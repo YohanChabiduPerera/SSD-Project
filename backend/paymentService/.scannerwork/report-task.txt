@@ -2,5 +2,5 @@ projectKey=ssd-payment
 serverUrl=http://localhost:9000
 serverVersion=10.5.0.89998
 dashboardUrl=http://localhost:9000/dashboard?id=ssd-payment
-ceTaskId=9ee51c29-1f57-4f12-a1a8-0541cec79a62
-ceTaskUrl=http://localhost:9000/api/ce/task?id=9ee51c29-1f57-4f12-a1a8-0541cec79a62
+ceTaskId=a7014600-7fa0-422d-8379-aa9430c2723d
+ceTaskUrl=http://localhost:9000/api/ce/task?id=a7014600-7fa0-422d-8379-aa9430c2723d
